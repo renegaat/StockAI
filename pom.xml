@@ -15,27 +15,69 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
+        <spring.data.version>2.0.2.RELEASE</spring.data.version>
+        <spring.batch.version>2.0.2.RELEASE</spring.batch.version>
+        <spring.aop.version>2.0.1.RELEASE</spring.aop.version>
+        <spring.rest.version>3.0.7.RELEASE</spring.rest.version>
+        <spring.web.version>2.0.2.RELEASE</spring.web.version>
+        <liquibase.version>3.6.1</liquibase.version>
+        <mysql.version>8.0.11</mysql.version>
+        <apache.commons.lang.version>3.7</apache.commons.lang.version>
+        <lombok.version>1.16.20</lombok.version>
     </properties>
 
     <modules>
         <module>application/app-common</module>
+        <module>application/app-stockrepo</module>
     </modules>
-
-
+    
     <dependencyManagement>
         <dependencies>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-aop</artifactId>
+                <artifactId>spring-boot-starter-data-jpa</artifactId>
+                <version>${spring.data.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-starter-integration</artifactId>
+                <artifactId>spring-boot-starter-batch</artifactId>
+                <version>${spring.batch.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-aop</artifactId>
+                <version>${spring.aop.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-data-rest</artifactId>
+                <version>${spring.aop.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-rest</artifactId>
+                <version>${spring.rest.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-web</artifactId>
+                <version>${spring.web.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.liquibase</groupId>
+                <artifactId>liquibase-core</artifactId>
+                <version>${liquibase.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <scope>runtime</scope>
+                <version>${mysql.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
-                <optional>true</optional>
+                <version>${lombok.version}</version>
             </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
@@ -47,8 +89,12 @@
                 <artifactId>spring-boot-autoconfigure</artifactId>
                 <version>2.0.0.RELEASE</version>
             </dependency>
+            <dependency>
+                <groupId>org.apache.commons</groupId>
+                <artifactId>commons-lang3</artifactId>
+                <version>${apache.commons.lang.version}</version>
+            </dependency>
         </dependencies>
-          
      </dependencyManagement>
     
     <build>
