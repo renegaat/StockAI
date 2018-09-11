@@ -27,7 +27,7 @@
     </properties>
 
     <modules>
-        <module>application/app-common</module>
+        <module>common/app-common</module>
         <module>application/app-stockrepo</module>
     </modules>
     
@@ -38,7 +38,7 @@
                 <artifactId>spring-boot-starter-data-jpa</artifactId>
                 <version>${spring.data.version}</version>
             </dependency>
-            <dependency>
+            <dependency>    
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-batch</artifactId>
                 <version>${spring.batch.version}</version>

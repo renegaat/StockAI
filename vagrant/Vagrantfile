@@ -22,7 +22,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   # config.vm.network "forwarded_port", guest: 80, host: 8080
 
   # Create a private network, which allows host-only access to the machine
-  # using a specific IP.
+  # using a specific 
   config.vm.network "private_network", ip: "192.168.33.10"
 
   config.vm.provider "virtualbox" do |vb|
@@ -30,5 +30,5 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
 #  config.vm.provision :shell, inline: $bootstrap
-
+ 
 end
