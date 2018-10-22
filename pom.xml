@@ -20,7 +20,7 @@
         <spring.rest.version>2.0.2.RELEASE</spring.rest.version>
         <spring.test.version>2.0.4.RELEASE</spring.test.version>
         <spring.web.version>2.0.2.RELEASE</spring.web.version>
-        <spring.hateoas.version>0.24.0.RELEASE</spring.hateoas.version>
+        <spring.hateoas.version>0.25.0.RELEASE</spring.hateoas.version>
         <liquibase.version>3.6.1</liquibase.version>
         <postgresql.version>9.1-901-1.jdbc4</postgresql.version>
         <apache.commons.lang.version>3.7</apache.commons.lang.version>
