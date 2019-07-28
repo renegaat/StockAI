@@ -4,10 +4,10 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>de.pearlbay.stockai</groupId>
-    <artifactId>stockrepo</artifactId>
+    <artifactId>stockairepo</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
-    <name>stockrepo</name>
+    <name>stockairepo</name>
     <description>Stock Repository and Batch</description>
     <packaging>jar</packaging>
 
@@ -18,8 +18,7 @@
         <groupId>de.pearlbay</groupId>
         <relativePath>../..</relativePath>
     </parent>
-
-
+    
     <dependencies>
         <dependency>
             <groupId>de.pearlbay</groupId>
