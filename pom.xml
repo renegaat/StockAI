@@ -13,18 +13,19 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>1.8</java.version>
-        <spring.data.version>2.0.2.RELEASE</spring.data.version>
-        <spring.batch.version>2.0.2.RELEASE</spring.batch.version>
-        <spring.aop.version>2.0.1.RELEASE</spring.aop.version>
-        <spring.rest.version>2.0.2.RELEASE</spring.rest.version>
-        <spring.test.version>2.0.4.RELEASE</spring.test.version>
-        <spring.web.version>2.0.2.RELEASE</spring.web.version>
-        <spring.hateoas.version>0.25.0.RELEASE</spring.hateoas.version>
+        <java.version>1.13</java.version>
+        <spring.data.version>2.2.0.RELEASE</spring.data.version>
+        <spring.batch.version>2.2.0.RELEASE</spring.batch.version>
+        <spring.aop.version>2.2.0.RELEASE</spring.aop.version>
+        <spring.rest.version>2.2.0.RELEASE</spring.rest.version>
+        <spring.test.version>2.2.0.RELEASE</spring.test.version>
+        <spring.web.version>2.2.0.RELEASE</spring.web.version>
+        <spring.hateoas.version>1.0.0.RELEASE</spring.hateoas.version>
         <liquibase.version>3.6.1</liquibase.version>
-        <postgresql.version>9.1-901-1.jdbc4</postgresql.version>
         <apache.commons.lang.version>3.7</apache.commons.lang.version>
-        <lombok.version>1.16.20</lombok.version>
+        <lombok.version>1.18.10</lombok.version>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
     </properties>
 
     <modules>
@@ -34,11 +35,6 @@
     </modules>
     
         <dependencies>
-            <dependency>
-                <groupId>postgresql</groupId>
-                <artifactId>postgresql</artifactId>
-                <version>${postgresql.version}</version>
-            </dependency>
             <dependency>
                 <groupId>org.springframework.hateoas</groupId>
                 <artifactId>spring-hateoas</artifactId>
@@ -102,7 +98,7 @@
             </dependency>
         </dependencies>
     
-    <build>
+    <build> 
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
