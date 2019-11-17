@@ -1,0 +1,10 @@
+# Vagrant
+
+## Tips und Tricks
+
+VirtualBox: mount.vboxsf: mounting failed with the error: No such device
+
+-   Install Guest Additions : _vagrant plugin install vagrant-vbguest_
+-   Update Unix Kernels : _sudo yum update && sudo yum -y install kernel-headers kernel-devel_
+
+https://stackoverflow.com/questions/28328775/virtualbox-mount-vboxsf-mounting-failed-with-the-error-no-such-device

@@ -1,0 +1,50 @@
+# Docker Compose für Oracle XE 11gR2
+
+## Was ist dies?
+
+Dies lässt eine Oracle XE 11gR2 Datenbank innerhalb von Docker laufen.
+
+Es ist eine angepasste Version dieses Docker-Files: https://github.com/madhead/docker-oracle-xe.
+
+## Vorbedingung
+
+Als Vorbedingung mit `init.sh` das RPM für Oracle XE installieren. Dies muss nur einmal passieren.
+Die Datei oracle-database-xe-18c-1.0-1.x86_64.rpm muss im container/resources Ordner liegen.
+
+
+## Starten
+
+----
+docker-compose up
+----
+
+Anschließend mit SQL Developer oder aus IntelliJ wie folgt auf dei Datenbank zugreifen:
+
+----
+hostname: 192.168.23.9
+port: 1521
+sid: XE
+username: system
+password: oracle
+----
+
+Anhalten mit `Ctrl-C` auf der Kommandozeile.
+
+## Shell in den Oracle XE Container
+
+----
+docker exec -i -t oraclexe_oraclexe_1 bash
+----
+
+## Daten bereinigen
+
+----
+docker-compose rm -v
+----
+
+Nach dem nächsten Start wird die Datenbank wieder leer sein.
+
+== Weitere Informationen
+
+Auf Port 1521 ist die Datenbank verfügbar.
+
