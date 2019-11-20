@@ -6,6 +6,12 @@ Dies lässt eine Oracle XE 11gR2 Datenbank innerhalb von Docker laufen.
 
 Es ist eine angepasste Version dieses Docker-Files: https://github.com/madhead/docker-oracle-xe.
 
+
+Alternativ :
+
+https://github.com/oracle/docker-images/tree/master/OracleDatabase/SingleInstance/dockerfiles
+
+
 ## Vorbedingung
 
 Als Vorbedingung mit `init.sh` das RPM für Oracle XE installieren. Dies muss nur einmal passieren.
