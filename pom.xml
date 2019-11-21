@@ -10,6 +10,19 @@
 
     <name>StockAI</name>
 
+    <repositories>
+        <repository>
+            <id>repo1</id>
+            <name>repo.maven.apache.org</name>
+            <url>https://repo.maven.apache.org/maven2</url>
+        </repository>
+        <repository>
+            <id>repo2</id>
+            <name>maven.xwiki.org</name>
+            <url>https://maven.xwiki.org/externals</url>
+        </repository>
+    </repositories>
+
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>

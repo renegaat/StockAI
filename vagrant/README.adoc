@@ -10,7 +10,7 @@ VirtualBox: mount.vboxsf: mounting failed with the error: No such device
 https://stackoverflow.com/questions/28328775/virtualbox-mount-vboxsf-mounting-failed-with-the-error-no-such-device
 
 
-VirtualBox: creaty docker group with root privileges
+VirtualBox: create docker group with root privileges
 
 https://docs.docker.com/install/linux/linux-postinstall/
 
