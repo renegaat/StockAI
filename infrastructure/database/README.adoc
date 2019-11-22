@@ -1,0 +1,14 @@
+= DB Infrastruktur
+= DB Infrastruktur
+
+== Was ist dies?
+
+Hier ist das übergreifende Setup der Datenbank enthalten.
+
+Es werden z. B. die User, Schemata und Berechtigungen für die Anwendungen angelegt.
+
+== Wie starte ich es für die lokale Entwicklung?
+
+mvn clean liquibase:update
+
+----

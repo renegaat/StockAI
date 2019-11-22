@@ -46,6 +46,7 @@
         <module>common/app-common</module>
         <module>common/app-persistence</module>
         <module>application/app-stockairepo</module>
+        <module>infrastructure/database</module>
     </modules>
     
         <dependencies>

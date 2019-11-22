@@ -1,37 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>stockai</artifactId>
+        <groupId>de.pearlbay</groupId>
+        <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../../pom.xml</relativePath>
+    </parent>
+    
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>de.pearlbay.stockai</groupId>
-    <artifactId>stockairepo</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
-
-    <name>stockairepo</name>
-    <description>Stock Repository and Batch</description>
-    <packaging>jar</packaging>
+    <description>Database Setup</description>
+    <artifactId>infrastructure</artifactId>
 
     <properties>
         <java.version>1.13</java.version>
-        <db.username>stockairepo</db.username>
+        <db.username>system</db.username>
         <db.url>jdbc:oracle:thin:@localhost:1521:XE</db.url>
-        <db.password>stockai</db.password>
+        <db.password>oracle</db.password>
     </properties>
-    
-    <parent>
-        <artifactId>stockai</artifactId>
-        <version>0.0.1-SNAPSHOT</version>
-        <groupId>de.pearlbay</groupId>
-        <relativePath>../..</relativePath>
-    </parent>
 
     <dependencies>
-        <dependency>
-            <groupId>de.pearlbay</groupId>
-            <artifactId>stockai-application-common</artifactId>
-            <version>0.0.1-SNAPSHOT</version>
-        </dependency>
-
         <dependency>
             <groupId>org.liquibase</groupId>
             <artifactId>liquibase-core</artifactId>
@@ -46,22 +36,6 @@
     
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>2.2.0.RELEASE</version>
-                <configuration>
-                    <skip>false</skip>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>repackage</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-
             <plugin>
                 <groupId>org.liquibase</groupId>
                 <artifactId>liquibase-maven-plugin</artifactId>
@@ -83,4 +57,4 @@
             </plugin>
         </plugins>
     </build>
-</project>  
+</project>
