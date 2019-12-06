@@ -42,6 +42,13 @@ Anhalten mit `Ctrl-C` auf der Kommandozeile.
 docker exec -i -t oraclexe_oraclexe_1 bash
 ----
 
+
+## Container direkt starten
+
+----
+docker run -p 8089:8080 -p 1521:1521 container id
+----
+
 ## Daten bereinigen
 
 ----
