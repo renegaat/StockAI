@@ -1,6 +1,7 @@
 package de.pearlbay.stockai.stockrepo.domain;
 
 import de.pearlbay.stockai.common.enums.Currency;
+import de.pearlbay.stockai.common.enums.Function;
 import de.pearlbay.stockai.common.enums.Market;
 import de.pearlbay.stockai.common.persistence.domain.BaseEntity;
 
@@ -13,4 +14,5 @@ public class StockTimeSeriesData extends BaseEntity {
     private boolean isNewData;
     private MetaData metaData;
     private List<TimeSeries> timeSeries;
+    private Function function;
 }
