@@ -4,8 +4,8 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 
 public class MetaData {
-    private String information;
     private String symbol;
+    private String information;
     private LocalDateTime lastRefreshed;
     private ZoneId timeZone;
 }

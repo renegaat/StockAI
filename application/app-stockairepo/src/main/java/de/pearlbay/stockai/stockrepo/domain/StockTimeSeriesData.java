@@ -15,4 +15,4 @@ public class StockTimeSeriesData extends BaseEntity {
     private MetaData metaData;
     private List<TimeSeries> timeSeries;
     private Function function;
-}
+}       
