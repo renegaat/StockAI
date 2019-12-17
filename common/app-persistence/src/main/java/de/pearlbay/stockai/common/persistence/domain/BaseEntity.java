@@ -3,7 +3,7 @@ package de.pearlbay.stockai.common.persistence.domain;
 import lombok.Data;
 
 /**
- * Baseclass fort all Entities.
+ * Baseclass for all entities.
  * @author jross
  */
 
