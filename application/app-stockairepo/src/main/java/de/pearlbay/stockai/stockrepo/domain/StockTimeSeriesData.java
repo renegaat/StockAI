@@ -7,6 +7,10 @@ import de.pearlbay.stockai.common.persistence.domain.BaseEntity;
 
 import java.util.List;
 
+/**
+ * StockTimeSeriesData.
+ * @author joern ross (pearlbay) 2020
+ */
 public class StockTimeSeriesData extends BaseEntity {
     private String stockName;
     private Currency currency;

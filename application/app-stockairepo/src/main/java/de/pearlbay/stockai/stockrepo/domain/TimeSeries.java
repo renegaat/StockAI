@@ -5,6 +5,10 @@ import de.pearlbay.stockai.common.persistence.domain.BaseEntity;
 
 import java.time.LocalDateTime;
 
+/**
+ * TimeSeries.
+ * @author joern ross (pearlbay) 2020
+ */
 public class TimeSeries extends BaseEntity {
     private LocalDateTime time;
     private Price open;

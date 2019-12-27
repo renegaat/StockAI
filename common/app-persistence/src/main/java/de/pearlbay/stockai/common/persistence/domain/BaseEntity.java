@@ -4,7 +4,7 @@ import lombok.Data;
 
 /**
  * Baseclass for all entities.
- * @author jross
+ * @author joern ross (pearlbay) 2020
  */
 
 @Data
