@@ -1,0 +1,16 @@
+
+# StockAiRepo
+
+
+*Help:*
+
+To reset database:
+
+DELETE FROM stockairepo.databasechangelog;
+DELETE FROM stockairepo.databasechangeloglock;
+DROP TABLE stockairepo.metadata;
+DROP TABLE stockairepo.stocktimeseriesdata;
+DROP TABLE stockairepo.timeseries;
+
+
+delete sequences.

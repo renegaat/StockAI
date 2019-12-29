@@ -3,8 +3,51 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
-    
-    
+
+    <changeSet author="jross" id="AI-13_1">
+        <createSequence sequenceName="stock_timeseries_data_id_seq"/>
+    </changeSet>
+
+    <changeSet author="jross" id="AI-13_2">
+        <createSequence sequenceName="metadata_id_seq"/>
+    </changeSet>
+
+    <changeSet author="jross" id="AI-13_3">
+        <createSequence sequenceName="timeseries_id_seq"/>
+    </changeSet>
+
+    <changeSet author="jross" id="AI-13_4">
+        <createTable tableName="stocktimeseriesdata">
+            <column name="stock_timeseries_data_id" type="NUMBER(19, 0)" remarks="Technische ID (Primärschlüssel)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="NUMBER(10, 0)" remarks="Versionszähler">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="jross" id="AI-13_5">
+        <createTable tableName="metadata">
+            <column name="metadata_id" type="NUMBER(19, 0)" remarks="Technische ID (Primärschlüssel)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="NUMBER(10, 0)" remarks="Versionszähler">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet author="jross" id="AI-13_6">
+        <createTable tableName="timeseries">
+            <column name="timeseries_id" type="NUMBER(19, 0)" remarks="Technische ID (Primärschlüssel)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="version" type="NUMBER(10, 0)" remarks="Versionszähler">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
 </databaseChangeLog>
 
 
