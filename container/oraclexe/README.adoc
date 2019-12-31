@@ -61,3 +61,50 @@ Nach dem nächsten Start wird die Datenbank wieder leer sein.
 
 Auf Port 1521 ist die Datenbank verfügbar.
 
+
+== Tips und Tricks (Alternativen zu compose-up)
+
+Image bauen :
+
+----
+docker build -t "madhead/docker-oracle-xe" .
+----
+
+Container starten :
+
+----
+docker run -p 8089:8080 -p 1521:1521 madhead/docker-oracle-xe
+----
+
+
+== Fehler:
+
+Keine Rechte bin/start.sh zu starten
+
+----
+chmod +x start.sh to set correct permission for shell script.
+----
+
+siehe https://stackoverflow.com/questions/38882654/docker-entrypoint-running-bash-script-gets-permission-denied
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
