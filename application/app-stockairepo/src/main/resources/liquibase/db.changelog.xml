@@ -24,6 +24,16 @@
             <column name="version" type="NUMBER(10, 0)" remarks="Versionszähler">
                 <constraints nullable="false"/>
             </column>
+            <column name="stockname" type="VARCHAR(255 CHAR)"
+                    remarks="Stock name"/>
+            <column name="currency" type="VARCHAR(255 CHAR)"
+                    remarks="Currency"/>
+            <column name="market" type="VARCHAR(255 CHAR)"
+                    remarks="Market"/>
+            <column name="isNewData" defaultValue="false" type="boolean"
+                    remarks="Is it new data"/>
+            <column name="function" type="VARCHAR(255 CHAR)"
+                    remarks="Alpha Vantage retrieval function type"/>
         </createTable>
     </changeSet>
 
@@ -35,9 +45,25 @@
             <column name="version" type="NUMBER(10, 0)" remarks="Versionszähler">
                 <constraints nullable="false"/>
             </column>
+            <column name="symbol" type="VARCHAR(255 CHAR)"
+                    remarks="Symbol">
+                <constraints nullable="false"/>
+            </column>
+            <column name="information" type="VARCHAR(255 CHAR)"
+                    remarks="Detailed Information"/>
+            <column name="lastrefreshed" type="DATETIME"
+                    remarks="Timestamp of last data update">
+                <constraints nullable="false"/>
+            </column>
+            <column name="timezone" type="VARCHAR(255 CHAR)"
+                    remarks="Timezone"/>
+            <column name="stocktimeseriesdata_id" remarks="Foreign Key StockTimeSeriesData (stocktimeseriesdata_id)"
+                    type="NUMBER(19, 0)">
+                <constraints nullable="false"/>
+            </column>
         </createTable>
     </changeSet>
-
+    
     <changeSet author="jross" id="AI-13_6">
         <createTable tableName="timeseries">
             <column name="timeseries_id" type="NUMBER(19, 0)" remarks="Technische ID (Primärschlüssel)">
@@ -46,8 +72,43 @@
             <column name="version" type="NUMBER(10, 0)" remarks="Versionszähler">
                 <constraints nullable="false"/>
             </column>
+            <column name="time" type="DATETIME"
+                    remarks="Timestamp">
+                <constraints nullable="false"/>
+            </column>
+            <column name="open" type="NUMBER(19, 0)" remarks="Price open">
+                <constraints nullable="false"/>
+            </column>
+            <column name="high" type="NUMBER(19, 0)" remarks="Price high">
+                <constraints nullable="false"/>
+            </column>
+            <column name="low" type="NUMBER(19, 0)" remarks="Price low">
+                <constraints nullable="false"/>
+            </column>
+            <column name="close" type="NUMBER(19, 0)" remarks="Price close">
+                <constraints nullable="false"/>
+            </column>
+            <column name="volume" type="NUMBER(10, 0)" remarks="Volume traded">
+                <constraints nullable="false"/>
+            </column>
+            <column name="stocktimeseriesdata_id" remarks="Foreign Key StockTimeSeriesData (stocktimeseriesdata_id)"
+                    type="NUMBER(19, 0)">
+                <constraints nullable="false"/>
+            </column>
         </createTable>
     </changeSet>
-</databaseChangeLog>
+    
+    <changeSet author="jross" id="AI-13_7">
+        <addPrimaryKey columnNames="stocktimeseriesdata_id" constraintName="stocktimeseriesdatapk" tableName="stocktimeseriesdata"/>
+    </changeSet>
+    
+    <changeSet author="jross" id="AI-13_8">
+        <addForeignKeyConstraint baseColumnNames="stocktimeseriesdata_id" baseTableName="metadata" constraintName="FK_5EWGU9WL4MMRD5Q3H13X89S7E" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="stocktimeseriesdata_id" referencedTableName="stocktimeseriesdata"/>
+    </changeSet>
+    
+    <changeSet author="jross" id="AI-13_9">
+        <addForeignKeyConstraint baseColumnNames="stocktimeseriesdata_id" baseTableName="timeseries" constraintName="FK_5EWGU9WL4MMRD5Q3H13X89S7F" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="stocktimeseriesdata_id" referencedTableName="stocktimeseriesdata"/>
+    </changeSet>
+ </databaseChangeLog>
 
 
