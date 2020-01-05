@@ -18,7 +18,7 @@
 
     <changeSet author="jross" id="AI-13_4">
         <createTable tableName="stocktimeseriesdata">
-            <column name="stock_timeseries_data_id" type="NUMBER(19, 0)" remarks="Technische ID (Primärschlüssel)">
+            <column name="stocktimeseriesdata_id" type="NUMBER(19, 0)" remarks="Technische ID (Primärschlüssel)">
                 <constraints nullable="false"/>
             </column>
             <column name="version" type="NUMBER(10, 0)" remarks="Versionszähler">
