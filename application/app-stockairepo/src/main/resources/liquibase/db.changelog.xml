@@ -24,7 +24,7 @@
             <column name="version" type="NUMBER(10, 0)" remarks="Versionszähler">
                 <constraints nullable="false"/>
             </column>
-            <column name="stockname" type="VARCHAR(255 CHAR)"
+            <column name="stockName" type="VARCHAR(255 CHAR)"
                     remarks="Stock name"/>
             <column name="currency" type="VARCHAR(255 CHAR)"
                     remarks="Currency"/>
