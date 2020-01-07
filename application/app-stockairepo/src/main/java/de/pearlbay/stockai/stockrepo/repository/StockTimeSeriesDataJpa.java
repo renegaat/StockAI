@@ -35,11 +35,11 @@ public class StockTimeSeriesDataJpa extends BaseJpa {
 
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "metadata_id")
-    private MetaData metaData;
+    private MetaDataJpa metaData;
 
     @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "metadata_id")
-    private List<TimeSeries> timeSeries;
+    @JoinColumn(name = "stocktimeseriesdata_id")
+    private List<TimeSeriesJpa> timeSeries;
 
     private Function function;
 
