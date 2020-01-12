@@ -6,8 +6,7 @@ import de.pearlbay.stockai.common.enums.Market;
 import de.pearlbay.stockai.common.persistence.repository.BaseJpa;
 import de.pearlbay.stockai.stockrepo.domain.MetaData;
 import de.pearlbay.stockai.stockrepo.domain.TimeSeries;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.List;
@@ -19,6 +18,9 @@ import java.util.List;
 @Entity
 @Table(name = "stocktimeseriesdata")
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @EqualsAndHashCode(callSuper = true)
 public class StockTimeSeriesDataJpa extends BaseJpa {
 

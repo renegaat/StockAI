@@ -2,8 +2,7 @@ package de.pearlbay.stockai.stockrepo.repository;
 
 
 import de.pearlbay.stockai.common.persistence.repository.BaseJpa;
-import lombok.Data;
-import lombok.EqualsAndHashCode;
+import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -14,6 +13,9 @@ import java.time.ZoneId;
  * @author joern ross (pearlbay) 2020
  */
 @Entity
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
 @Table(name = "metadata")
 @Data
 @EqualsAndHashCode(callSuper = true)

@@ -1,16 +1,20 @@
 package de.pearlbay.stockai.stockrepo.repository.mapper;
 
+import de.pearlbay.stockai.common.mapper.PriceMapper;
 import de.pearlbay.stockai.stockrepo.domain.TimeSeries;
 import de.pearlbay.stockai.stockrepo.repository.TimeSeriesJpa;
 import org.mapstruct.Mapper;
+import org.mapstruct.Mapping;
+import org.mapstruct.Mappings;
 
 
 /**
  * TimeSeriesJpaMapper.
  * @author joern ross (pearlbay) 2020
  */
-@Mapper
+@Mapper(uses = PriceMapper.class)
 public interface TimeSeriesJpaMapper {
+
     TimeSeriesJpa toJpa(TimeSeries e);
     TimeSeries fromJpa (TimeSeriesJpa jpa);
 }
