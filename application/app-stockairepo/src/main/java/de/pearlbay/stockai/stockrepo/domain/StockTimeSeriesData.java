@@ -21,7 +21,7 @@ public class StockTimeSeriesData extends BaseEntity {
     private String stockName;
     private Currency currency;
     private Market market;
-    private boolean isNewData;
+    private boolean newData;
     private MetaData metaData;
     private List<TimeSeries> timeSeries;
     private Function function;

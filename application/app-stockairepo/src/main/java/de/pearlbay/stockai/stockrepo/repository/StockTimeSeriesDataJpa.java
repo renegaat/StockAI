@@ -31,7 +31,7 @@ public class StockTimeSeriesDataJpa extends BaseJpa {
     private String stockName;
     private Currency currency;
     private Market market;
-    private boolean isNewData;
+    private boolean newData;
 
     @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
     @JoinColumn(name = "metadata_id")

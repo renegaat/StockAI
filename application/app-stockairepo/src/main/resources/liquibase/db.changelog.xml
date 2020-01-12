@@ -30,7 +30,7 @@
                     remarks="Currency"/>
             <column name="market" type="VARCHAR(255 CHAR)"
                     remarks="Market"/>
-            <column name="isNewData" defaultValue="false" type="boolean"
+            <column name="newData" defaultValue="false" type="boolean"
                     remarks="Is it new data"/>
             <column name="function" type="VARCHAR(255 CHAR)"
                     remarks="Alpha Vantage retrieval function type"/>
