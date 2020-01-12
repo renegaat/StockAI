@@ -4,8 +4,6 @@ import de.pearlbay.stockai.common.enums.Currency;
 import de.pearlbay.stockai.common.enums.Function;
 import de.pearlbay.stockai.common.enums.Market;
 import de.pearlbay.stockai.common.persistence.repository.BaseJpa;
-import de.pearlbay.stockai.stockrepo.domain.MetaData;
-import de.pearlbay.stockai.stockrepo.domain.TimeSeries;
 import lombok.*;
 
 import javax.persistence.*;
@@ -13,7 +11,7 @@ import java.util.List;
 
 /**
  *StockTimeSeriesDataJpa.
- *@author joern ross (pearlbay) 2020 
+ *@author joern ross (pearlbay) 2020
  */
 @Entity
 @Table(name = "stocktimeseriesdata")

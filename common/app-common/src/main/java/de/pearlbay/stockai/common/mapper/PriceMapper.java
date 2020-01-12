@@ -15,9 +15,11 @@ import java.math.BigDecimal;
 @Mapper
 public abstract class PriceMapper {
 
-    public Price toPrice(BigDecimal d){
+    public Price toPrice(BigDecimal d) {
 
-        if (d == null) return null;
+        if (d == null) {
+            return null;
+        }
 
         Price price = new Price();
         price.setAmount(d);
@@ -25,9 +27,11 @@ public abstract class PriceMapper {
         return price;
     }
 
-    public BigDecimal toBigDecimal(Price price){
+    public BigDecimal toBigDecimal(Price price) {
 
-        if (price == null) return null ;
+        if (price == null) {
+            return null;
+        }
 
         return price.getAmount();
     }

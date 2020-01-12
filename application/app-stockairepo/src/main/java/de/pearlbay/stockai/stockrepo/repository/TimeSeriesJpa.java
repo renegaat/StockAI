@@ -32,4 +32,3 @@ public class TimeSeriesJpa extends BaseJpa {
     private BigDecimal close;
     private double volume;
 }
-    
