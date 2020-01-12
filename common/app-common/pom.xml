@@ -10,6 +10,11 @@
     </parent>
 
 
+    <properties>
+        <spring.boot.version>2.2.0.RELEASE</spring.boot.version>
+    </properties>
+
+
     <modelVersion>4.0.0</modelVersion>
     <artifactId>stockai-application-common</artifactId>
     <packaging>jar</packaging>
@@ -22,6 +27,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring.boot.version}</version>
             </plugin>
         </plugins>
     </build>

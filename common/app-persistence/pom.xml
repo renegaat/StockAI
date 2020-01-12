@@ -15,12 +15,17 @@
     <packaging>jar</packaging>
     <name>app-persistence</name>
     <description>persistence common</description>
-    
+
+    <properties>
+        <spring.boot.version>2.2.0.RELEASE</spring.boot.version>
+    </properties>
+
     <build>
         <plugins>
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <version>${spring.boot.version}</version>
             </plugin>
         </plugins>
     </build>
