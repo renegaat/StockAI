@@ -28,6 +28,6 @@ public class MapperTest {
         MetaDataJpa metaDataJpa = metaDataJpaMapper.toJpa(metaData);
         MetaData result = metaDataJpaMapper.fromJpa(metaDataJpa);
 
-        assertEquals(metaData, result;
+        assertEquals(metaData, result);
     }
 }
