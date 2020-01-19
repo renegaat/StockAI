@@ -17,8 +17,12 @@ import static org.junit.Assert.assertEquals;
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
+import java.util.List;
+import java.util.ArrayList;
 
 public class MapperTest {
+
+    public static final int LISTSIZE = 1000;
 
     @Test
     public void shouldMapMetaDataToJpaAndBack() {
@@ -52,4 +56,21 @@ public class MapperTest {
     }
 
     //todo rossj add stocktimeseriesdata test.
+
+    private List retrieveTimeSeries() {
+
+        List<TimeSeries> timeSeriesList = new ArrayList<>();
+
+        Price testPrice = new Price();
+        testPrice.setAmount(BigDecimal.ONE);
+
+        TimeSeries timeSeries = TimeSeries.builder().time(LocalDateTime.now()).close(testPrice)
+                .high(testPrice).low(testPrice).open(testPrice).volume(100).build();
+
+        for (int i = 0; i < LISTSIZE; i++ ) {
+            timeSeriesList.add(timeSeries);
+        }
+
+        return timeSeriesList;
+    }
 }
