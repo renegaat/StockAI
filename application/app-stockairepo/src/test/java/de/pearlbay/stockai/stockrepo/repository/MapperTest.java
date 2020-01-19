@@ -50,4 +50,6 @@ public class MapperTest {
 
         assertEquals(timeSeries, result);
     }
+
+    //todo rossj add stocktimeseriesdata test.
 }
