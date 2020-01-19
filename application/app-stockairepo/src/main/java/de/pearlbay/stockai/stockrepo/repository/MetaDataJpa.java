@@ -6,7 +6,6 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
-import java.time.ZoneId;
 
 /**
  * MetaDataJpa.
@@ -29,5 +28,5 @@ public class MetaDataJpa extends BaseJpa {
     private String symbol;
     private String information;
     private LocalDateTime lastRefreshed;
-    private ZoneId timeZone;
+    private String timeZone;
 }
