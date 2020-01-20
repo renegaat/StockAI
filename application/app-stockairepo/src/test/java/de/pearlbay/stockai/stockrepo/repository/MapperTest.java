@@ -57,7 +57,7 @@ public class MapperTest {
 
     //todo rossj add stocktimeseriesdata test.
 
-    private List retrieveTimeSeries() {
+    private List retrieveTimeSeriesList() {
 
         List<TimeSeries> timeSeriesList = new ArrayList<>();
 
