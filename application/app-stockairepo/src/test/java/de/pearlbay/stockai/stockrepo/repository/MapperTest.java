@@ -52,8 +52,14 @@ public class MapperTest {
         Price testPrice = new Price();
         testPrice.setAmount(BigDecimal.ONE);
 
-        TimeSeries timeSeries = TimeSeries.builder().time(LocalDateTime.now()).close(testPrice)
-                .high(testPrice).low(testPrice).open(testPrice).volume(100).build();
+        TimeSeries timeSeries = TimeSeries.builder()
+                .time(LocalDateTime.now())
+                .close(testPrice)
+                .high(testPrice)
+                .low(testPrice)
+                .open(testPrice)
+                .volume(100)
+                .build();
 
         TimeSeriesJpa timeSeriesJpa = timeSeriesJpaMapper.toJpa(timeSeries);
         TimeSeries result = timeSeriesJpaMapper.fromJpa(timeSeriesJpa);
@@ -66,12 +72,18 @@ public class MapperTest {
 
         StockTimeSeriesDataJpaMapperImpl stockTimeSeriesDataJpaMapper = new StockTimeSeriesDataJpaMapperImpl();
 
-        MetaData metaData = MetaData.builder().information("Information").lastRefreshed(LocalDateTime.now())
-                .symbol("Symbol").timeZone(ZoneId.systemDefault()).build();
+        MetaData metaData = MetaData.builder()
+                .information("Information")
+                .lastRefreshed(LocalDateTime.now())
+                .symbol("Symbol")
+                .timeZone(ZoneId.systemDefault())
+                .build();
 
-        StockTimeSeriesData stockTimeSeriesData = StockTimeSeriesData.builder().metaData(metaData)
+        StockTimeSeriesData stockTimeSeriesData = StockTimeSeriesData.builder()
+                .metaData(metaData)
                 .newData(true)
-                .timeSeries(retrieveTimeSeriesList()).stockName("Stockname").currency(Currency.BRL)
+                .timeSeries(retrieveTimeSeriesList()).stockName("Stockname")
+                .currency(Currency.BRL)
                 .function(Function.TIME_SERIES_DAILY)
                 .market(Market.CAD)
                 .build();
@@ -90,8 +102,14 @@ public class MapperTest {
         Price testPrice = new Price();
         testPrice.setAmount(BigDecimal.ONE);
 
-        TimeSeries timeSeries = TimeSeries.builder().time(LocalDateTime.now()).close(testPrice)
-                .high(testPrice).low(testPrice).open(testPrice).volume(100).build();
+        TimeSeries timeSeries = TimeSeries.builder()
+                .time(LocalDateTime.now())
+                .close(testPrice)
+                .high(testPrice)
+                .low(testPrice)
+                .open(testPrice)
+                .volume(100)
+                .build();
 
         for (int i = 0; i < LISTSIZE; i++ ) {
             timeSeriesList.add(timeSeries);
