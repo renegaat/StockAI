@@ -36,4 +36,14 @@ public class StockTimeSeriesDataServiceImpl implements StockTimeSeriesDataServic
             String symbol, Function function, LocalDateTime begin, LocalDateTime end) {
         return null;
     }
+
+    @Override
+    public void deleteStockTimeSeriesDataById(long id) {
+
+    }
+
+    @Override
+    public void deleteStockTimeSeriesDataBySymbolAndFunction(String symbol, Function function) {
+
+    }
 }
