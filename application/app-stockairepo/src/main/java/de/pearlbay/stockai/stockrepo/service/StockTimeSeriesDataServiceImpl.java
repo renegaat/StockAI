@@ -18,32 +18,40 @@ public class StockTimeSeriesDataServiceImpl implements StockTimeSeriesDataServic
 
     @Override
     public StockTimeSeriesData retrieveStockTimeSeriesDataById(long id) {
+        //TODO jpa mapping
         return stockTimeSeriesDataRepository.findById(id).get();
     }
 
     @Override
     public StockTimeSeriesData retrieveStockTimeSeriesDataBySymbolAndFunction(String symbol, Function function) {
+        //TODO jpa mapping
+
         return null;
     }
 
     @Override
     public StockTimeSeriesData createOrUpdateStockTimeSeriesData(StockTimeSeriesData stockTimeSeriesData) {
+        //TODO jpa mapping
+
         return null;
     }
 
     @Override
     public StockTimeSeriesData retrieveStockTimeSeriesDataBySymbolAndFunctionAndDate(
             String symbol, Function function, LocalDateTime begin, LocalDateTime end) {
+        //TODO jpa mapping
+
         return null;
     }
 
     @Override
     public void deleteStockTimeSeriesDataById(long id) {
+        //TODO jpa mapping
 
     }
 
     @Override
     public void deleteStockTimeSeriesDataBySymbolAndFunction(String symbol, Function function) {
-
+        //TODO jpa mapping
     }
 }
