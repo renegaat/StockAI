@@ -1,5 +1,6 @@
 package de.pearlbay.stockai.stockrepo.service;
 
+import de.pearlbay.stockai.common.enums.Function;
 import de.pearlbay.stockai.stockrepo.domain.StockTimeSeriesData;
 import de.pearlbay.stockai.stockrepo.domain.StockTimeSeriesDataRepository;
 import de.pearlbay.stockai.stockrepo.domain.service.StockTimeSeriesDataService;
@@ -17,11 +18,11 @@ public class StockTimeSeriesDataServiceImpl implements StockTimeSeriesDataServic
 
     @Override
     public StockTimeSeriesData retrieveStockTimeSeriesDataById(long id) {
-        return null;
+        return stockTimeSeriesDataRepository.findById(id).get();
     }
 
     @Override
-    public StockTimeSeriesData retrieveStockTimeSeriesDataBySymbol(String symbol) {
+    public StockTimeSeriesData retrieveStockTimeSeriesDataBySymbolAndFunction(String symbol, Function function) {
         return null;
     }
 
@@ -31,8 +32,8 @@ public class StockTimeSeriesDataServiceImpl implements StockTimeSeriesDataServic
     }
 
     @Override
-    public StockTimeSeriesData retrieveStockTimeSeriesDataBySymbolAndDate(
-            String symbol, LocalDateTime begin, LocalDateTime end) {
+    public StockTimeSeriesData retrieveStockTimeSeriesDataBySymbolAndFunctionAndDate(
+            String symbol, Function function, LocalDateTime begin, LocalDateTime end) {
         return null;
     }
 }

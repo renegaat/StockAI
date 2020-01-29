@@ -1,5 +1,6 @@
 package de.pearlbay.stockai.stockrepo.domain.service;
 
+import de.pearlbay.stockai.common.enums.Function;
 import de.pearlbay.stockai.stockrepo.domain.StockTimeSeriesData;
 import org.springframework.stereotype.Service;
 
@@ -12,8 +13,9 @@ import java.time.LocalDateTime;
 @Service
 public interface StockTimeSeriesDataService {
     StockTimeSeriesData retrieveStockTimeSeriesDataById(long id);
-    StockTimeSeriesData retrieveStockTimeSeriesDataBySymbol(String symbol);
+    StockTimeSeriesData retrieveStockTimeSeriesDataBySymbolAndFunction(String symbol, Function function);
     StockTimeSeriesData createOrUpdateStockTimeSeriesData(StockTimeSeriesData stockTimeSeriesData);
-    StockTimeSeriesData retrieveStockTimeSeriesDataBySymbolAndDate(
-            String symbol, LocalDateTime begin, LocalDateTime end);
+    StockTimeSeriesData retrieveStockTimeSeriesDataBySymbolAndFunctionAndDate(
+            String symbol, Function function, LocalDateTime begin, LocalDateTime end);
 }
+
