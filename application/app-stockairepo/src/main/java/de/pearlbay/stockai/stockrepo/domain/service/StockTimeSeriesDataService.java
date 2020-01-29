@@ -18,7 +18,7 @@ public interface StockTimeSeriesDataService {
     StockTimeSeriesData retrieveStockTimeSeriesDataBySymbolAndFunctionAndDate(
             String symbol, Function function, LocalDateTime begin, LocalDateTime end);
 
-    void deleteStockTimeSeriesDataById(long id );
+    void deleteStockTimeSeriesDataById(long id);
     void deleteStockTimeSeriesDataBySymbolAndFunction(String symbol, Function function);
 }
 
