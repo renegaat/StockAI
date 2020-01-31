@@ -1,6 +1,8 @@
 package de.pearlbay.stockai.stockrepo.domain;
 
 
+import de.pearlbay.stockai.common.enums.Function;
+import de.pearlbay.stockai.stockrepo.repository.StockTimeSeriesDataJpa;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 /**
@@ -9,5 +11,7 @@ import org.springframework.stereotype.Repository;
  */
 
 @Repository
-public interface StockTimeSeriesDataRepository extends JpaRepository<StockTimeSeriesData, Long> {
+public interface StockTimeSeriesDataRepository extends JpaRepository<StockTimeSeriesDataJpa, Long> {
+   // TODO how to implement ?
+    StockTimeSeriesDataJpa findBySymbolAndFunction(String symbol, Function function);
 }

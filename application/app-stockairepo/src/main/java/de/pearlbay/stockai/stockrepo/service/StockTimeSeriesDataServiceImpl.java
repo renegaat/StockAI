@@ -4,6 +4,8 @@ import de.pearlbay.stockai.common.enums.Function;
 import de.pearlbay.stockai.stockrepo.domain.StockTimeSeriesData;
 import de.pearlbay.stockai.stockrepo.domain.StockTimeSeriesDataRepository;
 import de.pearlbay.stockai.stockrepo.domain.service.StockTimeSeriesDataService;
+import de.pearlbay.stockai.stockrepo.repository.mapper.StockTimeSeriesDataJpaMapper;
+import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDateTime;
@@ -12,19 +14,29 @@ import java.time.LocalDateTime;
  * StockTimeSeriesDataServiceImpl.
  * @author joern ross (pearlbay) 2020
  */
+
 public class StockTimeSeriesDataServiceImpl implements StockTimeSeriesDataService {
+
     @Autowired
     private StockTimeSeriesDataRepository stockTimeSeriesDataRepository;
 
+
     @Override
     public StockTimeSeriesData retrieveStockTimeSeriesDataById(long id) {
-        //TODO jpa mapping
-        return stockTimeSeriesDataRepository.findById(id).get();
+
+        StockTimeSeriesDataJpaMapper stockTimeSeriesDataJpaMapper =
+                Mappers.getMapper(StockTimeSeriesDataJpaMapper.class);
+
+        return stockTimeSeriesDataJpaMapper.fromJpa(stockTimeSeriesDataRepository.findById(id).get());
     }
 
     @Override
     public StockTimeSeriesData retrieveStockTimeSeriesDataBySymbolAndFunction(String symbol, Function function) {
-        //TODO jpa mapping
+
+        StockTimeSeriesDataJpaMapper stockTimeSeriesDataJpaMapper =
+                Mappers.getMapper(StockTimeSeriesDataJpaMapper.class);
+
+
 
         return null;
     }
