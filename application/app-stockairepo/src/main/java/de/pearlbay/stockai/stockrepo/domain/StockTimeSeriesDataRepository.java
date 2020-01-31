@@ -12,6 +12,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface StockTimeSeriesDataRepository extends JpaRepository<StockTimeSeriesDataJpa, Long> {
-   // TODO how to implement ?
-    StockTimeSeriesDataJpa findBySymbolAndFunction(String symbol, Function function);
+    //TODO move to repository rename to StockTimeSeriesDataJpaRepository
 }
