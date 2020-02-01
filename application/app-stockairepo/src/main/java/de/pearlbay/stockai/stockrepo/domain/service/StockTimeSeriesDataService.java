@@ -12,13 +12,11 @@ import java.time.LocalDateTime;
  */
 @Service
 public interface StockTimeSeriesDataService {
-    StockTimeSeriesData retrieveStockTimeSeriesDataById(long id);
     StockTimeSeriesData retrieveStockTimeSeriesDataBySymbolAndFunction(String symbol, Function function);
     StockTimeSeriesData createOrUpdateStockTimeSeriesData(StockTimeSeriesData stockTimeSeriesData);
     StockTimeSeriesData retrieveStockTimeSeriesDataBySymbolAndFunctionAndDate(
             String symbol, Function function, LocalDateTime begin, LocalDateTime end);
 
-    void deleteStockTimeSeriesDataById(long id);
     void deleteStockTimeSeriesDataBySymbolAndFunction(String symbol, Function function);
 }
 
