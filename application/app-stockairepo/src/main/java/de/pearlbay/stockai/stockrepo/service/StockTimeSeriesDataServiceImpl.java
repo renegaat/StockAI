@@ -2,7 +2,7 @@ package de.pearlbay.stockai.stockrepo.service;
 
 import de.pearlbay.stockai.common.enums.Function;
 import de.pearlbay.stockai.stockrepo.domain.StockTimeSeriesData;
-import de.pearlbay.stockai.stockrepo.domain.StockTimeSeriesDataRepository;
+import de.pearlbay.stockai.stockrepo.repository.StockTimeSeriesDataJpaRepository;
 import de.pearlbay.stockai.stockrepo.domain.service.StockTimeSeriesDataService;
 import de.pearlbay.stockai.stockrepo.repository.mapper.StockTimeSeriesDataJpaMapper;
 import org.mapstruct.factory.Mappers;
@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
 public class StockTimeSeriesDataServiceImpl implements StockTimeSeriesDataService {
 
     @Autowired
-    private StockTimeSeriesDataRepository stockTimeSeriesDataRepository;
+    private StockTimeSeriesDataJpaRepository stockTimeSeriesDataJpaRepository;
 
 
     @Override
@@ -27,7 +27,7 @@ public class StockTimeSeriesDataServiceImpl implements StockTimeSeriesDataServic
         StockTimeSeriesDataJpaMapper stockTimeSeriesDataJpaMapper =
                 Mappers.getMapper(StockTimeSeriesDataJpaMapper.class);
 
-        return stockTimeSeriesDataJpaMapper.fromJpa(stockTimeSeriesDataRepository.findById(id).get());
+        return stockTimeSeriesDataJpaMapper.fromJpa(stockTimeSeriesDataJpaRepository.findById(id).get());
     }
 
     @Override
