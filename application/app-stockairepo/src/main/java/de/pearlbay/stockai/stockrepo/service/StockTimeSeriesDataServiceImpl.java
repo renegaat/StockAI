@@ -4,6 +4,7 @@ import de.pearlbay.stockai.common.enums.Function;
 import de.pearlbay.stockai.stockrepo.domain.StockTimeSeriesData;
 import de.pearlbay.stockai.stockrepo.domain.repository.StockTimeSeriesDataRepository;
 import de.pearlbay.stockai.stockrepo.domain.service.StockTimeSeriesDataService;
+import de.pearlbay.stockai.stockrepo.repository.StockTimeSeriesDataJpa;
 import de.pearlbay.stockai.stockrepo.repository.mapper.StockTimeSeriesDataJpaMapper;
 import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,26 +25,52 @@ public class StockTimeSeriesDataServiceImpl implements StockTimeSeriesDataServic
 
         StockTimeSeriesDataJpaMapper stockTimeSeriesDataJpaMapper =
                 Mappers.getMapper(StockTimeSeriesDataJpaMapper.class);
-        return null;
+
+        StockTimeSeriesDataJpa jpa = stockTimeSeriesDataRepository.findBySymbolAndFunction(symbol, function);
+
+        if (jpa == null) {
+            return null;
+        }
+
+        return stockTimeSeriesDataJpaMapper.fromJpa(jpa);
     }
 
     @Override
     public StockTimeSeriesData createOrUpdateStockTimeSeriesData(StockTimeSeriesData stockTimeSeriesData) {
-        //TODO jpa mapping
 
-        return null;
+        StockTimeSeriesDataJpaMapper stockTimeSeriesDataJpaMapper =
+                Mappers.getMapper(StockTimeSeriesDataJpaMapper.class);
+
+       StockTimeSeriesDataJpa jpa =
+               stockTimeSeriesDataRepository.save(stockTimeSeriesDataJpaMapper.toJpa(stockTimeSeriesData));
+
+       if (jpa == null) {
+           throw new RuntimeException("Error saving StockTimeSeriesDataJpa into DB");
+       }
+
+        return stockTimeSeriesDataJpaMapper.fromJpa(jpa);
     }
 
     @Override
     public StockTimeSeriesData retrieveStockTimeSeriesDataBySymbolAndFunctionAndDate(
             String symbol, Function function, LocalDateTime begin, LocalDateTime end) {
-        //TODO jpa mapping
 
-        return null;
+        StockTimeSeriesDataJpaMapper stockTimeSeriesDataJpaMapper =
+                Mappers.getMapper(StockTimeSeriesDataJpaMapper.class);
+
+        StockTimeSeriesDataJpa jpa = stockTimeSeriesDataRepository.findBySymbolAndFunction(symbol, function);
+
+        //TODO filter timeseries list by date start / end.
+
+        if (jpa == null) {
+            return null;
+        }
+
+        return stockTimeSeriesDataJpaMapper.fromJpa(jpa);
     }
 
     @Override
     public void deleteStockTimeSeriesDataBySymbolAndFunction(String symbol, Function function) {
-        //TODO jpa mapping
+        stockTimeSeriesDataRepository.deleteStockTimeSeriesDataBySymbolAndFunction(symbol, function);
     }
 }
