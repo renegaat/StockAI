@@ -14,7 +14,7 @@ import org.springframework.stereotype.Repository;
 public interface StockTimeSeriesDataJpaRepository extends JpaRepository<StockTimeSeriesDataJpa, Long> {
     @Query(value = "select s from stocktimeseriesdata s where s.metadata.symbol = ?1"
             + " AND s.function = ?2", nativeQuery = true)
-    StockTimeSeriesDataJpa findBySymbolAndFunctione(String symbol, Function function);
+    StockTimeSeriesDataJpa findBySymbolAndFunction(String symbol, Function function);
     @Query(value = "delete from stocktimeseriesdata where s.metadata.symbol = ?1"
             + " AND s.function = ?2", nativeQuery = true)
     void  deleteStockTimeSeriesDataBySymbolAndFunction(String symbol, Function function);

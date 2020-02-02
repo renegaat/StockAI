@@ -22,7 +22,7 @@ public class StockTimeSeriesDataRepositoryImpl implements StockTimeSeriesDataRep
 
     @Override
     public StockTimeSeriesDataJpa findBySymbolAndFunction(String symbol, Function function) {
-        return stockTimeSeriesDataJpaRepository.findBySymbolAndFunctione(symbol, function);
+        return stockTimeSeriesDataJpaRepository.findBySymbolAndFunction(symbol, function);
     }
 
     @Override
