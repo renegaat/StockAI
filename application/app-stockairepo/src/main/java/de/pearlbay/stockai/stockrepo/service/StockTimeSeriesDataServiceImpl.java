@@ -2,6 +2,7 @@ package de.pearlbay.stockai.stockrepo.service;
 
 import de.pearlbay.stockai.common.enums.Function;
 import de.pearlbay.stockai.stockrepo.domain.StockTimeSeriesData;
+import de.pearlbay.stockai.stockrepo.domain.TimeSeries;
 import de.pearlbay.stockai.stockrepo.domain.repository.StockTimeSeriesDataRepository;
 import de.pearlbay.stockai.stockrepo.domain.service.StockTimeSeriesDataService;
 import de.pearlbay.stockai.stockrepo.repository.StockTimeSeriesDataJpa;
@@ -10,6 +11,8 @@ import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.time.LocalDateTime;
+import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * StockTimeSeriesDataServiceImpl.
@@ -53,20 +56,26 @@ public class StockTimeSeriesDataServiceImpl implements StockTimeSeriesDataServic
 
     @Override
     public StockTimeSeriesData retrieveStockTimeSeriesDataBySymbolAndFunctionAndDate(
-            String symbol, Function function, LocalDateTime begin, LocalDateTime end) {
+            String symbol, Function function, LocalDateTime start, LocalDateTime stop) {
 
         StockTimeSeriesDataJpaMapper stockTimeSeriesDataJpaMapper =
                 Mappers.getMapper(StockTimeSeriesDataJpaMapper.class);
 
         StockTimeSeriesDataJpa jpa = stockTimeSeriesDataRepository.findBySymbolAndFunction(symbol, function);
 
-        //TODO filter timeseries list by date start / end.
-
         if (jpa == null) {
             return null;
         }
 
-        return stockTimeSeriesDataJpaMapper.fromJpa(jpa);
+        StockTimeSeriesData stockTimeSeriesData = stockTimeSeriesDataJpaMapper.fromJpa(jpa);
+
+        List<TimeSeries> timeSeriesList = stockTimeSeriesData.getTimeSeries().stream()
+                .filter(timeSeries -> timeSeries.getTime().isAfter(start) && timeSeries.getTime().isBefore(stop))
+                .collect(Collectors.toList());
+
+        stockTimeSeriesData.setTimeSeries(timeSeriesList);
+
+        return stockTimeSeriesData;
     }
 
     @Override
