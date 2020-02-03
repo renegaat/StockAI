@@ -9,13 +9,8 @@ import de.pearlbay.stockai.stockrepo.domain.MetaData;
 import de.pearlbay.stockai.stockrepo.domain.StockTimeSeriesData;
 import de.pearlbay.stockai.stockrepo.domain.TimeSeries;
 import de.pearlbay.stockai.stockrepo.repository.mapper.MetaDataJpaMapperImpl;
-import de.pearlbay.stockai.stockrepo.repository.mapper.StockTimeSeriesDataJpaMapper;
 import de.pearlbay.stockai.stockrepo.repository.mapper.StockTimeSeriesDataJpaMapperImpl;
 import de.pearlbay.stockai.stockrepo.repository.mapper.TimeSeriesJpaMapperImpl;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
 
@@ -28,7 +23,7 @@ import java.util.ArrayList;
 
 public class MapperTest {
 
-    public static final int LISTSIZE = 1000;
+    public static final int LISTSIZE = 100;
 
     @Test
     public void shouldMapMetaDataToJpaAndBack() {
