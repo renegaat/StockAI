@@ -63,7 +63,7 @@ public class MapperTest {
     }
 
     @Test
-    public void shouldMapStocklTimeSeriesDataToJpaAndBack(){
+    public void shouldMapStockTimeSeriesDataToJpaAndBack(){
 
         StockTimeSeriesDataJpaMapperImpl stockTimeSeriesDataJpaMapper = new StockTimeSeriesDataJpaMapperImpl();
 
