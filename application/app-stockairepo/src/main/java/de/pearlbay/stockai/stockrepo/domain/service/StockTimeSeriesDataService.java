@@ -19,4 +19,3 @@ public interface StockTimeSeriesDataService {
 
     void deleteStockTimeSeriesDataBySymbolAndFunction(String symbol, Function function);
 }
-

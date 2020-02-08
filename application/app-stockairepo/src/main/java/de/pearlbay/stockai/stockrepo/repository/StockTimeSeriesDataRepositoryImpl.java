@@ -14,7 +14,6 @@ import org.springframework.stereotype.Repository;
 public class StockTimeSeriesDataRepositoryImpl implements StockTimeSeriesDataRepository {
     @Autowired
     private StockTimeSeriesDataJpaRepository stockTimeSeriesDataJpaRepository;
-
     @Override
     public StockTimeSeriesDataJpa save(StockTimeSeriesDataJpa stockTimeSeriesDataJpa) {
         return stockTimeSeriesDataJpaRepository.save(stockTimeSeriesDataJpa);
