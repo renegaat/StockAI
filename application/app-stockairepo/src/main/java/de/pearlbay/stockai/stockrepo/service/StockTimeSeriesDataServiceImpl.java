@@ -7,6 +7,7 @@ import de.pearlbay.stockai.stockrepo.domain.repository.StockTimeSeriesDataReposi
 import de.pearlbay.stockai.stockrepo.domain.service.StockTimeSeriesDataService;
 import de.pearlbay.stockai.stockrepo.repository.StockTimeSeriesDataJpa;
 import de.pearlbay.stockai.stockrepo.repository.mapper.StockTimeSeriesDataJpaMapper;
+import lombok.extern.slf4j.Slf4j;
 import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -19,6 +20,7 @@ import java.util.stream.Collectors;
  *
  * @author joern ross (pearlbay) 2020
  */
+@Slf4j
 public class StockTimeSeriesDataServiceImpl implements StockTimeSeriesDataService {
     @Autowired
     private StockTimeSeriesDataRepository stockTimeSeriesDataRepository;
@@ -41,15 +43,21 @@ public class StockTimeSeriesDataServiceImpl implements StockTimeSeriesDataServic
     @Override
     public StockTimeSeriesData createOrUpdateStockTimeSeriesData(StockTimeSeriesData stockTimeSeriesData) {
 
-        StockTimeSeriesDataJpaMapper stockTimeSeriesDataJpaMapper =
-                Mappers.getMapper(StockTimeSeriesDataJpaMapper.class);
+        log.trace("A TRACE Message");
+        log.debug("A DEBUG Message");
+        log.info("An INFO Message");
+        log.warn("A WARN Message");
+        log.error("An ERROR Message");
 
-       StockTimeSeriesDataJpa jpa =
-               stockTimeSeriesDataRepository.save(stockTimeSeriesDataJpaMapper.toJpa(stockTimeSeriesData));
+        StockTimeSeriesDataJpaMapper stockTimeSeriesDataJpaMapper
+                = Mappers.getMapper(StockTimeSeriesDataJpaMapper.class);
 
-       if (jpa == null) {
-           throw new RuntimeException("Error saving StockTimeSeriesDataJpa into DB");
-       }
+        StockTimeSeriesDataJpa jpa =
+                stockTimeSeriesDataRepository.save(stockTimeSeriesDataJpaMapper.toJpa(stockTimeSeriesData));
+
+        if (jpa == null) {
+            throw new RuntimeException("Error saving StockTimeSeriesDataJpa into DB");
+        }
 
         return stockTimeSeriesDataJpaMapper.fromJpa(jpa);
     }

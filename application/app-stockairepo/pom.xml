@@ -71,14 +71,6 @@
                 <version>${spring.boot.version}</version>
                 <configuration>
                     <skip>false</skip>
-                    <annotationProcessorPaths>
-                        <path>
-                            <groupId>org.mapstruct</groupId>
-                            <artifactId>mapstruct-processor</artifactId>
-                            <version>${mapstruct.version}</version>
-                        </path>
-                        <!-- other annotation processors -->
-                    </annotationProcessorPaths>
                 </configuration>
                 <executions>
                     <execution>
