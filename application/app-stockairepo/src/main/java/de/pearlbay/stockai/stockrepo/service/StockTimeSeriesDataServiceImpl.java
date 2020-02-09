@@ -7,9 +7,11 @@ import de.pearlbay.stockai.stockrepo.domain.repository.StockTimeSeriesDataReposi
 import de.pearlbay.stockai.stockrepo.domain.service.StockTimeSeriesDataService;
 import de.pearlbay.stockai.stockrepo.repository.StockTimeSeriesDataJpa;
 import de.pearlbay.stockai.stockrepo.repository.mapper.StockTimeSeriesDataJpaMapper;
-import lombok.extern.slf4j.Slf4j;
 import org.mapstruct.factory.Mappers;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.slf4j.Logger;
+
 
 import java.time.LocalDateTime;
 import java.util.List;
@@ -20,8 +22,11 @@ import java.util.stream.Collectors;
  *
  * @author joern ross (pearlbay) 2020
  */
-@Slf4j
+
 public class StockTimeSeriesDataServiceImpl implements StockTimeSeriesDataService {
+
+    private final Logger log = LoggerFactory.getLogger(this.getClass());
+
     @Autowired
     private StockTimeSeriesDataRepository stockTimeSeriesDataRepository;
 
@@ -42,12 +47,6 @@ public class StockTimeSeriesDataServiceImpl implements StockTimeSeriesDataServic
 
     @Override
     public StockTimeSeriesData createOrUpdateStockTimeSeriesData(StockTimeSeriesData stockTimeSeriesData) {
-
-        log.trace("A TRACE Message");
-        log.debug("A DEBUG Message");
-        log.info("An INFO Message");
-        log.warn("A WARN Message");
-        log.error("An ERROR Message");
 
         StockTimeSeriesDataJpaMapper stockTimeSeriesDataJpaMapper
                 = Mappers.getMapper(StockTimeSeriesDataJpaMapper.class);
