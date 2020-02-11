@@ -8,9 +8,9 @@ import de.pearlbay.stockai.stockrepo.domain.service.StockTimeSeriesDataService;
 import de.pearlbay.stockai.stockrepo.repository.StockTimeSeriesDataJpa;
 import de.pearlbay.stockai.stockrepo.repository.mapper.StockTimeSeriesDataJpaMapper;
 import org.mapstruct.factory.Mappers;
+import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.slf4j.Logger;
 
 
 import java.time.LocalDateTime;
@@ -25,7 +25,7 @@ import java.util.stream.Collectors;
 
 public class StockTimeSeriesDataServiceImpl implements StockTimeSeriesDataService {
 
-    private final Logger log = LoggerFactory.getLogger(this.getClass());
+    private static final Logger LOG = LoggerFactory.getLogger(StockTimeSeriesDataServiceImpl.class);
 
     @Autowired
     private StockTimeSeriesDataRepository stockTimeSeriesDataRepository;
@@ -39,6 +39,7 @@ public class StockTimeSeriesDataServiceImpl implements StockTimeSeriesDataServic
         StockTimeSeriesDataJpa jpa = stockTimeSeriesDataRepository.findBySymbolAndFunction(symbol, function);
 
         if (jpa == null) {
+            LOG.warn("retrieveStockTimeSeriesDataBySymbolAndFunction no result : " + symbol + " " + function.name());
             return null;
         }
 
@@ -71,6 +72,8 @@ public class StockTimeSeriesDataServiceImpl implements StockTimeSeriesDataServic
         StockTimeSeriesDataJpa jpa = stockTimeSeriesDataRepository.findBySymbolAndFunction(symbol, function);
 
         if (jpa == null) {
+            LOG.warn("retrieveStockTimeSeriesDataBySymbolAndFunctionAndDate no result : "
+                    + symbol + " " + function.name() + " " + start.toString() + " " + stop.toString());
             return null;
         }
 
@@ -87,6 +90,7 @@ public class StockTimeSeriesDataServiceImpl implements StockTimeSeriesDataServic
 
     @Override
     public void deleteStockTimeSeriesDataBySymbolAndFunction(String symbol, Function function) {
+
         stockTimeSeriesDataRepository.deleteStockTimeSeriesDataBySymbolAndFunction(symbol, function);
     }
 }
