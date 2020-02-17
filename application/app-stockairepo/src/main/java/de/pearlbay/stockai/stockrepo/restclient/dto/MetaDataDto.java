@@ -5,11 +5,11 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import lombok.Data;
 
 /**
- * StockTimeSeriesDto object.
+ * MetaDataDto object.
  * @author joern ross (pearlbay) 2020
  */
 @Data
 @JsonIgnoreProperties(ignoreUnknown = true)
-public class StockTimeSeriesDataDto {
-    private MetaDataDto metaDataDto;
+public class MetaDataDto {
+    private String information;
 }
