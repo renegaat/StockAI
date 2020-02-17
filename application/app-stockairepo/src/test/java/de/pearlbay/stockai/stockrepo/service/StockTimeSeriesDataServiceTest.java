@@ -26,6 +26,7 @@ import static org.mockito.Mockito.when;
 
 
 @RunWith(MockitoJUnitRunner.class)
+
 public class StockTimeSeriesDataServiceTest {
 
     public static final String SYMBOL = "symbol";
