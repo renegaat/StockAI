@@ -20,7 +20,7 @@ import java.time.LocalDateTime;
 @EqualsAndHashCode(callSuper = true)
 public class TimeSeriesJpa extends BaseJpa {
     @Id
-    @GeneratedValue(generator = "timeseries_id_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "timeseries_id_seq")
     @SequenceGenerator(name = "timeseries_id_seq", sequenceName = "timeseries_id_seq")
     @Column(name = "timeseries_id")
     private Long id;

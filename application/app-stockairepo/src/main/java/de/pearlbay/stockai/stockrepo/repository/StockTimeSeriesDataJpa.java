@@ -6,6 +6,7 @@ import de.pearlbay.stockai.common.enums.Market;
 import de.pearlbay.stockai.common.persistence.repository.BaseJpa;
 import lombok.*;
 
+
 import javax.persistence.*;
 import java.util.List;
 
@@ -23,7 +24,7 @@ import java.util.List;
 public class StockTimeSeriesDataJpa extends BaseJpa {
 
     @Id
-    @GeneratedValue(generator = "stock_timeseries_data_id_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "stock_timeseries_data_id_seq")
     @SequenceGenerator(name = "stock_timeseries_data_id_seq", sequenceName = "stock_timeseries_data_id_seq")
     @Column(name = "stocktimeseriesdata_id")
     private Long id;

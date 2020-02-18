@@ -8,6 +8,7 @@ import de.pearlbay.stockai.stockrepo.restclient.StockTimeSeriesRestClient;
 import de.pearlbay.stockai.stockrepo.restclient.dto.StockTimeSeriesDataDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Service;
 
 
 /**
@@ -16,6 +17,8 @@ import org.springframework.beans.factory.annotation.Value;
  * Retrieves stockdata from AlphaVantage.
  * @author joern ross (pearlbay) 2020
  */
+
+@Service
 public class StockTimeSeriesClientImpl implements StockTimeSeriesClient {
 
     @Autowired

@@ -3,14 +3,15 @@ package de.pearlbay.stockai.stockrepo.repository;
 import de.pearlbay.stockai.common.enums.Function;
 import de.pearlbay.stockai.stockrepo.domain.repository.StockTimeSeriesDataRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
+import org.springframework.stereotype.Service;
 
 /**
  * StockTimeSeriesDataRepository.
  *
  * @author joern ross (pearlbay) 2020
  */
-@Repository
+
+@Service
 public class StockTimeSeriesDataRepositoryImpl implements StockTimeSeriesDataRepository {
     @Autowired
     private StockTimeSeriesDataJpaRepository stockTimeSeriesDataJpaRepository;

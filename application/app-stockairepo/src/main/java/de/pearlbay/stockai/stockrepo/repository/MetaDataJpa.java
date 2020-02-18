@@ -20,7 +20,7 @@ import java.time.LocalDateTime;
 @EqualsAndHashCode(callSuper = true)
 public class MetaDataJpa extends BaseJpa {
     @Id
-    @GeneratedValue(generator = "metadata_id_seq")
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "metadata_id_seq")
     @SequenceGenerator(name = "metadata_id_seq", sequenceName = "metadata_id_seq")
     @Column(name = "metadata_id")
     private Long id;
