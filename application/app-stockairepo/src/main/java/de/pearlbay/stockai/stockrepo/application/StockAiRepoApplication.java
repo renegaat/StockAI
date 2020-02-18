@@ -29,8 +29,5 @@ public class StockAiRepoApplication {
     public static void main(String[] args) {
         LOG.info("StockAiRepoApplication starting");
         SpringApplication.run(StockAiRepoApplication.class, args);
-
-        //todo rossj trest code for rest client implementation
-
     }
 }
