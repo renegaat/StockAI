@@ -5,15 +5,24 @@
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
     <changeSet author="jross" id="AI-13_1">
-        <createSequence sequenceName="stock_timeseries_data_id_seq"/>
+        <createSequence sequenceName="stock_timeseries_data_id_seq"
+                        incrementBy="50"
+                        startValue="1"
+        />
     </changeSet>
 
     <changeSet author="jross" id="AI-13_2">
-        <createSequence sequenceName="metadata_id_seq"/>
+        <createSequence sequenceName="metadata_id_seq"
+                        incrementBy="50"
+                        startValue="1"
+        />
     </changeSet>
 
     <changeSet author="jross" id="AI-13_3">
-        <createSequence sequenceName="timeseries_id_seq"/>
+        <createSequence sequenceName="timeseries_id_seq"
+                        incrementBy="50"
+                        startValue="1"
+        />
     </changeSet>
 
     <changeSet author="jross" id="AI-13_4">
@@ -63,7 +72,7 @@
             </column>
         </createTable>
     </changeSet>
-    
+
     <changeSet author="jross" id="AI-13_6">
         <createTable tableName="timeseries">
             <column name="timeseries_id" type="NUMBER(19, 0)" remarks="Technische ID (Primärschlüssel)">
@@ -97,18 +106,27 @@
             </column>
         </createTable>
     </changeSet>
-    
+
     <changeSet author="jross" id="AI-13_7">
-        <addPrimaryKey columnNames="stocktimeseriesdata_id" constraintName="stocktimeseriesdatapk" tableName="stocktimeseriesdata"/>
+        <addPrimaryKey columnNames="stocktimeseriesdata_id" constraintName="stocktimeseriesdatapk"
+                       tableName="stocktimeseriesdata"/>
     </changeSet>
-    
+
     <changeSet author="jross" id="AI-13_8">
-        <addForeignKeyConstraint baseColumnNames="stocktimeseriesdata_id" baseTableName="metadata" constraintName="FK_5EWGU9WL4MMRD5Q3H13X89S7E" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="stocktimeseriesdata_id" referencedTableName="stocktimeseriesdata"/>
+        <addForeignKeyConstraint baseColumnNames="stocktimeseriesdata_id" baseTableName="metadata"
+                                 constraintName="FK_5EWGU9WL4MMRD5Q3H13X89S7E" deferrable="false"
+                                 initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="stocktimeseriesdata_id"
+                                 referencedTableName="stocktimeseriesdata"/>
     </changeSet>
-    
+
     <changeSet author="jross" id="AI-13_9">
-        <addForeignKeyConstraint baseColumnNames="stocktimeseriesdata_id" baseTableName="timeseries" constraintName="FK_5EWGU9WL4MMRD5Q3H13X89S7F" deferrable="false" initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT" referencedColumnNames="stocktimeseriesdata_id" referencedTableName="stocktimeseriesdata"/>
+        <addForeignKeyConstraint baseColumnNames="stocktimeseriesdata_id" baseTableName="timeseries"
+                                 constraintName="FK_5EWGU9WL4MMRD5Q3H13X89S7F" deferrable="false"
+                                 initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="stocktimeseriesdata_id"
+                                 referencedTableName="stocktimeseriesdata"/>
     </changeSet>
- </databaseChangeLog>
+</databaseChangeLog>
 
 
