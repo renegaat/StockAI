@@ -18,6 +18,8 @@ import org.springframework.stereotype.Component;
 public class StockTimeSeriesDataRetrievalTask {
     private static final Logger LOG = LoggerFactory.getLogger(StockTimeSeriesDataRetrievalTask.class);
 
+    public static final int TASKCYCLETIME = 5000;
+
     @Autowired
     private StockTimeSeriesClient stockTimeSeriesClient;
 
@@ -25,7 +27,7 @@ public class StockTimeSeriesDataRetrievalTask {
     private StockTimeSeriesDataService stockTimeSeriesDataService;
 
 
-    @Scheduled(fixedRate = 5000)
+    @Scheduled(fixedRate = TASKCYCLETIME)
     public void retrieveStockTimeSeriesData() {
         LOG.info("Started retrieveStockTimeSeriesData task");
 
