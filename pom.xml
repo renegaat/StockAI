@@ -34,6 +34,7 @@
         <spring.test.version>2.2.0.RELEASE</spring.test.version>
         <spring.web.version>2.2.0.RELEASE</spring.web.version>
         <spring.boot.version>2.2.0.RELEASE</spring.boot.version>
+        <spring.processor.version>2.2.0.RELEASE</spring.processor.version>
         <spring.hateoas.version>1.0.0.RELEASE</spring.hateoas.version>
         <liquibase.version>3.8.1</liquibase.version>
         <apache.commons.lang.version>3.7</apache.commons.lang.version>
@@ -50,6 +51,11 @@
     </modules>
 
     <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+            <version>${spring.processor.version}</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.hateoas</groupId>
             <artifactId>spring-hateoas</artifactId>

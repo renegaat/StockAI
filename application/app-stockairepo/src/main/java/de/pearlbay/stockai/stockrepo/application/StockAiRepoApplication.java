@@ -10,6 +10,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 /**
  * StockAiRepoApplication. main entry.
@@ -18,13 +19,12 @@ import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 @ComponentScan("de.pearlbay")
 @EnableJpaRepositories("de.pearlbay")
 @EntityScan("de.pearlbay")
+@EnableScheduling
 @SpringBootApplication
 public class StockAiRepoApplication {
 
     private static final Logger LOG = LoggerFactory.getLogger(StockAiRepoApplication.class);
 
-    @Autowired
-    private StockTimeSeriesClient stockTimeSeriesClient;
 
     public static void main(String[] args) {
         LOG.info("StockAiRepoApplication starting");
