@@ -32,5 +32,12 @@ public class StockTimeSeriesDataRetrievalTask {
     @Scheduled(fixedRateString = "${stock.refresh}")
     public void retrieveStockTimeSeriesData() {
         LOG.info("Started retrieveStockTimeSeriesData task");
+
+        if (stockConfigurationProperties.getSymbol().size() != stockConfigurationProperties.getFunction().size()
+                || (stockConfigurationProperties.getSymbol().size()
+                != stockConfigurationProperties.getOutputSize().size())) {
+            LOG.error("Stock Configuration Properties error");
+            throw new RuntimeException("Configuration error");
+        }
     }
 }

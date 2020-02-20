@@ -57,7 +57,8 @@ public class StockTimeSeriesDataServiceImpl implements StockTimeSeriesDataServic
                 stockTimeSeriesDataRepository.save(stockTimeSeriesDataJpaMapper.toJpa(stockTimeSeriesData));
 
         if (jpa == null) {
-            throw new RuntimeException("Error saving StockTimeSeriesDataJpa into DB");
+            LOG.error("Error saving StockTimeSeriesData to repo");
+            throw new RuntimeException("Repository error");
         }
 
         return stockTimeSeriesDataJpaMapper.fromJpa(jpa);
@@ -91,7 +92,6 @@ public class StockTimeSeriesDataServiceImpl implements StockTimeSeriesDataServic
 
     @Override
     public void deleteStockTimeSeriesDataBySymbolAndFunction(String symbol, Function function) {
-
         stockTimeSeriesDataRepository.deleteStockTimeSeriesDataBySymbolAndFunction(symbol, function);
     }
 }
