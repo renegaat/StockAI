@@ -1,10 +1,12 @@
 package de.pearlbay.stockai.stockrepo.application;
 
+import de.pearlbay.stockai.stockrepo.application.configuration.StockConfigurationProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.domain.EntityScan;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.scheduling.annotation.EnableScheduling;
@@ -17,6 +19,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @EnableJpaRepositories("de.pearlbay")
 @EntityScan("de.pearlbay")
 @EnableScheduling
+@EnableConfigurationProperties(StockConfigurationProperties.class)
 @SpringBootApplication
 public class StockAiRepoApplication {
 
