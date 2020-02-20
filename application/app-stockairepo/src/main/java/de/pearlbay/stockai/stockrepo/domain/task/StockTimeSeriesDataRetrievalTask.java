@@ -3,6 +3,7 @@ package de.pearlbay.stockai.stockrepo.domain.task;
 import de.pearlbay.stockai.common.enums.Function;
 import de.pearlbay.stockai.common.enums.OutputSize;
 import de.pearlbay.stockai.stockrepo.application.configuration.StockConfigurationProperties;
+import de.pearlbay.stockai.stockrepo.domain.StockTimeSeriesData;
 import de.pearlbay.stockai.stockrepo.domain.service.StockTimeSeriesClient;
 import de.pearlbay.stockai.stockrepo.domain.service.StockTimeSeriesDataService;
 import org.slf4j.Logger;
@@ -62,6 +63,12 @@ public class StockTimeSeriesDataRetrievalTask {
             LOG.info("Downloading Stock Data. Symbol : " + symbol + " Function : "
                     + function.name() + " OutputSize : " + outputSize.name());
 
+            StockTimeSeriesData stockTimeSeriesData = stockTimeSeriesClient
+                    .retrieveStockTimeSeriesData(symbol, function, outputSize);
+
+            if (stockTimeSeriesData == null) {
+                LOG.warn("retrieveStockTimeSeriesData returned no result");
+            }
         }
     }
 }
