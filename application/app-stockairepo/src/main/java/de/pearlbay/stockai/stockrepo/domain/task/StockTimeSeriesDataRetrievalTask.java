@@ -1,5 +1,6 @@
 package de.pearlbay.stockai.stockrepo.domain.task;
 
+import de.pearlbay.stockai.stockrepo.application.configuration.StockConfigurationProperties;
 import de.pearlbay.stockai.stockrepo.domain.service.StockTimeSeriesClient;
 import de.pearlbay.stockai.stockrepo.domain.service.StockTimeSeriesDataService;
 import org.slf4j.Logger;
@@ -18,18 +19,18 @@ import org.springframework.stereotype.Component;
 public class StockTimeSeriesDataRetrievalTask {
     private static final Logger LOG = LoggerFactory.getLogger(StockTimeSeriesDataRetrievalTask.class);
 
-    public static final int TASKCYCLETIME = 5000;
-
     @Autowired
     private StockTimeSeriesClient stockTimeSeriesClient;
 
     @Autowired
     private StockTimeSeriesDataService stockTimeSeriesDataService;
 
+    @Autowired
+    private StockConfigurationProperties stockConfigurationProperties;
 
-    @Scheduled(fixedRate = TASKCYCLETIME)
+    //todo jross set schedule to fixed time ?
+    @Scheduled(fixedRateString = "${stock.refresh}")
     public void retrieveStockTimeSeriesData() {
         LOG.info("Started retrieveStockTimeSeriesData task");
-
     }
 }

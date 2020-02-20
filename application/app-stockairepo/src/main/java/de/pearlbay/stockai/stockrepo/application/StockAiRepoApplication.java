@@ -25,7 +25,6 @@ public class StockAiRepoApplication {
 
     private static final Logger LOG = LoggerFactory.getLogger(StockAiRepoApplication.class);
 
-
     public static void main(String[] args) {
         LOG.info("StockAiRepoApplication starting");
         SpringApplication.run(StockAiRepoApplication.class, args);
