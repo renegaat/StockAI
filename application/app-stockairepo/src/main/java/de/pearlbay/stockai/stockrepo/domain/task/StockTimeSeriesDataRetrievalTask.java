@@ -1,5 +1,7 @@
 package de.pearlbay.stockai.stockrepo.domain.task;
 
+import de.pearlbay.stockai.common.enums.Function;
+import de.pearlbay.stockai.common.enums.OutputSize;
 import de.pearlbay.stockai.stockrepo.application.configuration.StockConfigurationProperties;
 import de.pearlbay.stockai.stockrepo.domain.service.StockTimeSeriesClient;
 import de.pearlbay.stockai.stockrepo.domain.service.StockTimeSeriesDataService;
@@ -33,11 +35,33 @@ public class StockTimeSeriesDataRetrievalTask {
     public void retrieveStockTimeSeriesData() {
         LOG.info("Started retrieveStockTimeSeriesData task");
 
+
         if (stockConfigurationProperties.getSymbol().size() != stockConfigurationProperties.getFunction().size()
                 || (stockConfigurationProperties.getSymbol().size()
                 != stockConfigurationProperties.getOutputSize().size())) {
             LOG.error("Stock Configuration Properties error");
             throw new RuntimeException("Configuration error");
+        }
+
+        for (int c = 0; c < stockConfigurationProperties.getSymbol().size(); c++) {
+
+            String symbol;
+            Function function;
+            OutputSize outputSize;
+
+            symbol = stockConfigurationProperties.getSymbol().get(c);
+
+            try {
+                function = Function.valueOf(stockConfigurationProperties.getFunction().get(c));
+                outputSize = OutputSize.valueOf(stockConfigurationProperties.getOutputSize().get(c));
+            } catch (IllegalArgumentException e) {
+                LOG.error("Error building url parameters from stock configuration properties");
+                throw new RuntimeException("Configuration error");
+            }
+
+            LOG.info("Downloading Stock Data. Symbol : " + symbol + " Function : "
+                    + function.name() + " OutputSize : " + outputSize.name());
+
         }
     }
 }
