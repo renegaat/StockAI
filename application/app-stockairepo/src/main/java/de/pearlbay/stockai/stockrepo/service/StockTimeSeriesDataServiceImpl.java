@@ -12,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
 
 
 import java.time.LocalDateTime;
@@ -34,6 +35,9 @@ public class StockTimeSeriesDataServiceImpl implements StockTimeSeriesDataServic
     @Override
     public StockTimeSeriesData retrieveStockTimeSeriesDataBySymbolAndFunction(String symbol, Function function) {
 
+        Assert.notNull(symbol, "symbol must not be null");
+        Assert.notNull(function, "function must not be null");
+
         StockTimeSeriesDataJpaMapper stockTimeSeriesDataJpaMapper =
                 Mappers.getMapper(StockTimeSeriesDataJpaMapper.class);
 
@@ -49,6 +53,8 @@ public class StockTimeSeriesDataServiceImpl implements StockTimeSeriesDataServic
 
     @Override
     public StockTimeSeriesData createOrUpdateStockTimeSeriesData(StockTimeSeriesData stockTimeSeriesData) {
+
+        Assert.notNull(stockTimeSeriesData, "stockTimeSeriesData must not be null");
 
         StockTimeSeriesDataJpaMapper stockTimeSeriesDataJpaMapper
                 = Mappers.getMapper(StockTimeSeriesDataJpaMapper.class);
@@ -67,6 +73,11 @@ public class StockTimeSeriesDataServiceImpl implements StockTimeSeriesDataServic
     @Override
     public StockTimeSeriesData retrieveStockTimeSeriesDataBySymbolAndFunctionAndDate(
             String symbol, Function function, LocalDateTime start, LocalDateTime stop) {
+
+        Assert.notNull(symbol, "symbol must not be null");
+        Assert.notNull(function, "function must not be null");
+        Assert.notNull(start, "start must not be null");
+        Assert.notNull(stop, "stop must not be null");
 
         StockTimeSeriesDataJpaMapper stockTimeSeriesDataJpaMapper =
                 Mappers.getMapper(StockTimeSeriesDataJpaMapper.class);
@@ -92,6 +103,9 @@ public class StockTimeSeriesDataServiceImpl implements StockTimeSeriesDataServic
 
     @Override
     public void deleteStockTimeSeriesDataBySymbolAndFunction(String symbol, Function function) {
+        Assert.notNull(symbol, "symbol must not be null");
+        Assert.notNull(function, "function must not be null");
+
         stockTimeSeriesDataRepository.deleteStockTimeSeriesDataBySymbolAndFunction(symbol, function);
     }
 }

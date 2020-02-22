@@ -9,6 +9,7 @@ import de.pearlbay.stockai.stockrepo.restclient.dto.StockTimeSeriesDataDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
+import org.springframework.util.Assert;
 
 
 /**
@@ -29,8 +30,13 @@ public class StockTimeSeriesClientImpl implements StockTimeSeriesClient {
 
     @Override
     public StockTimeSeriesData retrieveStockTimeSeriesData(String symbol, Function function, OutputSize outputSize) {
-        StockTimeSeriesDataDto stockTimeSeriesDataDto = stockTimeSeriesRestClient.
-                retrieveStockTimeSeriesDataDto(apiKey, symbol, function, outputSize);
+
+        Assert.notNull(symbol, "symbol must not be null");
+        Assert.notNull(function, "function must not be null");
+        Assert.notNull(outputSize, "outputSize must not be null");
+
+        StockTimeSeriesDataDto stockTimeSeriesDataDto = stockTimeSeriesRestClient
+                .retrieveStockTimeSeriesDataDto(apiKey, symbol, function, outputSize);
 
         return StockTimeSeriesData.builder().build();
     }
