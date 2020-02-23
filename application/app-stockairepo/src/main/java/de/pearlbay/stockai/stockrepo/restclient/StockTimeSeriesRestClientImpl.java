@@ -26,13 +26,17 @@ public class StockTimeSeriesRestClientImpl implements StockTimeSeriesRestClient 
 
         RestTemplate restTemplate = new RestTemplate();
 
-        String url  = apiUrl
+        String url = apiUrl
                 + "function=" + function.name()
                 + "&symbol=" + symbol
                 + "&apikey=" + apiKey
                 + "&outputsize=" + outputSize;
 
         MetaDataDto metaDataDto = restTemplate.getForObject(url, MetaDataDto.class);
-        return  null;
+        //todo create object mapper factory : https://en.wikipedia.org/wiki/Abstract_factory_pattern
+        //todo create custom deserializer and register by objectmapper https://www.baeldung.com/jackson-deserialization
+        //todo add mapper to template https://dzone.com/articles/configuring-a-custom-objectmapper-for-spring-restt
+
+        return null;
     }
 }
