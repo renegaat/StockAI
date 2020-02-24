@@ -5,7 +5,7 @@ import com.fasterxml.jackson.databind.module.SimpleModule;
 import de.pearlbay.stockai.common.enums.Function;
 import de.pearlbay.stockai.common.enums.OutputSize;
 import de.pearlbay.stockai.stockrepo.restclient.dto.StockTimeSeriesDataDto;
-import de.pearlbay.stockai.stockrepo.restclient.mapper.objectmapper.CustomSerializerFactory;
+import de.pearlbay.stockai.stockrepo.restclient.mapper.customserializer.CustomSerializerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.stereotype.Component;

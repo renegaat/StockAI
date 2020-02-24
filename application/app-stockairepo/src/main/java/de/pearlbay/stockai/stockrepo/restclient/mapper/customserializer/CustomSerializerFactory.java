@@ -1,4 +1,4 @@
-package de.pearlbay.stockai.stockrepo.restclient.mapper.objectmapper;
+package de.pearlbay.stockai.stockrepo.restclient.mapper.customserializer;
 
 import de.pearlbay.stockai.common.enums.Function;
 import de.pearlbay.stockai.stockrepo.restclient.dto.StockTimeSeriesDataDto;

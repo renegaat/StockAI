@@ -1,4 +1,4 @@
-package de.pearlbay.stockai.stockrepo.restclient.mapper.objectmapper;
+package de.pearlbay.stockai.stockrepo.restclient.mapper.customserializer;
 
 import com.fasterxml.jackson.databind.JavaType;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
