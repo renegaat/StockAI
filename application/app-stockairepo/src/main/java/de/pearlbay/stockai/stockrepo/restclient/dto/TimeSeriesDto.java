@@ -4,11 +4,10 @@ import lombok.Builder;
 import lombok.Data;
 
 /**
- * StockTimeSeriesDto object.
+ * TimeSeriesDto object.
  * @author joern ross (pearlbay) 2020
  */
 @Data
 @Builder
-public class StockTimeSeriesDataDto {
-    private MetaDataDto metaDataDto;
+public class TimeSeriesDto {
 }

@@ -1,7 +1,5 @@
 package de.pearlbay.stockai.stockrepo.restclient.dto;
-
-
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import lombok.Builder;
 import lombok.Data;
 
 /**
@@ -9,7 +7,7 @@ import lombok.Data;
  * @author joern ross (pearlbay) 2020
  */
 @Data
-@JsonIgnoreProperties(ignoreUnknown = true)
+@Builder
 public class MetaDataDto {
     private String information;
 }
