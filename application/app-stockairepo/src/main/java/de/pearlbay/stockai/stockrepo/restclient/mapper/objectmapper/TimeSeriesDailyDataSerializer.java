@@ -1,15 +1,21 @@
 package de.pearlbay.stockai.stockrepo.restclient.mapper.objectmapper;
 
 import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationContext;
 import com.fasterxml.jackson.databind.JavaType;
+import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 import de.pearlbay.stockai.stockrepo.restclient.dto.StockTimeSeriesDataDto;
 
 import java.io.IOException;
 
+
+/**
+ * TimeSeriesDailyDataSerializer.
+ * @author joern ross (pearlbay) 2020
+ */
 public class TimeSeriesDailyDataSerializer extends StockTimeSeriesDataSerializer {
+
     protected TimeSeriesDailyDataSerializer(JavaType valueType) {
         super(valueType);
     }
@@ -24,8 +30,9 @@ public class TimeSeriesDailyDataSerializer extends StockTimeSeriesDataSerializer
 
     @Override
     public StockTimeSeriesDataDto deserialize(JsonParser jsonParser, DeserializationContext deserializationContext)
-            throws IOException, JsonProcessingException {
+            throws IOException {
         LOG.info("Entered TimeSeriesDailyDataSerializer deserializer");
-        return null;
+        JsonNode node = jsonParser.getCodec().readTree(jsonParser);
+        return StockTimeSeriesDataDto.builder().build();
     }
 }
