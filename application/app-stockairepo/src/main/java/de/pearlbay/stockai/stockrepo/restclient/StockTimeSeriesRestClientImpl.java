@@ -6,6 +6,8 @@ import de.pearlbay.stockai.common.enums.Function;
 import de.pearlbay.stockai.common.enums.OutputSize;
 import de.pearlbay.stockai.stockrepo.restclient.dto.StockTimeSeriesDataDto;
 import de.pearlbay.stockai.stockrepo.restclient.mapper.customserializer.CustomSerializerFactory;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.converter.json.MappingJackson2HttpMessageConverter;
 import org.springframework.stereotype.Component;
@@ -23,6 +25,8 @@ public class StockTimeSeriesRestClientImpl implements StockTimeSeriesRestClient 
 
     @Value("${alphavantage.apiUrl}")
     private String apiUrl;
+
+    private static final Logger LOG = LoggerFactory.getLogger(StockTimeSeriesRestClientImpl.class);
 
     @Override
     public StockTimeSeriesDataDto retrieveStockTimeSeriesData(String apiKey, String symbol,
@@ -45,7 +49,7 @@ public class StockTimeSeriesRestClientImpl implements StockTimeSeriesRestClient 
         try {
             stockTimeSeriesDataDto = restTemplate.getForObject(url, StockTimeSeriesDataDto.class);
         } catch (RestClientException e) {
-            e.printStackTrace();
+            LOG.error("RestClient Exception : " + e.getLocalizedMessage());
         }
 
         return stockTimeSeriesDataDto;
