@@ -31,7 +31,6 @@ public class TimeSeriesWeeklyDataSerializer extends StockTimeSeriesDataSerialize
     @Override
     public StockTimeSeriesDataDto deserialize(JsonParser jsonParser, DeserializationContext deserializationContext)
             throws IOException {
-        LOG.info("Entered TimeSeriesWeeklyDataSerializer deserializer");
         JsonNode node = jsonParser.getCodec().readTree(jsonParser);
         return StockTimeSeriesDataDto.builder().build();
     }
