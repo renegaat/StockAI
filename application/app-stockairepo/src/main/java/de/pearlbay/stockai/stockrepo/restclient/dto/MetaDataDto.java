@@ -10,4 +10,7 @@ import lombok.Data;
 @Builder
 public class MetaDataDto {
     private String information;
+    private String symbol;
+    private String lastRefreshed;
+    private String timeZone;
 }
