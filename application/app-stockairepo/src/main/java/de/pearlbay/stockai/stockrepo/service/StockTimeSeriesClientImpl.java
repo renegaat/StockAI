@@ -36,7 +36,7 @@ public class StockTimeSeriesClientImpl implements StockTimeSeriesClient {
         Assert.notNull(outputSize, "outputSize must not be null");
 
         StockTimeSeriesDataDto stockTimeSeriesDataDto = stockTimeSeriesRestClient
-                .retrieveStockTimeSeriesDataDto(apiKey, symbol, function, outputSize);
+                .retrieveStockTimeSeriesData(apiKey, symbol, function, outputSize);
 
         return StockTimeSeriesData.builder().build();
     }

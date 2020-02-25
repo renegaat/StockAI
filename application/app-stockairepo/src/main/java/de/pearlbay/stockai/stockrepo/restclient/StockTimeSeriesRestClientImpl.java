@@ -25,8 +25,8 @@ public class StockTimeSeriesRestClientImpl implements StockTimeSeriesRestClient 
     private String apiUrl;
 
     @Override
-    public StockTimeSeriesDataDto retrieveStockTimeSeriesDataDto(String apiKey, String symbol,
-                                                                 Function function, OutputSize outputSize) {
+    public StockTimeSeriesDataDto retrieveStockTimeSeriesData(String apiKey, String symbol,
+                                                              Function function, OutputSize outputSize) {
 
         //todo create object mapper factory : https://en.wikipedia.org/wiki/Abstract_factory_pattern
         //todo create custom deserializer and register by objectmapper https://www.baeldung.com/jackson-deserialization

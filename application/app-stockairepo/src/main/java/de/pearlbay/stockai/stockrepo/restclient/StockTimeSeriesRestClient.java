@@ -11,6 +11,6 @@ import de.pearlbay.stockai.stockrepo.restclient.dto.StockTimeSeriesDataDto;
  * @author joern ross (pearlbay) 2020
  */
 public interface StockTimeSeriesRestClient {
-    StockTimeSeriesDataDto retrieveStockTimeSeriesDataDto(String apiKey, String symbol,
-                                                          Function function, OutputSize outputSize);
+    StockTimeSeriesDataDto retrieveStockTimeSeriesData(String apiKey, String symbol,
+                                                       Function function, OutputSize outputSize);
 }
