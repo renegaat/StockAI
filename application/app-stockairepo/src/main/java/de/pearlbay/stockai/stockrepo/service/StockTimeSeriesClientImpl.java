@@ -1,6 +1,7 @@
 package de.pearlbay.stockai.stockrepo.service;
 
 import de.pearlbay.stockai.common.enums.Function;
+import de.pearlbay.stockai.common.enums.Interval;
 import de.pearlbay.stockai.common.enums.OutputSize;
 import de.pearlbay.stockai.stockrepo.domain.StockTimeSeriesData;
 import de.pearlbay.stockai.stockrepo.domain.service.StockTimeSeriesClient;
@@ -14,8 +15,9 @@ import org.springframework.util.Assert;
 
 /**
  * StockTimeSeriesClientImpl.
- *
+ * <p>
  * Retrieves stockdata from AlphaVantage.
+ *
  * @author joern ross (pearlbay) 2020
  */
 
@@ -29,14 +31,15 @@ public class StockTimeSeriesClientImpl implements StockTimeSeriesClient {
     private String apiKey;
 
     @Override
-    public StockTimeSeriesData retrieveStockTimeSeriesData(String symbol, Function function, OutputSize outputSize) {
+    public StockTimeSeriesData retrieveStockTimeSeriesData(String symbol, Function function,
+                                                           OutputSize outputSize, Interval interval) {
 
         Assert.notNull(symbol, "symbol must not be null");
         Assert.notNull(function, "function must not be null");
         Assert.notNull(outputSize, "outputSize must not be null");
 
         StockTimeSeriesDataDto stockTimeSeriesDataDto = stockTimeSeriesRestClient
-                .retrieveStockTimeSeriesData(apiKey, symbol, function, outputSize);
+                .retrieveStockTimeSeriesData(apiKey, symbol, function, outputSize, interval);
 
         return StockTimeSeriesData.builder().build();
     }

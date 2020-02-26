@@ -2,6 +2,7 @@ package de.pearlbay.stockai.stockrepo.restclient;
 
 
 import de.pearlbay.stockai.common.enums.Function;
+import de.pearlbay.stockai.common.enums.Interval;
 import de.pearlbay.stockai.common.enums.OutputSize;
 import de.pearlbay.stockai.stockrepo.restclient.dto.StockTimeSeriesDataDto;
 
@@ -12,5 +13,6 @@ import de.pearlbay.stockai.stockrepo.restclient.dto.StockTimeSeriesDataDto;
  */
 public interface StockTimeSeriesRestClient {
     StockTimeSeriesDataDto retrieveStockTimeSeriesData(String apiKey, String symbol,
-                                                       Function function, OutputSize outputSize);
+                                                       Function function, OutputSize outputSize,
+                                                       Interval interval);
 }

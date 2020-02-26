@@ -17,4 +17,5 @@ public class StockConfigurationProperties {
     private List<String> symbol;
     private List<String> function;
     private List<String> outputSize;
+    private List<String> interval;
 }

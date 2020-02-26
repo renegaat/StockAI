@@ -1,6 +1,7 @@
 package de.pearlbay.stockai.stockrepo.domain.task;
 
 import de.pearlbay.stockai.common.enums.Function;
+import de.pearlbay.stockai.common.enums.Interval;
 import de.pearlbay.stockai.common.enums.OutputSize;
 import de.pearlbay.stockai.stockrepo.application.configuration.StockConfigurationProperties;
 import de.pearlbay.stockai.stockrepo.domain.StockTimeSeriesData;
@@ -49,12 +50,19 @@ public class StockTimeSeriesDataRetrievalTask {
             String symbol;
             Function function;
             OutputSize outputSize;
-
-            symbol = stockConfigurationProperties.getSymbol().get(c);
+            Interval interval = null;
 
             try {
+
+                symbol = stockConfigurationProperties.getSymbol().get(c);
                 function = Function.valueOf(stockConfigurationProperties.getFunction().get(c));
                 outputSize = OutputSize.valueOf(stockConfigurationProperties.getOutputSize().get(c));
+
+                if ((stockConfigurationProperties.getInterval() != null)
+                        && (stockConfigurationProperties.getInterval().get(c).compareTo("") != 0)) {
+                    interval = Interval.valueOf(stockConfigurationProperties.getInterval().get(c));
+                }
+
             } catch (IllegalArgumentException e) {
                 LOG.error("Error building url parameters from stock configuration properties");
                 throw new RuntimeException("Configuration error");
@@ -64,7 +72,7 @@ public class StockTimeSeriesDataRetrievalTask {
                     + function.name() + " OutputSize : " + outputSize.name());
 
             StockTimeSeriesData stockTimeSeriesData = stockTimeSeriesClient
-                    .retrieveStockTimeSeriesData(symbol, function, outputSize);
+                    .retrieveStockTimeSeriesData(symbol, function, outputSize, interval);
 
             if (stockTimeSeriesData == null) {
                 LOG.warn("retrieveStockTimeSeriesData returned no result");

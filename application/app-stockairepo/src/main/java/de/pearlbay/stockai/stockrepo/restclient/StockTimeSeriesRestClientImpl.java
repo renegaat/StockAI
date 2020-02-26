@@ -3,6 +3,7 @@ package de.pearlbay.stockai.stockrepo.restclient;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import de.pearlbay.stockai.common.enums.Function;
+import de.pearlbay.stockai.common.enums.Interval;
 import de.pearlbay.stockai.common.enums.OutputSize;
 import de.pearlbay.stockai.stockrepo.restclient.dto.StockTimeSeriesDataDto;
 import de.pearlbay.stockai.stockrepo.restclient.mapper.customserializer.CustomSerializerFactory;
@@ -30,7 +31,8 @@ public class StockTimeSeriesRestClientImpl implements StockTimeSeriesRestClient 
 
     @Override
     public StockTimeSeriesDataDto retrieveStockTimeSeriesData(String apiKey, String symbol,
-                                                              Function function, OutputSize outputSize) {
+                                                              Function function, OutputSize outputSize,
+                                                              Interval interval) {
 
         //todo create object mapper factory : https://en.wikipedia.org/wiki/Abstract_factory_pattern
         //todo create custom deserializer and register by objectmapper https://www.baeldung.com/jackson-deserialization
@@ -41,6 +43,10 @@ public class StockTimeSeriesRestClientImpl implements StockTimeSeriesRestClient 
                 + "&symbol=" + symbol
                 + "&apikey=" + apiKey
                 + "&outputsize=" + outputSize;
+
+        if (interval != null) {
+            url = url + "&interval=" + interval.getMinuteValue();
+        }
 
         RestTemplate restTemplate = constructCustomRestTemplate(function);
 

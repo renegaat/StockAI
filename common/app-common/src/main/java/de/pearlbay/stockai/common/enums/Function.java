@@ -2,7 +2,7 @@ package de.pearlbay.stockai.common.enums;
 
 
 /**
- * Function, timeseries data time intervall.
+ * Function, timeseries data time interval.
  * @author joern ross (pearlbay) 2020
  */
 public enum Function {
