@@ -18,7 +18,7 @@ public class CustomSerializerFactory {
             case TIME_SERIES_DAILY_ADJUSTED:
                 break;
             case TIME_SERIES_WEEKLY:
-                return new TimeSeriesWeeklyDataSerializer(StockTimeSeriesDataDto.class);
+                break;
             case TIME_SERIES_WEEKLY_ADJUSTED:
                 break;
             case TIME_SERIES_MONTHLY:

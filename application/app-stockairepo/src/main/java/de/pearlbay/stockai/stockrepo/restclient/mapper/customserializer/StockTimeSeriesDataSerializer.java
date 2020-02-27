@@ -13,6 +13,7 @@ import org.slf4j.LoggerFactory;
  */
 public abstract class StockTimeSeriesDataSerializer extends StdDeserializer<StockTimeSeriesDataDto> {
 
+
     public static final Logger LOG = LoggerFactory.getLogger(StockTimeSeriesDataSerializer.class);
 
     protected StockTimeSeriesDataSerializer(JavaType valueType) {
