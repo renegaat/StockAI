@@ -43,16 +43,16 @@ public abstract class StockTimeSeriesDataCustomSerializer extends StdDeserialize
         HashMap<String, String> keyValuePair = getKeyValuePairs();
 
         JsonNode rootNode = jsonParser.getCodec().readTree(jsonParser);
-
         JsonNode metaDataNode = rootNode.get(keyValuePair.get("METADATA_IDENTIFIER"));
 
         MetaDataDto metaDataDto;
 
         try {
-            metaDataDto = MetaDataDto.builder().information(metaDataNode.get("1. Information").asText())
-                    .symbol(metaDataNode.get("2. Symbol").asText())
-                    .lastRefreshed(metaDataNode.get("3. Last Refreshed").asText())
-                    .timeZone(metaDataNode.get("5. Time Zone").asText())
+            metaDataDto = MetaDataDto.builder()
+                    .information(metaDataNode.get(keyValuePair.get("METADATA_IDENTIFIER")).asText())
+                    .symbol(metaDataNode.get(keyValuePair.get("METADATA_SYMBOL")).asText())
+                    .lastRefreshed(metaDataNode.get(keyValuePair.get("METADATA_REFRESHED")).asText())
+                    .timeZone(metaDataNode.get(keyValuePair.get("METADATA_TIMEZONE")).asText())
                     .build();
         } catch (Exception e) {
             LOG.error("Serialization Error in Custom Serializer");
@@ -76,11 +76,15 @@ public abstract class StockTimeSeriesDataCustomSerializer extends StdDeserialize
             double volume = 0;
 
             try {
-                open = new BigDecimal(entry.getValue().get("1. open").asDouble(), MathContext.DECIMAL32);
-                high = new BigDecimal(entry.getValue().get("2. high").asDouble(), MathContext.DECIMAL32);
-                low = new BigDecimal(entry.getValue().get("3. low").asDouble(), MathContext.DECIMAL32);
-                close = new BigDecimal(entry.getValue().get("4. close").asDouble(), MathContext.DECIMAL32);
-                volume = entry.getValue().get("5. volume").asDouble();
+                open = new BigDecimal(entry.getValue()
+                        .get(keyValuePair.get("TIMESERIES_OPEN")).asDouble(), MathContext.DECIMAL32);
+                high = new BigDecimal(entry.getValue()
+                        .get(keyValuePair.get("TIMESERIES_HIGH")).asDouble(), MathContext.DECIMAL32);
+                low = new BigDecimal(entry.getValue()
+                        .get(keyValuePair.get("TIMESERIES_LOW")).asDouble(), MathContext.DECIMAL32);
+                close = new BigDecimal(entry.getValue()
+                        .get(keyValuePair.get("TIMESERIES_CLOSE")).asDouble(), MathContext.DECIMAL32);
+                volume = entry.getValue().get(keyValuePair.get("TIMESERIES_VOLUME")).asDouble();
 
             } catch (Exception e) {
                 LOG.error("Serialization Error in Custom Serializer");
