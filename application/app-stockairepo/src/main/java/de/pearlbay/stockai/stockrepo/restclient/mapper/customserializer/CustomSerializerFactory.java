@@ -7,9 +7,10 @@ import de.pearlbay.stockai.stockrepo.restclient.dto.StockTimeSeriesDataDto;
  *
  * @author joern ross (pearlbay) 2020
  */
+@SuppressWarnings("checkstyle:HideUtilityClassConstructor")
 public class CustomSerializerFactory {
 
-    public  static StockTimeSeriesDataSerializer factory(Function function) {
+    public  static StockTimeSeriesDataCustomSerializer factory(Function function) {
         switch (function) {
             case TIME_SERIES_INTRADAY:
                 break;
@@ -18,7 +19,7 @@ public class CustomSerializerFactory {
             case TIME_SERIES_DAILY_ADJUSTED:
                 break;
             case TIME_SERIES_WEEKLY:
-                break;
+                return new TimeSeriesWeeklyDataSerializer(StockTimeSeriesDataDto.class);
             case TIME_SERIES_WEEKLY_ADJUSTED:
                 break;
             case TIME_SERIES_MONTHLY:

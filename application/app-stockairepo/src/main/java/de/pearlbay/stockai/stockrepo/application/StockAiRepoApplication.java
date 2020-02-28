@@ -15,6 +15,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
  * StockAiRepoApplication. main entry.
  * @author joern ross (pearlbay) 2020
  */
+@SuppressWarnings("checkstyle:HideUtilityClassConstructor")
 @ComponentScan("de.pearlbay")
 @EnableJpaRepositories("de.pearlbay")
 @EntityScan("de.pearlbay")

@@ -45,19 +45,7 @@ public abstract class StockTimeSeriesDataCustomSerializer extends StdDeserialize
         JsonNode rootNode = jsonParser.getCodec().readTree(jsonParser);
         JsonNode metaDataNode = rootNode.get(keyValuePair.get("METADATA_IDENTIFIER"));
 
-        MetaDataDto metaDataDto;
-
-        try {
-            metaDataDto = MetaDataDto.builder()
-                    .information(metaDataNode.get(keyValuePair.get("METADATA_IDENTIFIER")).asText())
-                    .symbol(metaDataNode.get(keyValuePair.get("METADATA_SYMBOL")).asText())
-                    .lastRefreshed(metaDataNode.get(keyValuePair.get("METADATA_REFRESHED")).asText())
-                    .timeZone(metaDataNode.get(keyValuePair.get("METADATA_TIMEZONE")).asText())
-                    .build();
-        } catch (Exception e) {
-            LOG.error("Serialization Error in Custom Serializer");
-            throw new RuntimeException("Serializer Error");
-        }
+        MetaDataDto metaDataDto = getMetaDataDto(keyValuePair, metaDataNode);
 
         Iterator<Map.Entry<String, JsonNode>> iterator = rootNode.get("TIMESERIES_IDENTIFIER").fields();
 
@@ -105,5 +93,22 @@ public abstract class StockTimeSeriesDataCustomSerializer extends StdDeserialize
                 .metaDataDto(metaDataDto)
                 .timeSeriesDtoList(timeSeriesDtos)
                 .build();
+    }
+
+    private MetaDataDto getMetaDataDto(HashMap<String, String> keyValuePair, JsonNode metaDataNode) {
+        MetaDataDto metaDataDto;
+
+        try {
+            metaDataDto = MetaDataDto.builder()
+                    .information(metaDataNode.get(keyValuePair.get("METADATA_IDENTIFIER")).asText())
+                    .symbol(metaDataNode.get(keyValuePair.get("METADATA_SYMBOL")).asText())
+                    .lastRefreshed(metaDataNode.get(keyValuePair.get("METADATA_REFRESHED")).asText())
+                    .timeZone(metaDataNode.get(keyValuePair.get("METADATA_TIMEZONE")).asText())
+                    .build();
+        } catch (Exception e) {
+            LOG.error("Serialization Error in Custom Serializer");
+            throw new RuntimeException("Serializer Error");
+        }
+        return metaDataDto;
     }
 }
