@@ -22,6 +22,18 @@ import java.util.*;
  */
 public abstract class StockTimeSeriesDataCustomSerializer extends StdDeserializer<StockTimeSeriesDataDto> {
 
+    public static final String METADATA_IDENTIFIER = "METADATA_IDENTIFIER";
+    public static final String METADATA_INFORMATION = "METADATA_INFORMATION";
+    public static final String METADATA_SYMBOL = "METADATA_SYMBOL";
+    public static final String METADATA_REFRESHED = "METADATA_REFRESHED";
+    public static final String METADATA_TIMEZONE = "METADATA_TIMEZONE";
+    public static final String TIMESERIES_IDENTIFIER = "TIMESERIES_IDENTIFIER";
+    public static final String TIMESERIES_OPEN = "TIMESERIES_OPEN";
+    public static final String TIMESERIES_HIGH = "TIMESERIES_HIGH";
+    public static final String TIMESERIES_LOW = "TIMESERIES_LOW";
+    public static final String TIMESERIES_CLOSE = "TIMESERIES_CLOSE";
+    public static final String TIMESERIES_VOLUME = "TIMESERIES_VOLUME";
+
     public static final Logger LOG = LoggerFactory.getLogger(StockTimeSeriesDataCustomSerializer.class);
 
     protected StockTimeSeriesDataCustomSerializer(JavaType valueType) {
@@ -38,17 +50,18 @@ public abstract class StockTimeSeriesDataCustomSerializer extends StdDeserialize
 
     abstract HashMap<String, String> getKeyValuePairs();
 
+
     protected StockTimeSeriesDataDto serializeDto(JsonParser jsonParser) throws IOException {
 
         HashMap<String, String> keyValuePair = getKeyValuePairs();
 
         JsonNode rootNode = jsonParser.getCodec().readTree(jsonParser);
-        JsonNode metaDataNode = rootNode.get(keyValuePair.get("METADATA_IDENTIFIER"));
+        JsonNode metaDataNode = rootNode.get(keyValuePair.get(METADATA_IDENTIFIER));
 
         MetaDataDto metaDataDto = getMetaDataDto(keyValuePair, metaDataNode);
 
         Iterator<Map.Entry<String, JsonNode>> iterator = rootNode.get(keyValuePair
-                .get("TIMESERIES_IDENTIFIER")).fields();
+                .get(TIMESERIES_IDENTIFIER)).fields();
 
         List<TimeSeriesDto> timeSeriesDtos = new ArrayList<>();
 
@@ -66,14 +79,14 @@ public abstract class StockTimeSeriesDataCustomSerializer extends StdDeserialize
 
             try {
                 open = new BigDecimal(entry.getValue()
-                        .get(keyValuePair.get("TIMESERIES_OPEN")).asDouble(), MathContext.DECIMAL32);
+                        .get(keyValuePair.get(TIMESERIES_OPEN)).asDouble(), MathContext.DECIMAL32);
                 high = new BigDecimal(entry.getValue()
-                        .get(keyValuePair.get("TIMESERIES_HIGH")).asDouble(), MathContext.DECIMAL32);
+                        .get(keyValuePair.get(TIMESERIES_HIGH)).asDouble(), MathContext.DECIMAL32);
                 low = new BigDecimal(entry.getValue()
-                        .get(keyValuePair.get("TIMESERIES_LOW")).asDouble(), MathContext.DECIMAL32);
+                        .get(keyValuePair.get(TIMESERIES_LOW)).asDouble(), MathContext.DECIMAL32);
                 close = new BigDecimal(entry.getValue()
-                        .get(keyValuePair.get("TIMESERIES_CLOSE")).asDouble(), MathContext.DECIMAL32);
-                volume = entry.getValue().get(keyValuePair.get("TIMESERIES_VOLUME")).asDouble();
+                        .get(keyValuePair.get(TIMESERIES_CLOSE)).asDouble(), MathContext.DECIMAL32);
+                volume = entry.getValue().get(keyValuePair.get(TIMESERIES_VOLUME)).asDouble();
 
             } catch (Exception e) {
                 LOG.error("Serialization Error in TimeSeries Custom Serializer");
@@ -101,10 +114,10 @@ public abstract class StockTimeSeriesDataCustomSerializer extends StdDeserialize
 
         try {
             metaDataDto = MetaDataDto.builder()
-                    .information(metaDataNode.get(keyValuePair.get("METADATA_INFORMATION")).asText())
-                    .symbol(metaDataNode.get(keyValuePair.get("METADATA_SYMBOL")).asText())
-                    .lastRefreshed(metaDataNode.get(keyValuePair.get("METADATA_REFRESHED")).asText())
-                    .timeZone(metaDataNode.get(keyValuePair.get("METADATA_TIMEZONE")).asText())
+                    .information(metaDataNode.get(keyValuePair.get(METADATA_INFORMATION)).asText())
+                    .symbol(metaDataNode.get(keyValuePair.get(METADATA_SYMBOL)).asText())
+                    .lastRefreshed(metaDataNode.get(keyValuePair.get(METADATA_REFRESHED)).asText())
+                    .timeZone(metaDataNode.get(keyValuePair.get(METADATA_TIMEZONE)).asText())
                     .build();
         } catch (Exception e) {
             LOG.error("Serialization Error in MetaData Custom Serializer");
