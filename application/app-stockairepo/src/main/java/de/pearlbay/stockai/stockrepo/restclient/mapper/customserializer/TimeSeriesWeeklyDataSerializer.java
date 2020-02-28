@@ -34,7 +34,7 @@ public class TimeSeriesWeeklyDataSerializer extends StockTimeSeriesDataCustomSer
         HashMap<String, String> keyValuePairs = new HashMap<>();
 
         keyValuePairs.put("METADATA_IDENTIFIER", "Meta Data");
-        keyValuePairs.put("METADATA_INFORMATION", "1. Informatiom");
+        keyValuePairs.put("METADATA_INFORMATION", "1. Information");
         keyValuePairs.put("METADATA_SYMBOL", "2. Symbol");
         keyValuePairs.put("METADATA_REFRESHED", "3. Last Refreshed");
         keyValuePairs.put("METADATA_TIMEZONE", "4. Time Zone");

@@ -47,7 +47,8 @@ public abstract class StockTimeSeriesDataCustomSerializer extends StdDeserialize
 
         MetaDataDto metaDataDto = getMetaDataDto(keyValuePair, metaDataNode);
 
-        Iterator<Map.Entry<String, JsonNode>> iterator = rootNode.get("TIMESERIES_IDENTIFIER").fields();
+        Iterator<Map.Entry<String, JsonNode>> iterator = rootNode.get(keyValuePair
+                .get("TIMESERIES_IDENTIFIER")).fields();
 
         List<TimeSeriesDto> timeSeriesDtos = new ArrayList<>();
 
@@ -75,7 +76,7 @@ public abstract class StockTimeSeriesDataCustomSerializer extends StdDeserialize
                 volume = entry.getValue().get(keyValuePair.get("TIMESERIES_VOLUME")).asDouble();
 
             } catch (Exception e) {
-                LOG.error("Serialization Error in Custom Serializer");
+                LOG.error("Serialization Error in TimeSeries Custom Serializer");
                 throw new RuntimeException("Serializer Error");
             }
 
@@ -100,13 +101,13 @@ public abstract class StockTimeSeriesDataCustomSerializer extends StdDeserialize
 
         try {
             metaDataDto = MetaDataDto.builder()
-                    .information(metaDataNode.get(keyValuePair.get("METADATA_IDENTIFIER")).asText())
+                    .information(metaDataNode.get(keyValuePair.get("METADATA_INFORMATION")).asText())
                     .symbol(metaDataNode.get(keyValuePair.get("METADATA_SYMBOL")).asText())
                     .lastRefreshed(metaDataNode.get(keyValuePair.get("METADATA_REFRESHED")).asText())
                     .timeZone(metaDataNode.get(keyValuePair.get("METADATA_TIMEZONE")).asText())
                     .build();
         } catch (Exception e) {
-            LOG.error("Serialization Error in Custom Serializer");
+            LOG.error("Serialization Error in MetaData Custom Serializer");
             throw new RuntimeException("Serializer Error");
         }
         return metaDataDto;
