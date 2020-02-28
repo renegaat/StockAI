@@ -13,7 +13,7 @@ public class CustomSerializerFactory {
     public  static StockTimeSeriesDataCustomSerializer factory(Function function) {
         switch (function) {
             case TIME_SERIES_INTRADAY:
-                break;
+                return new TimeSeriesIntraDayDataSerializer(StockTimeSeriesDataDto.class);
             case TIME_SERIES_DAILY:
                 return new TimeSeriesDailyDataSerializer(StockTimeSeriesDataDto.class);
             case TIME_SERIES_DAILY_ADJUSTED:

@@ -24,6 +24,7 @@ public abstract class StockTimeSeriesDataCustomSerializer extends StdDeserialize
 
     public static final String METADATA_IDENTIFIER = "METADATA_IDENTIFIER";
     public static final String METADATA_INFORMATION = "METADATA_INFORMATION";
+
     public static final String METADATA_SYMBOL = "METADATA_SYMBOL";
     public static final String METADATA_REFRESHED = "METADATA_REFRESHED";
     public static final String METADATA_TIMEZONE = "METADATA_TIMEZONE";
@@ -56,12 +57,28 @@ public abstract class StockTimeSeriesDataCustomSerializer extends StdDeserialize
         HashMap<String, String> keyValuePair = getKeyValuePairs();
 
         JsonNode rootNode = jsonParser.getCodec().readTree(jsonParser);
-        JsonNode metaDataNode = rootNode.get(keyValuePair.get(METADATA_IDENTIFIER));
+
+        Iterator<Map.Entry<String, JsonNode>> fieldIterator = rootNode.fields();
+
+        String metaDataIdentifier = "";
+        String timeSeriesIdentifier = "";
+
+        int jsonIndex = 0;
+
+        while (fieldIterator.hasNext()) {
+            if (jsonIndex == 0) {
+                metaDataIdentifier = fieldIterator.next().getKey();
+            } else {
+                timeSeriesIdentifier = fieldIterator.next().getKey();
+            }
+            jsonIndex++;
+        }
+
+        JsonNode metaDataNode = rootNode.get(metaDataIdentifier);
 
         MetaDataDto metaDataDto = getMetaDataDto(keyValuePair, metaDataNode);
 
-        Iterator<Map.Entry<String, JsonNode>> iterator = rootNode.get(keyValuePair
-                .get(TIMESERIES_IDENTIFIER)).fields();
+        Iterator<Map.Entry<String, JsonNode>> iterator = rootNode.get(timeSeriesIdentifier).fields();
 
         List<TimeSeriesDto> timeSeriesDtos = new ArrayList<>();
 
