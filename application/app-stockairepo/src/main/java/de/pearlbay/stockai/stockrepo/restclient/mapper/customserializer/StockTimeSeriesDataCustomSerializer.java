@@ -22,13 +22,10 @@ import java.util.*;
  */
 public abstract class StockTimeSeriesDataCustomSerializer extends StdDeserializer<StockTimeSeriesDataDto> {
 
-    public static final String METADATA_IDENTIFIER = "METADATA_IDENTIFIER";
     public static final String METADATA_INFORMATION = "METADATA_INFORMATION";
-
     public static final String METADATA_SYMBOL = "METADATA_SYMBOL";
     public static final String METADATA_REFRESHED = "METADATA_REFRESHED";
     public static final String METADATA_TIMEZONE = "METADATA_TIMEZONE";
-    public static final String TIMESERIES_IDENTIFIER = "TIMESERIES_IDENTIFIER";
     public static final String TIMESERIES_OPEN = "TIMESERIES_OPEN";
     public static final String TIMESERIES_HIGH = "TIMESERIES_HIGH";
     public static final String TIMESERIES_LOW = "TIMESERIES_LOW";
