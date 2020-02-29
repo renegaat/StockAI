@@ -7,35 +7,36 @@ import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 import de.pearlbay.stockai.stockrepo.restclient.dto.StockTimeSeriesDataDto;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.HashMap;
 
 /**
- * TimeSeriesDailyDataSerializer.
+ * TimeSeriesIntraDayDataSerializer.
  *
  * @author joern ross (pearlbay) 2020
  */
-public class TimeSeriesDailyDataSerializer extends StockTimeSeriesDataCustomSerializer {
+public class TimeSeriesIntraDayDataSerializer extends StockTimeSeriesDataCustomSerializer {
 
-    protected TimeSeriesDailyDataSerializer(JavaType valueType) {
+    protected TimeSeriesIntraDayDataSerializer(JavaType valueType) {
         super(valueType);
     }
 
-    public TimeSeriesDailyDataSerializer(Class<?> vc) {
+    public TimeSeriesIntraDayDataSerializer(Class<?> vc) {
         super(vc);
     }
 
-    public TimeSeriesDailyDataSerializer(StdDeserializer<?> src) {
+    public TimeSeriesIntraDayDataSerializer(StdDeserializer<?> src) {
         super(src);
     }
 
     @Override
     HashMap<String, String> getKeyValuePairs() {
+
         HashMap<String, String> keyValuePairs = new HashMap<>();
 
         keyValuePairs.put(METADATA_INFORMATION, "1. Information");
         keyValuePairs.put(METADATA_SYMBOL, "2. Symbol");
         keyValuePairs.put(METADATA_REFRESHED, "3. Last Refreshed");
-        keyValuePairs.put(METADATA_TIMEZONE, "5. Time Zone");
+        keyValuePairs.put(METADATA_TIMEZONE, "6. Time Zone");
 
         keyValuePairs.put(TIMESERIES_OPEN, "1. open");
         keyValuePairs.put(TIMESERIES_HIGH, "2. high");

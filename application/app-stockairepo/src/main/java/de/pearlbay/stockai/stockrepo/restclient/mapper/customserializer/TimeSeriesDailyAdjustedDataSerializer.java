@@ -7,24 +7,25 @@ import com.fasterxml.jackson.databind.deser.std.StdDeserializer;
 import de.pearlbay.stockai.stockrepo.restclient.dto.StockTimeSeriesDataDto;
 
 import java.io.IOException;
-import java.util.*;
+import java.util.HashMap;
 
 /**
- * TimeSeriesDailyDataSerializer.
+ * TimeSeriesDailyAdjustedDataSerializer.
+ * Note:  adjusted, divident and plit coefficient are not implemented.
  *
  * @author joern ross (pearlbay) 2020
  */
-public class TimeSeriesDailyDataSerializer extends StockTimeSeriesDataCustomSerializer {
+public class TimeSeriesDailyAdjustedDataSerializer extends StockTimeSeriesDataCustomSerializer {
 
-    protected TimeSeriesDailyDataSerializer(JavaType valueType) {
+    protected TimeSeriesDailyAdjustedDataSerializer(JavaType valueType) {
         super(valueType);
     }
 
-    public TimeSeriesDailyDataSerializer(Class<?> vc) {
+    public TimeSeriesDailyAdjustedDataSerializer(Class<?> vc) {
         super(vc);
     }
 
-    public TimeSeriesDailyDataSerializer(StdDeserializer<?> src) {
+    public TimeSeriesDailyAdjustedDataSerializer(StdDeserializer<?> src) {
         super(src);
     }
 
@@ -41,7 +42,7 @@ public class TimeSeriesDailyDataSerializer extends StockTimeSeriesDataCustomSeri
         keyValuePairs.put(TIMESERIES_HIGH, "2. high");
         keyValuePairs.put(TIMESERIES_LOW, "3. low");
         keyValuePairs.put(TIMESERIES_CLOSE, "4. close");
-        keyValuePairs.put(TIMESERIES_VOLUME, "5. volume");
+        keyValuePairs.put(TIMESERIES_VOLUME, "6. volume");
 
         return keyValuePairs;
     }

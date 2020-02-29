@@ -7,27 +7,27 @@ import de.pearlbay.stockai.stockrepo.restclient.dto.StockTimeSeriesDataDto;
  *
  * @author joern ross (pearlbay) 2020
  */
+@SuppressWarnings("checkstyle:HideUtilityClassConstructor")
 public class CustomSerializerFactory {
 
-    public  static StockTimeSeriesDataSerializer factory(Function function) {
+    public  static StockTimeSeriesDataCustomSerializer factory(Function function) {
         switch (function) {
             case TIME_SERIES_INTRADAY:
-                break;
+                return new TimeSeriesIntraDayDataSerializer(StockTimeSeriesDataDto.class);
             case TIME_SERIES_DAILY:
                 return new TimeSeriesDailyDataSerializer(StockTimeSeriesDataDto.class);
             case TIME_SERIES_DAILY_ADJUSTED:
-                break;
+                return new TimeSeriesDailyAdjustedDataSerializer(StockTimeSeriesDataDto.class);
             case TIME_SERIES_WEEKLY:
                 return new TimeSeriesWeeklyDataSerializer(StockTimeSeriesDataDto.class);
             case TIME_SERIES_WEEKLY_ADJUSTED:
-                break;
+                return new TimeSeriesWeeklyAdjustedDataSerializer(StockTimeSeriesDataDto.class);
             case TIME_SERIES_MONTHLY:
-                break;
+                return new TimeSeriesMonthlyDataSerializer(StockTimeSeriesDataDto.class);
             case TIME_SERIES_MONTHLY_ADJUSTED:
-                break;
+                return new TimeSeriesMonthlyAdjustedDataSerializer(StockTimeSeriesDataDto.class);
             default:
-                return null;
+                throw new RuntimeException("Configuration Error");
         }
-        return null;
     }
 }
