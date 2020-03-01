@@ -15,7 +15,6 @@ import org.springframework.util.Assert;
 
 /**
  * StockTimeSeriesClientImpl.
- * <p>
  * Retrieves stockdata from AlphaVantage.
  *
  * @author joern ross (pearlbay) 2020
@@ -34,12 +33,13 @@ public class StockTimeSeriesClientImpl implements StockTimeSeriesClient {
     public StockTimeSeriesData retrieveStockTimeSeriesData(String symbol, Function function,
                                                            OutputSize outputSize, Interval interval) {
 
-        Assert.notNull(symbol, "symbol must not be null");
+        Assert.notNull(symbol, "syambol must not be null");
         Assert.notNull(function, "function must not be null");
         Assert.notNull(outputSize, "outputSize must not be null");
 
         StockTimeSeriesDataDto stockTimeSeriesDataDto = stockTimeSeriesRestClient
                 .retrieveStockTimeSeriesData(apiKey, symbol, function, outputSize, interval);
+
 
         return StockTimeSeriesData.builder().build();
     }
