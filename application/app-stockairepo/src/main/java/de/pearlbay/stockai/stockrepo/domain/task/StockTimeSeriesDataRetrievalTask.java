@@ -35,8 +35,8 @@ public class StockTimeSeriesDataRetrievalTask {
     //todo jross set schedule to fixed time ?
     @Scheduled(fixedRateString = "${stock.refresh}")
     public void retrieveStockTimeSeriesData() {
-        LOG.info("Started retrieveStockTimeSeriesData task");
 
+        LOG.info("Started retrieveStockTimeSeriesData task");
 
         if (stockConfigurationProperties.getSymbol().size() != stockConfigurationProperties.getFunction().size()
                 || (stockConfigurationProperties.getSymbol().size()
@@ -46,6 +46,8 @@ public class StockTimeSeriesDataRetrievalTask {
         }
 
         for (int c = 0; c < stockConfigurationProperties.getSymbol().size(); c++) {
+
+            //todo add a wait timer between each stack data retrieval.
 
             String symbol;
             Function function;
@@ -73,6 +75,7 @@ public class StockTimeSeriesDataRetrievalTask {
 
             StockTimeSeriesData stockTimeSeriesData = stockTimeSeriesClient
                     .retrieveStockTimeSeriesData(symbol, function, outputSize, interval);
+
 
             if (stockTimeSeriesData == null) {
                 LOG.warn("retrieveStockTimeSeriesData returned no result");

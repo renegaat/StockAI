@@ -7,6 +7,8 @@ import de.pearlbay.stockai.stockrepo.domain.StockTimeSeriesData;
 import de.pearlbay.stockai.stockrepo.domain.service.StockTimeSeriesClient;
 import de.pearlbay.stockai.stockrepo.restclient.StockTimeSeriesRestClient;
 import de.pearlbay.stockai.stockrepo.restclient.dto.StockTimeSeriesDataDto;
+import de.pearlbay.stockai.stockrepo.service.mapper.StockTimeSeriesDataDtoMapper;
+import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -40,7 +42,9 @@ public class StockTimeSeriesClientImpl implements StockTimeSeriesClient {
         StockTimeSeriesDataDto stockTimeSeriesDataDto = stockTimeSeriesRestClient
                 .retrieveStockTimeSeriesData(apiKey, symbol, function, outputSize, interval);
 
+        StockTimeSeriesDataDtoMapper stockTimeSeriesDataDtoMapper
+                = Mappers.getMapper(StockTimeSeriesDataDtoMapper.class);
 
-        return StockTimeSeriesData.builder().build();
+        return stockTimeSeriesDataDtoMapper.fromDto(stockTimeSeriesDataDto);
     }
 }
