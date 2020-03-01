@@ -28,16 +28,15 @@
         </encoder>
     </appender>
 
-    <logger name="de.pearlbay" level="info" additivity="false">
+    <logger name="de.pearlbay" level="warn" additivity="false">
         <appender-ref ref="STDOUT"/>
     </logger>
 
     <logger name="de.pearlbay" level="warn" additivity="false">
         <appender-ref ref="FILE-ROLLING"/>
     </logger>
-
-
-    <root level="debug">
+    
+    <root level="info">
         <appender-ref ref="STDOUT" />
     </root>
 
