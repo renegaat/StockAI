@@ -28,7 +28,7 @@
         </encoder>
     </appender>
 
-    <logger name="de.pearlbay" level="debug" additivity="false">
+    <logger name="de.pearlbay" level="info" additivity="false">
         <appender-ref ref="STDOUT"/>
     </logger>
 
@@ -37,7 +37,7 @@
     </logger>
 
 
-    <root level="info">
+    <root level="debug">
         <appender-ref ref="STDOUT" />
     </root>
 

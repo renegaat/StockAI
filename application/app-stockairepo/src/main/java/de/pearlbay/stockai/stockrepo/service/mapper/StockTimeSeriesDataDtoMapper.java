@@ -16,7 +16,7 @@ public interface StockTimeSeriesDataDtoMapper {
 
     StockTimeSeriesDataDtoMapper INSTANCE = Mappers.getMapper(StockTimeSeriesDataDtoMapper.class);
 
-    StockTimeSeriesDataDto toDto(StockTimeSeriesData stockTimeSeriesData);
+    StockTimeSeriesDataDto toDto(StockTimeSeriesData s);
 
-    StockTimeSeriesData fromDto(StockTimeSeriesDataDto stockTimeSeriesDataDto);
+    StockTimeSeriesData fromDto(StockTimeSeriesDataDto dto);
 }

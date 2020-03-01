@@ -118,8 +118,8 @@ public abstract class StockTimeSeriesDataCustomSerializer extends StdDeserialize
         }
 
         return StockTimeSeriesDataDto.builder()
-                .metaDataDto(metaDataDto)
-                .timeSeriesDtoList(timeSeriesDtos)
+                .metaData(metaDataDto)
+                .timeSeries(timeSeriesDtos)
                 .build();
     }
 
