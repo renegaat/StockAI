@@ -1,8 +1,6 @@
 package de.pearlbay.stockai.stockrepo.domain.task;
 
-import de.pearlbay.stockai.common.enums.Function;
-import de.pearlbay.stockai.common.enums.Interval;
-import de.pearlbay.stockai.common.enums.OutputSize;
+import de.pearlbay.stockai.common.enums.*;
 import de.pearlbay.stockai.stockrepo.application.configuration.StockConfigurationProperties;
 import de.pearlbay.stockai.stockrepo.domain.StockTimeSeriesData;
 import de.pearlbay.stockai.stockrepo.domain.service.StockTimeSeriesClient;
@@ -76,10 +74,17 @@ public class StockTimeSeriesDataRetrievalTask {
             StockTimeSeriesData stockTimeSeriesData = stockTimeSeriesClient
                     .retrieveStockTimeSeriesData(symbol, function, outputSize, interval);
 
-
             if (stockTimeSeriesData == null) {
                 LOG.warn("retrieveStockTimeSeriesData returned no result");
+                return;
             }
+
+            stockTimeSeriesData.setCurrency(Currency.valueOf(stockConfigurationProperties.getCurrency()));
+            stockTimeSeriesData.setFunction(function);
+            stockTimeSeriesData.setMarket(Market.valueOf(stockConfigurationProperties.getMarket()));
+            stockTimeSeriesData.setStockName(symbol);
+
+            //todo delete and save data
         }
     }
 }

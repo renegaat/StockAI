@@ -14,6 +14,8 @@ import java.util.List;
 @ConfigurationProperties(prefix = "stock")
 public class StockConfigurationProperties {
     private int refresh;
+    private String market;
+    private String currency;
     private List<String> symbol;
     private List<String> function;
     private List<String> outputSize;
