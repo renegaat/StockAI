@@ -33,6 +33,8 @@ public abstract class StockTimeSeriesDataCustomSerializer extends StdDeserialize
     public static final String TIMESERIES_VOLUME = "TIMESERIES_VOLUME";
 
     public static final Logger LOG = LoggerFactory.getLogger(StockTimeSeriesDataCustomSerializer.class);
+    public static final int DATELENGTH = 10;
+    public static final String DATEADDENDUM = " 00:00:00";
 
     protected StockTimeSeriesDataCustomSerializer(JavaType valueType) {
         super(valueType);
@@ -83,7 +85,7 @@ public abstract class StockTimeSeriesDataCustomSerializer extends StdDeserialize
 
             Map.Entry<String, JsonNode> entry = iterator.next();
 
-            String date = entry.getKey();
+            String date = convertDateString(entry.getKey());
 
             BigDecimal open = null;
             BigDecimal high = null;
@@ -130,7 +132,7 @@ public abstract class StockTimeSeriesDataCustomSerializer extends StdDeserialize
             metaDataDto = MetaDataDto.builder()
                     .information(metaDataNode.get(keyValuePair.get(METADATA_INFORMATION)).asText())
                     .symbol(metaDataNode.get(keyValuePair.get(METADATA_SYMBOL)).asText())
-                    .lastRefreshed(metaDataNode.get(keyValuePair.get(METADATA_REFRESHED)).asText())
+                    .lastRefreshed(convertDateString(metaDataNode.get(keyValuePair.get(METADATA_REFRESHED)).asText()))
                     .timeZone(metaDataNode.get(keyValuePair.get(METADATA_TIMEZONE)).asText())
                     .build();
         } catch (Exception e) {
@@ -138,5 +140,9 @@ public abstract class StockTimeSeriesDataCustomSerializer extends StdDeserialize
             throw new RuntimeException("Serializer Error");
         }
         return metaDataDto;
+    }
+
+    private String convertDateString(String date) {
+        return date.length() == DATELENGTH ? date + DATEADDENDUM : date;
     }
 }
