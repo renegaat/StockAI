@@ -11,8 +11,9 @@ import javax.persistence.*;
 import java.util.List;
 
 /**
- *StockTimeSeriesDataJpa.
- *@author joern ross (pearlbay) 2020
+ * StockTimeSeriesDataJpa.
+ *
+ * @author joern ross (pearlbay) 2020
  */
 @Entity
 @Table(name = "stocktimeseriesdata")

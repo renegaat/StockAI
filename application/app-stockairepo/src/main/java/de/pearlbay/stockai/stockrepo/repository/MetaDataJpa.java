@@ -18,7 +18,7 @@ import java.time.LocalDateTime;
 @Table(name = "metadata")
 @Data
 @EqualsAndHashCode(callSuper = true)
-public class    MetaDataJpa extends BaseJpa {
+public class MetaDataJpa extends BaseJpa {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "metadata_id_seq")
     @SequenceGenerator(name = "metadata_id_seq", sequenceName = "metadata_id_seq")
@@ -27,6 +27,8 @@ public class    MetaDataJpa extends BaseJpa {
 
     private String symbol;
     private String information;
+    @Column(name = "last_refreshed")
     private LocalDateTime lastRefreshed;
+    @Column(name = "time_zone")
     private String timeZone;
 }

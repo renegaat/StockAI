@@ -60,11 +60,11 @@
             </column>
             <column name="information" type="VARCHAR(255 CHAR)"
                     remarks="Detailed Information"/>
-            <column name="lastrefreshed" type="DATETIME"
+            <column name="last_refreshed" type="DATETIME"
                     remarks="Timestamp of last data update">
                 <constraints nullable="false"/>
             </column>
-            <column name="timezone" type="VARCHAR(255 CHAR)"
+            <column name="time_zone" type="VARCHAR(255 CHAR)"
                     remarks="Timezone"/>
             <column name="stocktimeseriesdata_id" remarks="Foreign Key StockTimeSeriesData (stocktimeseriesdata_id)"
                     type="NUMBER(19, 0)">

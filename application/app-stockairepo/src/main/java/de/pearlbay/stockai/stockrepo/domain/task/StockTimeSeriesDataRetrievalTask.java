@@ -85,6 +85,8 @@ public class StockTimeSeriesDataRetrievalTask {
             stockTimeSeriesData.setStockName(symbol);
 
             //todo delete and save data
+            stockTimeSeriesDataService.createOrUpdateStockTimeSeriesData(stockTimeSeriesData);
+
         }
     }
 }
