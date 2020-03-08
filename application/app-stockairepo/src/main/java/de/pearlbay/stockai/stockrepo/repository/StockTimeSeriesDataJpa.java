@@ -30,17 +30,17 @@ public class StockTimeSeriesDataJpa extends BaseJpa {
     @Column(name = "stocktimeseriesdata_id")
     private Long id;
 
+
     private String stockName;
     private Currency currency;
     private Market market;
     private boolean newData;
 
-    @OneToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "metadata_id")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "metadata_id", unique = true, nullable = false, insertable = true, updatable = true)
     private MetaDataJpa metaData;
 
-    @OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "stocktimeseriesdata_id")
+    @OneToMany(mappedBy = "stockTimeSeriesData")
     private List<TimeSeriesJpa> timeSeries;
 
     private Function function;

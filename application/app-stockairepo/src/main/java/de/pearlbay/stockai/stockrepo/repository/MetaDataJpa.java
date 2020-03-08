@@ -27,8 +27,10 @@ public class MetaDataJpa extends BaseJpa {
 
     private String symbol;
     private String information;
+
     @Column(name = "last_refreshed")
     private LocalDateTime lastRefreshed;
+
     @Column(name = "time_zone")
     private String timeZone;
 }

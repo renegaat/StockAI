@@ -33,16 +33,20 @@
             <column name="version" type="NUMBER(10, 0)" remarks="Versionszähler">
                 <constraints nullable="false"/>
             </column>
-            <column name="stockName" type="VARCHAR(255 CHAR)"
+            <column name="stock_name" type="VARCHAR(255 CHAR)"
                     remarks="Stock name"/>
             <column name="currency" type="VARCHAR(255 CHAR)"
                     remarks="Currency"/>
             <column name="market" type="VARCHAR(255 CHAR)"
                     remarks="Market"/>
-            <column name="newData" defaultValue="false" type="boolean"
+            <column name="new_data" defaultValue="false" type="boolean"
                     remarks="Is it new data"/>
             <column name="function" type="VARCHAR(255 CHAR)"
                     remarks="Alpha Vantage retrieval function type"/>
+            <column name="metadata_id" remarks="Foreign Key MetaData (metadata_id)"
+                    type="NUMBER(19, 0)">
+                <constraints nullable="false"/>
+            </column>
         </createTable>
     </changeSet>
 
@@ -66,10 +70,6 @@
             </column>
             <column name="time_zone" type="VARCHAR(255 CHAR)"
                     remarks="Timezone"/>
-            <column name="stocktimeseriesdata_id" remarks="Foreign Key StockTimeSeriesData (stocktimeseriesdata_id)"
-                    type="NUMBER(19, 0)">
-                <constraints nullable="false"/>
-            </column>
         </createTable>
     </changeSet>
 
@@ -113,14 +113,19 @@
     </changeSet>
 
     <changeSet author="jross" id="AI-13_8">
-        <addForeignKeyConstraint baseColumnNames="stocktimeseriesdata_id" baseTableName="metadata"
-                                 constraintName="FK_5EWGU9WL4MMRD5Q3H13X89S7E" deferrable="false"
-                                 initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
-                                 referencedColumnNames="stocktimeseriesdata_id"
-                                 referencedTableName="stocktimeseriesdata"/>
+        <addPrimaryKey columnNames="metadata_id" constraintName="metadatapk"
+                       tableName="metadata"/>
     </changeSet>
 
     <changeSet author="jross" id="AI-13_9">
+        <addForeignKeyConstraint baseColumnNames="metadata_id" baseTableName="stocktimeseriesdata"
+                                 constraintName="FK_5EWGU9WL4MMRD5Q3H13X89S7E" deferrable="false"
+                                 initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
+                                 referencedColumnNames="metadata_id"
+                                 referencedTableName="metadata"/>
+    </changeSet>
+
+    <changeSet author="jross" id="AI-13_10">
         <addForeignKeyConstraint baseColumnNames="stocktimeseriesdata_id" baseTableName="timeseries"
                                  constraintName="FK_5EWGU9WL4MMRD5Q3H13X89S7F" deferrable="false"
                                  initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
