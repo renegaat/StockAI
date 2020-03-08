@@ -84,8 +84,13 @@ public class StockTimeSeriesDataRetrievalTask {
             stockTimeSeriesData.setMarket(Market.valueOf(stockConfigurationProperties.getMarket()));
             stockTimeSeriesData.setStockName(symbol);
 
-            //todo delete and save data
+            //todo delete
             stockTimeSeriesDataService.createOrUpdateStockTimeSeriesData(stockTimeSeriesData);
+
+            StockTimeSeriesData test = stockTimeSeriesDataService
+                    .retrieveStockTimeSeriesDataBySymbolAndFunction("MSFT", Function.TIME_SERIES_WEEKLY);
+
+            LOG.info("operation success");
 
         }
     }
