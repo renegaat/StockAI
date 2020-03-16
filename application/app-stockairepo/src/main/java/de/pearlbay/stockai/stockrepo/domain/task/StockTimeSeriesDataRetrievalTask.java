@@ -85,7 +85,8 @@ public class StockTimeSeriesDataRetrievalTask {
             stockTimeSeriesData.setStockName(symbol);
 
             //todo delete
-            StockTimeSeriesData test1 = stockTimeSeriesDataService.createOrUpdateStockTimeSeriesData(stockTimeSeriesData);
+            StockTimeSeriesData test1 = stockTimeSeriesDataService
+                    .createOrUpdateStockTimeSeriesData(stockTimeSeriesData);
 
             StockTimeSeriesData test2 = stockTimeSeriesDataService
                     .retrieveStockTimeSeriesDataBySymbolAndFunction("MSFT", Function.TIME_SERIES_WEEKLY);
