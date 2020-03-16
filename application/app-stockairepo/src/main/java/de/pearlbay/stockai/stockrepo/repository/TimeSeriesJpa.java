@@ -25,10 +25,6 @@ public class TimeSeriesJpa extends BaseJpa {
     @Column(name = "timeseries_id")
     private Long id;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "stocktimeseriesdata_id")
-    private StockTimeSeriesDataJpa stockTimeSeriesData;
-
     private LocalDateTime time;
     private BigDecimal open;
     private BigDecimal high;

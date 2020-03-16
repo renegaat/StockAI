@@ -40,7 +40,11 @@ public class StockTimeSeriesDataJpa extends BaseJpa {
     @JoinColumn(name = "metadata_id", unique = true, nullable = false, insertable = true, updatable = true)
     private MetaDataJpa metaData;
 
-    @OneToMany(mappedBy = "stockTimeSeriesData")
+    @OneToMany(
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    @JoinColumn(name = "stocktimeseriesdata_id", nullable = false)
     private List<TimeSeriesJpa> timeSeries;
 
     private Function function;
