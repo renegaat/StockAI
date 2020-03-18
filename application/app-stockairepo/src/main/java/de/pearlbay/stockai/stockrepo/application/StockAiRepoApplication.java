@@ -10,6 +10,7 @@ import org.springframework.boot.context.properties.EnableConfigurationProperties
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.scheduling.annotation.EnableScheduling;
+import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 /**
  * StockAiRepoApplication. main entry.
@@ -18,6 +19,7 @@ import org.springframework.scheduling.annotation.EnableScheduling;
 @SuppressWarnings("checkstyle:HideUtilityClassConstructor")
 @ComponentScan("de.pearlbay")
 @EnableJpaRepositories("de.pearlbay")
+@EnableTransactionManagement
 @EntityScan("de.pearlbay")
 @EnableScheduling
 @EnableConfigurationProperties(StockConfigurationProperties.class)
