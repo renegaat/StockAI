@@ -12,6 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.Assert;
 
 
@@ -25,6 +26,7 @@ import java.util.stream.Collectors;
  * @author joern ross (pearlbay) 2020
  */
 @Service
+@Transactional
 public class StockTimeSeriesDataServiceImpl implements StockTimeSeriesDataService {
 
     private static final Logger LOG = LoggerFactory.getLogger(StockTimeSeriesDataServiceImpl.class);
