@@ -56,7 +56,7 @@ public class StockTimeSeriesDataRetrievalTask {
 
                 symbol = stockConfigurationProperties.getSymbol().get(c);
                 function = Function.valueOf(stockConfigurationProperties.getFunction().get(c));
-                outputSize = OutputSize.valueOf(stockConfigurationProperties.getOutputSize().get(c));
+                outputSize = OutputSize.valueOf(    stockConfigurationProperties.getOutputSize().get(c));
 
                 if ((stockConfigurationProperties.getInterval() != null)
                         && (stockConfigurationProperties.getInterval().get(c).compareTo("") != 0)) {
@@ -85,11 +85,10 @@ public class StockTimeSeriesDataRetrievalTask {
             stockTimeSeriesData.setStockName(symbol);
 
             //todo delete
-            StockTimeSeriesData test1 = stockTimeSeriesDataService
-                    .createOrUpdateStockTimeSeriesData(stockTimeSeriesData);
 
-            StockTimeSeriesData test2 = stockTimeSeriesDataService
-                    .retrieveStockTimeSeriesDataBySymbolAndFunction("MSFT", Function.TIME_SERIES_WEEKLY);
+            //stockTimeSeriesDataService.deleteStockTimeSeriesDataBySymbolAndFunction(symbol, function);
+
+            stockTimeSeriesDataService.createOrUpdateStockTimeSeriesData(stockTimeSeriesData);
 
             LOG.info("operation success");
 

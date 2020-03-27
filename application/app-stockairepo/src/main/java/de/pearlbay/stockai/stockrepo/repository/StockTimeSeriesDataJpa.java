@@ -32,8 +32,14 @@ public class StockTimeSeriesDataJpa extends BaseJpa {
 
 
     private String stockName;
+
+    @Enumerated(EnumType.STRING)
     private Currency currency;
+
+
+    @Enumerated(EnumType.STRING)
     private Market market;
+
     private boolean newData;
 
     @OneToOne(cascade = CascadeType.ALL)
@@ -47,6 +53,7 @@ public class StockTimeSeriesDataJpa extends BaseJpa {
     @JoinColumn(name = "stocktimeseriesdata_id", nullable = false)
     private List<TimeSeriesJpa> timeSeries;
 
+    @Enumerated(EnumType.STRING)
     private Function function;
 
 }

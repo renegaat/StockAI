@@ -85,16 +85,16 @@
                     remarks="Timestamp">
                 <constraints nullable="false"/>
             </column>
-            <column name="open" type="NUMBER(19, 0)" remarks="Price open">
+            <column name="open" type="NUMBER(19, 4)" remarks="Price open">
                 <constraints nullable="false"/>
             </column>
-            <column name="high" type="NUMBER(19, 0)" remarks="Price high">
+            <column name="high" type="NUMBER(19, 4)" remarks="Price high">
                 <constraints nullable="false"/>
             </column>
-            <column name="low" type="NUMBER(19, 0)" remarks="Price low">
+            <column name="low" type="NUMBER(19, 4)" remarks="Price low">
                 <constraints nullable="false"/>
             </column>
-            <column name="close" type="NUMBER(19, 0)" remarks="Price close">
+            <column name="close" type="NUMBER(19, 4)" remarks="Price close">
                 <constraints nullable="false"/>
             </column>
             <column name="volume" type="NUMBER(10, 0)" remarks="Volume traded">

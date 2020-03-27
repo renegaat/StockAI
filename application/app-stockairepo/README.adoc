@@ -18,4 +18,9 @@ drop sequence stockairepo.timeseries_id_seq;
 
 
 
+to delete database content:
+
+delete from STOCKAIREPO.TIMESERIES;
+delete from STOCKAIREPO.STOCKTIMESERIESDATA;
+delete from STOCKAIREPO.METADATA;
 
