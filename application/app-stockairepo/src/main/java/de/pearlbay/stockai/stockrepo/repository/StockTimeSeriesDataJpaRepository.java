@@ -17,7 +17,11 @@ public interface StockTimeSeriesDataJpaRepository extends JpaRepository<StockTim
     @Query(value = "select s from stocktimeseriesdata s where s.metadata.symbol = ?1"
             + " AND s.function = ?2", nativeQuery = true)
     StockTimeSeriesDataJpa findBySymbolAndFunction(String symbol, Function function);
-    @Query(value = "delete from stocktimeseriesdata where s.metadata.symbol = ?1"
-            + " AND s.function = ?2", nativeQuery = true)
+
+
+    @Query(value= "delete (SELECT * from STOCKAIREPO.STOCKTIMESERIESDATA s" +
+            " INNER JOIN STOCKAIREPO.METADATA m" +
+            " ON m.SYMBOL = ?1 AND s.METADATA_ID = m.METADATA_ID" +
+            " AND s.FUNCTION = ?2)", nativeQuery = true)
     void  deleteStockTimeSeriesDataBySymbolAndFunction(String symbol, Function function);
 }

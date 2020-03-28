@@ -86,9 +86,9 @@ public class StockTimeSeriesDataRetrievalTask {
 
             //todo delete
 
-            //stockTimeSeriesDataService.deleteStockTimeSeriesDataBySymbolAndFunction(symbol, function);
+            stockTimeSeriesDataService.deleteStockTimeSeriesDataBySymbolAndFunction(symbol, function);
 
-            stockTimeSeriesDataService.createOrUpdateStockTimeSeriesData(stockTimeSeriesData);
+            //stockTimeSeriesDataService.createOrUpdateStockTimeSeriesData(stockTimeSeriesData);
 
             LOG.info("operation success");
 
