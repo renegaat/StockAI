@@ -1,10 +1,7 @@
 package de.pearlbay.stockai.stockrepo.restclient.mapper.customserializer;
 
-import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.ObjectCodec;
 import com.fasterxml.jackson.databind.MappingJsonFactory;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import de.pearlbay.stockai.common.enums.Function;
 import de.pearlbay.stockai.stockrepo.restclient.dto.StockTimeSeriesDataDto;
 import org.junit.Test;
