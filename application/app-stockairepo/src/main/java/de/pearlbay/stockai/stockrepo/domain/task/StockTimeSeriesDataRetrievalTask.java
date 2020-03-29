@@ -56,7 +56,7 @@ public class StockTimeSeriesDataRetrievalTask {
 
                 symbol = stockConfigurationProperties.getSymbol().get(c);
                 function = Function.valueOf(stockConfigurationProperties.getFunction().get(c));
-                outputSize = OutputSize.valueOf(    stockConfigurationProperties.getOutputSize().get(c));
+                outputSize = OutputSize.valueOf(stockConfigurationProperties.getOutputSize().get(c));
 
                 if ((stockConfigurationProperties.getInterval() != null)
                         && (stockConfigurationProperties.getInterval().get(c).compareTo("") != 0)) {
@@ -84,11 +84,9 @@ public class StockTimeSeriesDataRetrievalTask {
             stockTimeSeriesData.setMarket(Market.valueOf(stockConfigurationProperties.getMarket()));
             stockTimeSeriesData.setStockName(symbol);
 
-            //todo delete
 
             stockTimeSeriesDataService.deleteStockTimeSeriesDataBySymbolAndFunction(symbol, function);
-
-            //stockTimeSeriesDataService.createOrUpdateStockTimeSeriesData(stockTimeSeriesData);
+            stockTimeSeriesDataService.createOrUpdateStockTimeSeriesData(stockTimeSeriesData);
 
             LOG.info("operation success");
 
