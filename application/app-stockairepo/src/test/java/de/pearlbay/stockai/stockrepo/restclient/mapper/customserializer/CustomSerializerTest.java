@@ -20,7 +20,7 @@ public class CustomSerializerTest {
     public void test_TIME_SERIES_INTRADAY_Serializer() throws IOException {
 
         File jsonFile = ResourceUtils.getFile(this.getClass()
-                .getResource("/json/Time_Series_Intraday.json"));
+                .getResource("/json/timeseriesintraday.json"));
 
         MappingJsonFactory mappingJsonFactory = new MappingJsonFactory();
         JsonParser jsonParser  = mappingJsonFactory
@@ -37,7 +37,7 @@ public class CustomSerializerTest {
     public void test_TIME_SERIES_DAILY_Serializer() throws IOException {
 
         File jsonFile = ResourceUtils.getFile(this.getClass()
-                .getResource("/json/Time_Series_Daily.json"));
+                .getResource("/json/timeseriesdaily.json"));
 
         MappingJsonFactory mappingJsonFactory = new MappingJsonFactory();
         JsonParser jsonParser  = mappingJsonFactory
