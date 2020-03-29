@@ -16,7 +16,6 @@ import static org.junit.Assert.assertNotNull;
 public class CustomSerializerTest {
 
     @Test
-    @Ignore
     public void test_TIME_SERIES_INTRADAY_Serializer() throws IOException {
 
         File jsonFile = ResourceUtils.getFile(this.getClass()
