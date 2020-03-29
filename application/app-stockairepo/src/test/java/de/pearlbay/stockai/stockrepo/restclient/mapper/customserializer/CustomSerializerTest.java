@@ -5,6 +5,7 @@ import com.fasterxml.jackson.databind.MappingJsonFactory;
 import de.pearlbay.stockai.common.enums.Function;
 import de.pearlbay.stockai.stockrepo.restclient.dto.StockTimeSeriesDataDto;
 import org.junit.Test;
+import org.springframework.util.ResourceUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -13,14 +14,15 @@ import static org.junit.Assert.assertNotNull;
 
 public class CustomSerializerTest {
 
-    public static final String PATHNAME = "src/test/resources/json/";
-
     @Test
     public void test_TIME_SERIES_INTRADAY_Serializer() throws IOException {
 
+        File jsonFile = ResourceUtils.getFile(this.getClass()
+                .getResource("/json/Time_Series_Intraday.json"));
+
         MappingJsonFactory mappingJsonFactory = new MappingJsonFactory();
         JsonParser jsonParser  = mappingJsonFactory
-                .createParser(new File(PATHNAME +  "Time_Series_Intraday.json"));
+                .createParser(jsonFile);
 
         StockTimeSeriesDataCustomSerializer stockTimeSeriesDataCustomSerializer = CustomSerializerFactory
                 .factory(Function.TIME_SERIES_INTRADAY);
@@ -32,9 +34,12 @@ public class CustomSerializerTest {
     @Test
     public void test_TIME_SERIES_DAILY_Serializer() throws IOException {
 
+        File jsonFile = ResourceUtils.getFile(this.getClass()
+                .getResource("/json/Time_Series_Daily.json"));
+
         MappingJsonFactory mappingJsonFactory = new MappingJsonFactory();
         JsonParser jsonParser  = mappingJsonFactory
-                .createParser(new File(PATHNAME +  "Time_Series_Daily.json"));
+                .createParser(jsonFile);
 
         StockTimeSeriesDataCustomSerializer stockTimeSeriesDataCustomSerializer = CustomSerializerFactory
                 .factory(Function.TIME_SERIES_DAILY);
