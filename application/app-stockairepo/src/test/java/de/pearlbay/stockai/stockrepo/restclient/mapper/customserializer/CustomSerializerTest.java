@@ -22,12 +22,12 @@ public class CustomSerializerTest {
                 .getResource("/json/timeseriesintraday.json"));
 
         MappingJsonFactory mappingJsonFactory = new MappingJsonFactory();
-        JsonParser jsonParser  = mappingJsonFactory
+        JsonParser jsonParser = mappingJsonFactory
                 .createParser(jsonFile);
 
         StockTimeSeriesDataCustomSerializer stockTimeSeriesDataCustomSerializer = CustomSerializerFactory
                 .factory(Function.TIME_SERIES_INTRADAY);
-       StockTimeSeriesDataDto stockTimeSeriesDataDto = stockTimeSeriesDataCustomSerializer.serializeDto(jsonParser);
+        StockTimeSeriesDataDto stockTimeSeriesDataDto = stockTimeSeriesDataCustomSerializer.serializeDto(jsonParser);
 
         assertNotNull(stockTimeSeriesDataDto);
     }
@@ -39,7 +39,7 @@ public class CustomSerializerTest {
                 .getResource("/json/timeseriesdaily.json"));
 
         MappingJsonFactory mappingJsonFactory = new MappingJsonFactory();
-        JsonParser jsonParser  = mappingJsonFactory
+        JsonParser jsonParser = mappingJsonFactory
                 .createParser(jsonFile);
 
         StockTimeSeriesDataCustomSerializer stockTimeSeriesDataCustomSerializer = CustomSerializerFactory
@@ -48,4 +48,89 @@ public class CustomSerializerTest {
 
         assertNotNull(stockTimeSeriesDataDto);
     }
+
+    @Test
+    public void test_TIME_SERIES_DAILY_ADJUSTED_Serializer() throws IOException {
+
+        File jsonFile = ResourceUtils.getFile(this.getClass()
+                .getResource("/json/timeseriesdailyadjusted.json"));
+
+        MappingJsonFactory mappingJsonFactory = new MappingJsonFactory();
+        JsonParser jsonParser = mappingJsonFactory
+                .createParser(jsonFile);
+
+        StockTimeSeriesDataCustomSerializer stockTimeSeriesDataCustomSerializer = CustomSerializerFactory
+                .factory(Function.TIME_SERIES_DAILY_ADJUSTED);
+        StockTimeSeriesDataDto stockTimeSeriesDataDto = stockTimeSeriesDataCustomSerializer.serializeDto(jsonParser);
+
+        assertNotNull(stockTimeSeriesDataDto);
+    }
+
+    @Test
+    public void test_TIME_SERIES_WEEKLY_Serializer() throws IOException {
+
+        File jsonFile = ResourceUtils.getFile(this.getClass()
+                .getResource("/json/timeseriesweekly.json"));
+
+        MappingJsonFactory mappingJsonFactory = new MappingJsonFactory();
+        JsonParser jsonParser = mappingJsonFactory
+                .createParser(jsonFile);
+
+        StockTimeSeriesDataCustomSerializer stockTimeSeriesDataCustomSerializer = CustomSerializerFactory
+                .factory(Function.TIME_SERIES_WEEKLY);
+        StockTimeSeriesDataDto stockTimeSeriesDataDto = stockTimeSeriesDataCustomSerializer.serializeDto(jsonParser);
+
+        assertNotNull(stockTimeSeriesDataDto);
+    }
+
+    @Test
+    public void test_TIME_SERIES_WEEKLY_ADJUSTED_Serializer() throws IOException {
+
+        File jsonFile = ResourceUtils.getFile(this.getClass()
+                .getResource("/json/timeseriesweeklyadjusted.json"));
+
+        MappingJsonFactory mappingJsonFactory = new MappingJsonFactory();
+        JsonParser jsonParser = mappingJsonFactory
+                .createParser(jsonFile);
+
+        StockTimeSeriesDataCustomSerializer stockTimeSeriesDataCustomSerializer = CustomSerializerFactory
+                .factory(Function.TIME_SERIES_WEEKLY_ADJUSTED);
+        StockTimeSeriesDataDto stockTimeSeriesDataDto = stockTimeSeriesDataCustomSerializer.serializeDto(jsonParser);
+
+        assertNotNull(stockTimeSeriesDataDto);
+    }
+
+    @Test
+    public void test_TIME_SERIES_MONTHLY_Serializer() throws IOException {
+
+        File jsonFile = ResourceUtils.getFile(this.getClass()
+                .getResource("/json/timeseriesmonthly.json"));
+
+        MappingJsonFactory mappingJsonFactory = new MappingJsonFactory();
+        JsonParser jsonParser = mappingJsonFactory
+                .createParser(jsonFile);
+
+        StockTimeSeriesDataCustomSerializer stockTimeSeriesDataCustomSerializer = CustomSerializerFactory
+                .factory(Function.TIME_SERIES_MONTHLY);
+        StockTimeSeriesDataDto stockTimeSeriesDataDto = stockTimeSeriesDataCustomSerializer.serializeDto(jsonParser);
+
+        assertNotNull(stockTimeSeriesDataDto);
+    }
+    @Test
+    public void test_TIME_SERIES_MONTHLY_ADJUSTED_Serializer() throws IOException {
+
+        File jsonFile = ResourceUtils.getFile(this.getClass()
+                .getResource("/json/timeseriesmonthlyadjusted.json"));
+
+        MappingJsonFactory mappingJsonFactory = new MappingJsonFactory();
+        JsonParser jsonParser = mappingJsonFactory
+                .createParser(jsonFile);
+
+        StockTimeSeriesDataCustomSerializer stockTimeSeriesDataCustomSerializer = CustomSerializerFactory
+                .factory(Function.TIME_SERIES_MONTHLY_ADJUSTED);
+        StockTimeSeriesDataDto stockTimeSeriesDataDto = stockTimeSeriesDataCustomSerializer.serializeDto(jsonParser);
+
+        assertNotNull(stockTimeSeriesDataDto);
+    }
+
 }

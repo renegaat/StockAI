@@ -1,0 +1,19 @@
+{
+    "Meta Data": {
+        "1. Information": "Monthly Adjusted Prices and Volumes",
+        "2. Symbol": "MSFT",
+        "3. Last Refreshed": "2020-03-27",
+        "4. Time Zone": "US/Eastern"
+    },
+    "Monthly Adjusted Time Series": {
+        "2020-03-27": {
+            "1. open": "165.3100",
+            "2. high": "175.0000",
+            "3. low": "132.5200",
+            "4. close": "149.7000",
+            "5. adjusted close": "149.7000",
+            "6. volume": "1471606874",
+            "7. dividend amount": "0.0000"
+        }
+    }
+}
