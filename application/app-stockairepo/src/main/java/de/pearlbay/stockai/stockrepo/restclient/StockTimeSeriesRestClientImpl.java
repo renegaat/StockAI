@@ -21,6 +21,7 @@ import org.springframework.web.client.RestClientException;
 @Component
 public class StockTimeSeriesRestClientImpl implements StockTimeSeriesRestClient {
 
+
     @Autowired
     private StockAIRestTemplate stockAIRestTemplate;
 
@@ -28,6 +29,7 @@ public class StockTimeSeriesRestClientImpl implements StockTimeSeriesRestClient 
     private String apiUrl;
 
     private static final Logger LOG = LoggerFactory.getLogger(StockTimeSeriesRestClientImpl.class);
+
 
     @Override
     public StockTimeSeriesDataDto retrieveStockTimeSeriesData(String apiKey, String symbol,

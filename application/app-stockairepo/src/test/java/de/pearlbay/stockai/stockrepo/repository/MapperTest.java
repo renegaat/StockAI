@@ -23,7 +23,7 @@ import java.util.ArrayList;
 
 public class MapperTest {
 
-    public static final int LISTSIZE = 100;
+    public static final int LISTSIZE = 10;
 
     @Test
     public void shouldMapMetaDataToJpaAndBack() {

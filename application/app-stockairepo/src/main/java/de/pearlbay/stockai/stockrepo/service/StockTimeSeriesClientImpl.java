@@ -25,11 +25,15 @@ import org.springframework.util.Assert;
 @Service
 public class StockTimeSeriesClientImpl implements StockTimeSeriesClient {
 
-    @Autowired
     private StockTimeSeriesRestClient stockTimeSeriesRestClient;
 
     @Value("${alphavantage.apiKey}")
     private String apiKey;
+
+    @Autowired
+    public StockTimeSeriesClientImpl(StockTimeSeriesRestClient stockTimeSeriesRestClient) {
+        this.stockTimeSeriesRestClient = stockTimeSeriesRestClient;
+    }
 
     @Override
     public StockTimeSeriesData retrieveStockTimeSeriesData(String symbol, Function function,
