@@ -4,7 +4,6 @@ import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.MappingJsonFactory;
 import de.pearlbay.stockai.common.enums.Function;
 import de.pearlbay.stockai.stockrepo.restclient.dto.StockTimeSeriesDataDto;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.springframework.util.ResourceUtils;
 

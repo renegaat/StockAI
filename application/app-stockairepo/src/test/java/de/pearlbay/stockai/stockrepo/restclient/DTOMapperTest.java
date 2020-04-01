@@ -53,7 +53,6 @@ public class DTOMapperTest {
 
         assertEquals(stockTimeSeriesData.getMetaData(), result.getMetaData());
         assertEquals(stockTimeSeriesData.getTimeSeries(), result.getTimeSeries());
-
     }
 
     private List retrieveTimeSeriesList() {
