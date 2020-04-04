@@ -1,16 +1,17 @@
 package de.pearlbay.stockai.stockrepo.restcontroller.v1;
 
+import de.pearlbay.stockai.common.enums.Function;
+import de.pearlbay.stockai.stockrepo.domain.StockTimeSeriesData;
 import de.pearlbay.stockai.stockrepo.domain.service.StockTimeSeriesDataService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 
 /**
  * StockTimeSeriesDataController.
+ *
  * @author joern ross (pearlbay) 2020
  */
 @RestController
@@ -25,8 +26,15 @@ public class StockTimeSeriesDataController {
         this.stockTimeSeriesDataService = stockTimeSeriesDataService;
     }
 
-    @RequestMapping(method = RequestMethod.GET, path = "/stocktimeseriesdata")
-    public void retrieveStockTimeSeriesData() {
-        LOG.info("ENTERED retrieveStockTimeSeriesData");
+    @RequestMapping(method = RequestMethod.GET, path = "/stocktimeseriesdata", params = {"symbol", "function"})
+    @ResponseBody
+    public StockTimeSeriesData retrieveStockTimeSeriesData(@RequestParam("symbol") String symbol
+            , @RequestParam("function") Function function) {
+
+        LOG.debug("ENTERED retrieveStockTimeSeriesData Symbol : " + symbol + " Function : " + function.name());
+        StockTimeSeriesData result = stockTimeSeriesDataService
+                .retrieveStockTimeSeriesDataBySymbolAndFunction(symbol, function);
+
+        return result;
     }
 }
