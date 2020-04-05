@@ -17,5 +17,6 @@ public interface StockTimeSeriesDataJpaMapper {
     StockTimeSeriesDataJpaMapper INSTANCE = Mappers.getMapper(StockTimeSeriesDataJpaMapper.class);
 
     StockTimeSeriesDataJpa toJpa(StockTimeSeriesData s);
+
     StockTimeSeriesData fromJpa(StockTimeSeriesDataJpa jpa);
 }
