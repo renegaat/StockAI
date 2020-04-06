@@ -60,7 +60,7 @@ public class DTOMapperTest {
         List<TimeSeries> timeSeriesList = new ArrayList<>();
 
         Price testPrice = new Price();
-        testPrice.setAmount(BigDecimal.ONE);
+        testPrice.setValue(BigDecimal.ONE);
 
         TimeSeries timeSeries = TimeSeries.builder()
                 .time(LAST_REFRESHED)

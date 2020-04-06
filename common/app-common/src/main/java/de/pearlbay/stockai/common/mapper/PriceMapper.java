@@ -22,7 +22,7 @@ public abstract class PriceMapper {
         }
 
         Price price = new Price();
-        price.setAmount(d);
+        price.setValue(d);
 
         return price;
     }
@@ -33,7 +33,7 @@ public abstract class PriceMapper {
             return null;
         }
 
-        return price.getAmount();
+        return price.getValue();
     }
 
 }

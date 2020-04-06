@@ -6,6 +6,8 @@ import de.pearlbay.stockai.stockrepo.domain.service.StockTimeSeriesDataService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
@@ -32,26 +34,29 @@ public class StockTimeSeriesDataController {
 
     @SuppressWarnings("checkstyle:NoWhitespaceBefore")
     @RequestMapping(method = RequestMethod.GET, path = "/stocktimeseriesdata", params = {"symbol", "function"})
-    @ResponseBody
-    public StockTimeSeriesData retrieveStockTimeSeriesDataBySymbolAndFunction(@RequestParam("symbol") String symbol
+    public ResponseEntity<StockTimeSeriesData> retrieveStockTimeSeriesDataBySymbolAndFunction(
+            @RequestParam("symbol") String symbol
             , @RequestParam("function") Function function) {
 
         LOG.debug("ENTERED retrieveStockTimeSeriesData Symbol : " + symbol + " Function : " + function.name());
         StockTimeSeriesData result = stockTimeSeriesDataService
                 .retrieveStockTimeSeriesDataBySymbolAndFunction(symbol, function);
 
-        return result;
+        if (result == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
     @SuppressWarnings("checkstyle:NoWhitespaceBefore")
     @RequestMapping(method = RequestMethod.GET, path = "/stocktimeseriesdata"
-            , params = {"symbol", "function", "start", "stop"})
-    @ResponseBody
-    public StockTimeSeriesData retrieveStockTimeSeriesDataBySymbolAndFunctionAndDate(
+            , params = {"symbol", "function", "from", "until"})
+    public ResponseEntity<StockTimeSeriesData> retrieveStockTimeSeriesDataBySymbolAndFunctionAndDate(
             @RequestParam("symbol") String symbol
-                    , @RequestParam("function") Function function
-                    , @RequestParam("start") String start
-                    , @RequestParam("stop") String stop) {
+            , @RequestParam("function") Function function
+            , @RequestParam("from") String start
+            , @RequestParam("until") String stop) {
 
         LOG.debug("ENTERED retrieveStockTimeSeriesData Symbol : " + symbol + " Function : " + function.name()
                 + " Date start : " + start + " Date stop : " + stop);
@@ -64,7 +69,11 @@ public class StockTimeSeriesDataController {
         StockTimeSeriesData result = stockTimeSeriesDataService
                 .retrieveStockTimeSeriesDataBySymbolAndFunctionAndDate(symbol, function, startDate, stopDate);
 
-        return result;
+        if (result == null) {
+            return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        }
+
+        return new ResponseEntity<>(result, HttpStatus.OK);
     }
 
 

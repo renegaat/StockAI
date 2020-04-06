@@ -9,5 +9,5 @@ import java.math.BigDecimal;
  */
 @Data
 public class Price {
-    private BigDecimal amount;
+    private BigDecimal value;
 }

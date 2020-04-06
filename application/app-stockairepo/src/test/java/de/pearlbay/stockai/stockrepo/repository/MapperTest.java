@@ -45,7 +45,7 @@ public class MapperTest {
         TimeSeriesJpaMapperImpl timeSeriesJpaMapper = new TimeSeriesJpaMapperImpl();
 
         Price testPrice = new Price();
-        testPrice.setAmount(BigDecimal.ONE);
+        testPrice.setValue(BigDecimal.ONE);
 
         TimeSeries timeSeries = TimeSeries.builder()
                 .time(LocalDateTime.now())
@@ -95,7 +95,7 @@ public class MapperTest {
         List<TimeSeries> timeSeriesList = new ArrayList<>();
 
         Price testPrice = new Price();
-        testPrice.setAmount(BigDecimal.ONE);
+        testPrice.setValue(BigDecimal.ONE);
 
         TimeSeries timeSeries = TimeSeries.builder()
                 .time(LocalDateTime.now())
