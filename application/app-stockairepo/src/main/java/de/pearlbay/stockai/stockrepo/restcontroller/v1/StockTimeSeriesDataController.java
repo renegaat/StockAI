@@ -75,6 +75,4 @@ public class StockTimeSeriesDataController {
 
         return new ResponseEntity<>(result, HttpStatus.OK);
     }
-
-
 }
