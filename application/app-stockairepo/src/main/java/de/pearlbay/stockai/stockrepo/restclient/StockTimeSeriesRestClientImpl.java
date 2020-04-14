@@ -39,7 +39,7 @@ public class StockTimeSeriesRestClientImpl implements StockTimeSeriesRestClient 
                 + "function=" + function.name()
                 + "&symbol=" + symbol
                 + "&apikey=" + apiKey
-                + "&outputsize=" + outputSize;
+                + "&outputsize=" + outputSize.name().toLowerCase();
 
         if (interval != null) {
             url = url + "&interval=" + interval.getMinuteValue();
