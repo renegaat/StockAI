@@ -1,0 +1,65 @@
+
+= Infrastructure : Docker
+
+
+== Container handling
+
+List containers :
+----
+docker container ls
+----
+
+Stop container :
+
+----
+docker container stop <container>
+----
+
+Start container :
+
+----
+docker run -p <hostport>:<containerport> --net=<networkname> <container>
+----
+
+Example :
+
+----
+docker run -p 8080:8080 --net=pearlbaynet pearlbay/stockairepo
+----
+
+----
+docker run -p 8089:8080 -p 1521:1521 -d madhead/docker-oracle-xe
+----
+
+Inspect container :
+----
+docker inspect <container>
+----
+
+== Image handling :
+
+Create image :
+
+----
+docker build -t <tagname>:latest .
+----
+
+Example :
+----
+docker build -t pearlbay/stockairepo:latest .
+----
+
+List images :
+
+----
+docker images
+----
+
+
+Remove image :
+----
+docker rmi <image>
+----
+
+
+
