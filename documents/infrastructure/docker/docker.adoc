@@ -1,7 +1,6 @@
 
 = Infrastructure : Docker
 
-
 == Container handling
 
 List containers :
@@ -62,6 +61,14 @@ Remove image :
 ----
 docker rmi <image>
 ----
+== Network
 
+Create network :
+----
+docker network create <name>
+----
+== Troubleshooting
+- container have to be in the same network to be able to communicate
 
+- see inspect command for ip configuration
 
