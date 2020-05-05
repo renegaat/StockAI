@@ -72,3 +72,5 @@ docker network create <name>
 
 - see inspect command for ip configuration
 
+- for oracle db client to work the timezone environment has to be set in container
+
