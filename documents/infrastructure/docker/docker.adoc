@@ -26,7 +26,9 @@ Example :
 ----
 docker run -p 8080:8080 --net=pearlbaynet pearlbay/stockairepo
 ----
-
+----
+docker run -e "TZ=EUROPE/BERLIN" -p 8080:8080 --net=pearlbaynet pearlbay/stockairepo
+----
 ----
 docker run -p 8089:8080 -p 1521:1521 -d madhead/docker-oracle-xe
 ----
