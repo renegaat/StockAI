@@ -18,6 +18,12 @@ Als Vorbedingung mit `init.sh` das RPM für Oracle XE installieren. Dies muss nu
 Die Datei oracle-database-xe-18c-1.0-1.x86_64.rpm muss im container/resources Ordner liegen.
 
 
+Die Datei kann lokal vom FTP heruntergeladen werden
+
+----
+curl -u admin:SS***** ftp://192.168.1.1/Elements/projects/stockai/resources/oracle-xe-11.2.0-1.0.x86_64.rpm.tar.gz -O
+----
+
 ## Starten
 
 ----

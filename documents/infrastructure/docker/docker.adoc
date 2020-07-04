@@ -61,6 +61,14 @@ Remove image :
 ----
 docker rmi <image>
 ----
+
+Remove all images :
+----
+docker rmi prune
+----
+
+
+
 == Network
 
 Create network :
