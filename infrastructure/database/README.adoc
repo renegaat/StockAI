@@ -1,13 +1,10 @@
 = DB Infrastruktur
-= DB Infrastruktur
 
-== Was ist dies?
+== What is this :
 
-Hier ist das übergreifende Setup der Datenbank enthalten.
+General database setup scripts.
 
-Es werden z. B. die User, Schemata und Berechtigungen für die Anwendungen angelegt.
-
-== Wie starte ich es für die lokale Entwicklung?
+== Getting started for local environ
 
 mvn clean liquibase:update
 

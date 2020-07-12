@@ -1,0 +1,13 @@
+= General docker and AWS guidelines and notes
+
+== Docker
+=== Setting up container
+==== AI-Repo
+==== Oracle DB
+=== Notes
+
+== AWS
+
+
+
+
