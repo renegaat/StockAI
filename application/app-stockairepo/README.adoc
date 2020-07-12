@@ -1,11 +1,14 @@
 
 # StockAiRepo
 
-
 *Help:*
 
+Example Rest Service Requests :
+----
+/stocktimeseriesdata/v1/stocktimeseriesdata?symbol=MSFT&from=2020-04-05%2011%3A30%3A00&until=2020-05-05%2000%3A00%3A00&function=TIME_SERIES_DAILY
+----
 To reset database:
-
+----
 DELETE FROM stockairepo.databasechangelog;
 DELETE FROM stockairepo.databasechangeloglock;
 DROP TABLE stockairepo.metadata;
@@ -15,12 +18,12 @@ DROP TABLE stockairepo.timeseries;
 drop sequence stockairepo.stock_timeseries_data_id_seq;
 drop sequence stockairepo.metadata_id_seq;
 drop sequence stockairepo.timeseries_id_seq;
-
-
-
+----
 to delete database content:
-
+----
 delete from STOCKAIREPO.TIMESERIES;
 delete from STOCKAIREPO.STOCKTIMESERIESDATA;
 delete from STOCKAIREPO.METADATA;
+----
+
 
