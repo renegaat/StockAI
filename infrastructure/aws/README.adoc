@@ -1,10 +1,39 @@
 = General docker and AWS guidelines and notes
 
 == Docker
-=== Setting up container
+=== Inititial setup
+Setting up a network:
+----
+docker network create pearlbaynet
+----
+
 ==== AI-Repo
+building docker image :
+----
+docker build -t pearlbay/stockairepo:latest .
+----
+run AI-Repo container :
+----
+docker run -e "TZ=EUROPE/BERLIN" -p 8080:8080 --net=pearlbaynet pearlbay/stockairepo
+----
 ==== Oracle DB
-=== Notes
+building docker image :
+----
+docker build -t "madhead/docker-oracle-xe" .
+----
+run Oracle DB container :
+----
+docker run -p 8089:8080 -p 1521:1521 --net=pearlbaynet -d madhead/docker-oracle-xe
+----
+AI-Repo container application.properties settings.
+----
+spring.datasource.url=jdbc:oracle:thin:@0.0.0.0:XE
+spring.datasource.username=system
+spring.datasource.password=oracle
+spring.liquibase.change-log=classpath:liquibase/db.changelog.xml
+spring.jpa.properties.hibernate.default_schema=STOCKAIREPO
+----
+
 
 == AWS
 
