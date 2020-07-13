@@ -25,9 +25,9 @@ run Oracle DB container :
 ----
 docker run -p 8089:8080 -p 1521:1521 --net=pearlbaynet -d madhead/docker-oracle-xe
 ----
-AI-Repo container application.properties settings.
+AI-Repo container application.properties settings (local) :
 ----
-spring.datasource.url=jdbc:oracle:thin:@0.0.0.0:XE
+spring.datasource.url=jdbc:oracle:thin:@172.18.0.2:1521:XE
 spring.datasource.username=system
 spring.datasource.password=oracle
 spring.liquibase.change-log=classpath:liquibase/db.changelog.xml
