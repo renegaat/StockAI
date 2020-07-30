@@ -35,7 +35,27 @@ spring.jpa.properties.hibernate.default_schema=STOCKAIREPO
 ----
 
 
-== AWS
+== Cloud
+
+==== Docker HUB
+login :
+----
+docker login
+----
+tag image :
+----
+docker tag <image id> <dockerusername>/<image name>
+----
+push image to docker hub :
+----
+docker push <repository title>:<tag>
+----
+stockairepo image example :
+----
+todo
+----
+==== AWS
+
 
 
 
