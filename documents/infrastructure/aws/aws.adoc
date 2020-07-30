@@ -58,5 +58,11 @@ todo
 
 
 
+=== General Notes
+==== Docker HUB
+- Set the repository to private if access denied problem for docker push
+<to validate>
+
+
 
 
