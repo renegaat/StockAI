@@ -56,11 +56,14 @@ List images :
 docker images
 ----
 
-
-Remove image :
+Remove image examples :
 ----
 docker rmi <image>
 ----
+----
+docker rmi <repository_name>:tag
+----
+
 
 Remove all images :
 ----
