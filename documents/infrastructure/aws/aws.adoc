@@ -52,7 +52,7 @@ docker push <repository title>:<tag>
 ----
 stockairepo image example :
 ----
-todo
+docker push renegaat/stockairepo:latest
 ----
 ==== AWS
 
