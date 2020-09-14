@@ -50,14 +50,15 @@ push image to docker hub :
 ----
 docker push <repository title>:<tag>
 ----
-stockairepo image example :
+stockairepo image push example :
 ----
 docker push renegaat/stockairepo:latest
 ----
+stockairepo image pull example :
+----
+docker pull renegaat/stockairepo:latest
+----
 ==== AWS
-
-
-
 === General Notes
 ==== Docker HUB
 - Set the repository to private if access denied problem for docker push
