@@ -1,4 +1,4 @@
-= General docker and AWS guidelines and notes
+= General docker and Cloud guidelines and notes
 
 == Docker
 === Inititial setup
@@ -59,6 +59,8 @@ stockairepo image pull example :
 docker pull renegaat/stockairepo:latest
 ----
 ==== AWS
+==== Google Cloud
+
 === General Notes
 ==== Docker HUB
 - Set the repository to private if access denied problem for docker push
