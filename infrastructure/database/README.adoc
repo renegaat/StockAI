@@ -4,7 +4,7 @@
 
 General database setup scripts.
 
-== Getting started for local environ
+== Getting started for local environment
 ----
 mvn clean liquibase:update
 ----
