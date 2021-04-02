@@ -65,6 +65,23 @@ get kubernetes nodes :
 ----
 kubectl get nodes
 ----
+create deployment into node (example) :
+----
+kubectl create deployment
+----
+get kubernetes deployments :
+----
+kubectl get deployments
+----
+creating a kubernetes proxy :
+----
+kubectl proxy
+----
+Kubernetes example extract pod name into variable POD_NAME
+----
+export POD_NAME=$(kubectl get pods -o go-template --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}')
+echo Name of the Pod: $POD_NAME
+----
 === General Notes
 ==== Docker HUB
 - Set the repository to private if access denied problem for docker push
