@@ -60,7 +60,11 @@ docker pull renegaat/stockairepo:latest
 ----
 ==== AWS
 ==== Google Cloud
-
+==== Kubernetes
+get kubernetes nodes :
+----
+kubectl get nodes
+----
 === General Notes
 ==== Docker HUB
 - Set the repository to private if access denied problem for docker push
