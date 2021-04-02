@@ -85,20 +85,24 @@ creating a kubernetes proxy :
 ----
 kubectl proxy
 ----
-Kubernetes example extract pod name into variable POD_NAME
+kubernetes example extract pod name into variable POD_NAME
 ----
 export POD_NAME=$(kubectl get pods -o go-template --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}')
 echo Name of the Pod: $POD_NAME
 ----
-Logging stdout from pod POD_NAME 
+logging stdout from pod POD_NAME 
 ----
 kubectl logs $POD_NAME
+----
+execute command in container. (Note it is not necessary to mention container when there is only one in the pod) :
+----
+kubectl exec $POD_NAME <command>
+----
+execute command in container (example bash). (Note it is not necessary to mention container when there is only one in the pod) :
+----
+kubectl exec -ti $POD_NAME bash
 ----
 === General Notes
 ==== Docker HUB
 - Set the repository to private if access denied problem for docker push
 <to validate>
-
-
-
-
