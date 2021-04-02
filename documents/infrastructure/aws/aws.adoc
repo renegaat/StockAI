@@ -73,6 +73,14 @@ get kubernetes deployments :
 ----
 kubectl get deployments
 ----
+get kubernetes pods
+----
+kubectl get pods
+----
+describe kubernetes pods
+----
+kubectl describe pods
+----
 creating a kubernetes proxy :
 ----
 kubectl proxy
@@ -81,6 +89,10 @@ Kubernetes example extract pod name into variable POD_NAME
 ----
 export POD_NAME=$(kubectl get pods -o go-template --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}')
 echo Name of the Pod: $POD_NAME
+----
+Logging stdout from pod POD_NAME 
+----
+kubectl logs $POD_NAME
 ----
 === General Notes
 ==== Docker HUB
