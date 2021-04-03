@@ -102,6 +102,28 @@ execute command in container (example bash). (Note it is not necessary to mentio
 ----
 kubectl exec -ti $POD_NAME bash
 ----
+kubernetes get services :
+----
+kubectl get services
+----
+kubernetes expose a pod :
+----
+kubectl expose deployment/kubernetes-bootcamp --type="NodePort" --port 8080
+----
+kubernetes describe a service :
+----
+kubectl describe services/<service_name>
+----
+kubernetes get the note port of a service :
+----
+export NODE_PORT=$(kubectl get services/kubernetes-bootcamp -o go-template='{{(index .spec.ports 0).nodePort}}')
+echo NODE_PORT=$NODE_PORT
+----
+curl export service from outside kubernetes :
+----
+curl $(minikube ip):$NODE_PORT
+----
+
 === General Notes
 ==== Docker HUB
 - Set the repository to private if access denied problem for docker push
