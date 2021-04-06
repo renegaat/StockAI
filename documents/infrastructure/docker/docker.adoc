@@ -49,9 +49,11 @@ Example :
 ----
 docker build -t pearlbay/stockairepo:latest .
 ----
-
+Example (local minikube deployment, see notes below) :
+----
+docker build -t pearlbay/stockairepo_minikube:latest .
+----
 List images :
-
 ----
 docker images
 ----
@@ -90,6 +92,7 @@ docker network inspect pealbaynet
 ----
 
 == Troubleshooting
+- for local minikube environment, build the image with minikube docker daemon
 - container have to be in the same network to be able to communicate
 - see docker network inspect command for ip configuration
 - for oracle db client to work the timezone environment has to be set in container

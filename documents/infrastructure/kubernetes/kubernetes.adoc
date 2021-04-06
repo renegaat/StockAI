@@ -1,5 +1,9 @@
 == Kubernetes
 === Setup local application cluster (minikube)
+switch to minikube docker context :
+----
+eval $(minikube -p minikube docker-env)
+----
 === Setup remote application cluster
 === General Notes and commands
 get kubernetes nodes :
@@ -64,3 +68,9 @@ curl export service from outside kubernetes :
 ----
 curl $(minikube ip):$NODE_PORT
 ----
+delete a pending pod in kubernetes :
+----
+kubectl get deployments --all-namespaces
+kubectl delete deployment <NAME>
+----
+
