@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: todo
+  labels:
+    app: 
+spec:
+  replicas: 1
+  template:
+    metadata:
+      name: todo
+      labels:
+        app: 
+    spec:
+      containers:
+        - name: todo
+          image: todo
+          imagePullPolicy: IfNotPresent
+      restartPolicy: Always
+  selector:
+    matchLabels:
+      app: 
