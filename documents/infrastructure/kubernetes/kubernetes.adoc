@@ -4,6 +4,37 @@ switch to minikube docker context :
 ----
 eval $(minikube -p minikube docker-env)
 ----
+build docker images in minikube context if necessary :
+----
+docker build -t pearlbay/stockairepo_minikube:latest .
+docker build -t madhead_minikube/docker-oracle-xe" .
+----
+Kubernetes .yaml deployment (oracle container sample) :
+----
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: stockai-pod
+spec:
+  selector:
+    matchLabels:
+      name: ora-container
+  template:
+    metadata:
+      labels:
+         name: ora-container
+    spec:
+      containers:
+        - name: oracle-container
+          image: madhead-minikube/docker-oracle-xe
+          imagePullPolicy: Never
+      restartPolicy: Always
+----
+
+
+
+
+
 === Setup remote application cluster
 === General Notes and commands
 get kubernetes nodes :
