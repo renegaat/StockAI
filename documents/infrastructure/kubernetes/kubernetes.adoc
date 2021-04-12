@@ -9,7 +9,7 @@ build docker images in minikube context if necessary :
 docker build -t pearlbay/stockairepo_minikube:latest .
 docker build -t madhead_minikube/docker-oracle-xe" .
 ----
-Kubernetes .yaml deployment (oracle container sample) :
+kubernetes .yaml deployment file ( oracle minikube container sample ) :
 ----
 apiVersion: apps/v1
 kind: Deployment
@@ -30,6 +30,44 @@ spec:
           imagePullPolicy: Never
       restartPolicy: Always
 ----
+kubernetes .yaml service file ( oracle minicube container sample ) :
+----
+apiVersion: v1
+kind: Service
+metadata:
+  name: stockai-pod
+  namespace: default
+spec:
+  type: NodePort
+  ports:
+    - protocol: TCP
+      port: 1521
+      targetPort: 1521
+      nodePort: 31080
+----
+kubernetes expose a service :
+----
+kubectl expose deployment stockai-pod --type=LoadBalancer --port=1521
+----
+kubernetes show active services :
+----
+kubectl get svc
+----
+minikube create tunnel :
+----
+minikube tunnel
+----
+
+kubernetes create deployment (oracle container sample) :
+----
+kubectl create -f oracle_container.yaml
+----
+kubernetes delete deployment (oracle container sample) :
+----
+kubectl delete -f oracle_container.yaml
+----
+
+
 
 
 
