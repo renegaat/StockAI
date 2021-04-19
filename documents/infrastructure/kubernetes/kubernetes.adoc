@@ -7,7 +7,7 @@ eval $(minikube -p minikube docker-env)
 build docker images in minikube context if necessary :
 ----
 docker build -t pearlbay/stockairepo_minikube:latest .
-docker build -t madhead_minikube/docker-oracle-xe" .
+docker build -t madhead_minikube/docker-oracle-xe .
 ----
 kubernetes .yaml deployment file ( oracle minikube container sample ) :
 ----
