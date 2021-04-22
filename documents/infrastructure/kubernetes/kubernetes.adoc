@@ -1,5 +1,27 @@
 == Kubernetes
 === Setup local application cluster (minikube)
+step by step instructions ( oracle ) :
+----
+start minikube
+set docker daemon scope to minikube
+start minikube dashboard ( new terminal )
+check available docker images
+create deployment ( kubectl create -f oracle_container.yaml )
+create load balancer ( kubectl expose deployment  stockai-oracle-pod --type=LoadBalancer --port=1521 )
+start minikube tunnel
+check connection settings in pom.xml
+----
+step by step instructions ( Stock-AI application ) :
+----
+start minikube
+set docker daemon scope to minikube
+start minikube dashboard ( new terminal )
+check available docker images
+create deployment ( kubectl create -f stockairepo_container.yaml )
+create load balancer ( kubectl expose deployment  stockai-repo-pod --type=LoadBalancer --port=8080 )
+start minikube tunnel
+check DB connection settings in local app configuration
+----
 switch to minikube docker context :
 ----
 eval $(minikube -p minikube docker-env)
@@ -57,7 +79,6 @@ minikube create tunnel :
 ----
 minikube tunnel
 ----
-
 kubernetes create deployment (oracle container sample) :
 ----
 kubectl create -f oracle_container.yaml

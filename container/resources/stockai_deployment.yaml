@@ -1,33 +1,21 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: stockai-oracle-pod
+  name: stockai-pod
 spec:
   selector:
     matchLabels:
-      name: ora-container
+      name: stockai-pod
   template:
     metadata:
       labels:
-         name: ora-container
+         name: stockai-pod
     spec:
       containers:
         - name: oracle-container
           image: madhead-minikube/docker-oracle-xe
           imagePullPolicy: Never
+        - name: stockairepo-container
+          image: pearlbay-minikube/docker-stockairepo
+          imagePullPolicy: Never
       restartPolicy: Always
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: stockai-pod
-  namespace: default
-spec:
-  type: LoadBalancer
-  ports:
-    - protocol: TCP
-      port: 1521
-      targetPort: 1521
-
-
-

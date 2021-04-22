@@ -17,7 +17,7 @@
     <properties>
         <java.version>1.13</java.version>
         <db.username>system</db.username>
-        <db.url>jdbc:oracle:thin:@localhost:1521:XE</db.url>
+        <db.url>jdbc:oracle:thin:@127.0.0.1:1521:XE</db.url>
         <db.password>oracle</db.password>
     </properties>
 
