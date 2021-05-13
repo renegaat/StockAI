@@ -5,17 +5,14 @@ metadata:
 spec:
   selector:
     matchLabels:
-      name: stockai-pod
+      name: stockai-container
   template:
     metadata:
       labels:
-         name: stockai-pod
+        name: stockai-container
     spec:
       containers:
         - name: oracle-container
           image: madhead-minikube/docker-oracle-xe
-          imagePullPolicy: Never
-        - name: stockairepo-container
-          image: pearlbay-minikube/docker-stockairepo
           imagePullPolicy: Never
       restartPolicy: Always
