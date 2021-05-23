@@ -57,7 +57,14 @@ List images :
 ----
 docker images
 ----
-
+tag docker  image :
+----
+docker tag <image id> <dockerusername>/<image name>
+----
+tag image ( example EU GC oracle image ) :
+----
+docker tag e2070a28e1d1 eu.gcr.io/stockai-313609/madhead/docker-oracle-xe
+----
 Remove image examples :
 ----
 docker rmi <image>

@@ -46,6 +46,10 @@ tag image :
 ----
 docker tag <image id> <dockerusername>/<image name>
 ----
+tag image ( example EU GC oracle image ) :
+----
+docker tag e2070a28e1d1 eu.gcr.io/stockai-313609/madhead/docker-oracle-xe
+----
 push image to docker hub :
 ----
 docker push <repository title>:<tag>
@@ -60,6 +64,26 @@ docker pull renegaat/stockairepo:latest
 ----
 ==== AWS
 ==== Google Cloud
+General Getting started :
+----
+https://cloud.google.com/sdk/docs/quickstart
+----
+Logging into Google Cloud :
+----
+gcloud auth login
+----
+Docker to use our GCP credentials :
+----
+gcloud auth configure-docker
+----
+Set active project to project ID (example AI project) :
+----
+gcloud config set project stockai-313609
+----
+Push image to GC Container registry (Europe) (example AI project) :
+----
+docker push "eu.gcr.io/stockai-313609/madhead/docker-oracle-xe"
+----
 === General Notes
 ==== Docker HUB
 - Set the repository to private if access denied problem for docker push
