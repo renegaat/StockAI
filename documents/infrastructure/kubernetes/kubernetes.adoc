@@ -87,13 +87,6 @@ kubernetes delete deployment (oracle container sample) :
 ----
 kubectl delete -f oracle_container.yaml
 ----
-
-
-
-
-
-
-
 === Setup remote application cluster
 === General Notes and commands
 get kubernetes nodes :
@@ -163,4 +156,12 @@ delete a pending pod in kubernetes :
 kubectl get deployments --all-namespaces
 kubectl delete deployment <NAME>
 ----
-
+=== General Notes and Help
+When kubectl command in gcloud shell gets error :
+----
+The connection to the server localhost:8080 was refused - did you specify the right host or port?
+----
+Set kubeconfig like :
+----
+gcloud container clusters get-credentials stock-ai --region europe-central2-a
+----

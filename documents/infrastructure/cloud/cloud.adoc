@@ -84,7 +84,6 @@ Push image to GC Container registry (Europe) (example AI project) :
 ----
 docker push "eu.gcr.io/stockai-313609/madhead/docker-oracle-xe"
 ----
-=== General Notes
 ==== Docker HUB
 - Set the repository to private if access denied problem for docker push
 <to validate>
