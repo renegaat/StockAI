@@ -68,6 +68,10 @@ General Getting started :
 ----
 https://cloud.google.com/sdk/docs/quickstart
 ----
+Cheat Sheet :
+----
+https://cloud.google.com/sdk/docs/cheatsheet
+----
 Logging into Google Cloud :
 ----
 gcloud auth login
