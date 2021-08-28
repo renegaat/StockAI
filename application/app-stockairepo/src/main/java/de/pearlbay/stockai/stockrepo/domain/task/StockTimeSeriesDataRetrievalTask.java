@@ -19,6 +19,7 @@ import org.springframework.stereotype.Component;
  */
 @Component
 public class StockTimeSeriesDataRetrievalTask {
+
     private static final Logger LOG = LoggerFactory.getLogger(StockTimeSeriesDataRetrievalTask.class);
 
     @Autowired
