@@ -64,6 +64,7 @@ public class StockTimeSeriesDataRetrievalTask {
                     interval = Interval.valueOf(stockConfigurationProperties.getInterval().get(c));
                 }
 
+
             } catch (IllegalArgumentException e) {
                 LOG.error("Error building url parameters from stock configuration properties");
                 throw new RuntimeException("Configuration error");
