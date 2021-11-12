@@ -12,6 +12,10 @@ building docker image :
 ----
 docker build -t pearlbay/stockairepo:latest .
 ----
+building multiarchitecture image with buildx ( example stockairepo arm7 )  :
+----
+docker buildx build --platform linux/arm/v7 -t pearlbay/stockairepo:latest . --load
+----
 run AI-Repo container :
 ----
 docker run -e "TZ=EUROPE/BERLIN" -p 8080:8080 --net=pearlbaynet pearlbay/stockairepo

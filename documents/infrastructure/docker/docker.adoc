@@ -38,16 +38,21 @@ docker inspect <container>
 ----
 
 == Image handling :
-
 Create image :
-
 ----
 docker build -t <tagname>:latest .
 ----
-
 Example :
 ----
 docker build -t pearlbay/stockairepo:latest .
+----
+building multiarchitecture image with buildx ( example stockairepo arm64 with push to docker hub )  :
+----
+app-stockairepo % docker buildx build --platform linux/arm64 -t renegaat/stockairepo:latest . --push
+----
+building multiarchitecture image with buildx ( example oraclexe arm64 with push to docker hub )  :
+----
+app-stockairepo % docker buildx build --platform linux/arm64 -t TODO --push
 ----
 Example (local minikube deployment, see notes below) :
 ----
