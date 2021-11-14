@@ -54,6 +54,10 @@ building multiarchitecture image with buildx ( example oraclexe arm64 with push 
 ----
 app-stockairepo % docker buildx build --platform linux/arm64 -t TODO --push
 ----
+clear buildx cache :
+----
+docker buildx prune
+----
 Example (local minikube deployment, see notes below) :
 ----
 docker build -t pearlbay/stockairepo_minikube:latest .

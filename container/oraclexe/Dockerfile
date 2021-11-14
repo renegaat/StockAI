@@ -24,6 +24,11 @@ RUN mv /usr/bin/free.orig /usr/bin/free
 # Configure instance
 ADD config/xe.rsp config/init.ora config/initXETemp.ora /u01/app/oracle/product/11.2.0/xe/config/scripts/
 
+#user:groug
+#fix add user and
+RUN groupadd dba
+RUN useradd -g dba oracle
+
 RUN chown oracle:dba /u01/app/oracle/product/11.2.0/xe/config/scripts/*.ora \
                      /u01/app/oracle/product/11.2.0/xe/config/scripts/xe.rsp
 RUN chmod 755        /u01/app/oracle/product/11.2.0/xe/config/scripts/*.ora \
@@ -32,7 +37,7 @@ ENV ORACLE_HOME /u01/app/oracle/product/11.2.0/xe
 ENV ORACLE_SID XE
 ENV PATH $ORACLE_HOME/bin:$PATH
 
-RUN /etc/init.d/oracle-xe configure responseFile=/u01/app/oracle/product/11.2.0/xe/config/scripts/xe.rsp
+#RUN /etc/init.d/oracle-xe configure responseFile=/u01/app/oracle/product/11.2.0/xe/config/scripts/xe.rsp
 
 # Run script
 ADD config/start.sh /
