@@ -8,6 +8,16 @@ List containers :
 docker container ls
 ----
 
+Remove container :
+----
+docker rm <container>
+----
+
+Clear container cache:
+----
+docker container prune
+----
+
 Stop container :
 
 ----
@@ -48,11 +58,11 @@ docker build -t pearlbay/stockairepo:latest .
 ----
 building multiarchitecture image with buildx ( example stockairepo arm64 with push to docker hub )  :
 ----
-app-stockairepo % docker buildx build --platform linux/arm64 -t renegaat/stockairepo:latest . --push
+docker buildx build --platform linux/arm64 -t renegaat/stockairepo:latest . --push
 ----
 building multiarchitecture image with buildx ( example oraclexe arm64 with push to docker hub )  :
 ----
-app-stockairepo % docker buildx build --platform linux/arm64 -t TODO --push
+docker buildx build --platform linux/arm64 -t renegaat/docker-oracle-xe:latest . --push TODO
 ----
 clear buildx cache :
 ----
@@ -85,7 +95,7 @@ docker rmi <repository_name>:tag
 
 Remove all images :
 ----
-docker rmi prune
+docker image prune
 ----
 
 
