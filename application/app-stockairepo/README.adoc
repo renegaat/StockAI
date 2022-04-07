@@ -25,5 +25,8 @@ delete from STOCKAIREPO.TIMESERIES;
 delete from STOCKAIREPO.STOCKTIMESERIESDATA;
 delete from STOCKAIREPO.METADATA;
 ----
-
+to setup local database:
+----
+mvn clean install liquibase:update
+----
 
