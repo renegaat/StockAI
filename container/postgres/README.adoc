@@ -1,0 +1,54 @@
+# Docker Compose für Oracle XE 11gR2
+
+## Was ist dies?
+
+## Vorbedingung
+
+## Starten
+
+## Shell in den postgres Container
+
+----
+docker exec -i -t XXXXTODOXXXX bash
+----
+## Container direkt starten
+----
+----
+## Daten bereinigen
+----
+----
+== Weitere Informationen
+
+Auf Port 1521 ist die Datenbank verfügbar.
+
+== Tips und Tricks (Alternativen zu compose-up)
+
+Image bauen :
+----
+----
+Container starten :
+----
+----
+== Fehler:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
