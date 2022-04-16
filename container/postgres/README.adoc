@@ -1,33 +1,37 @@
-# Docker Compose für Oracle XE 11gR2
+# Docker  postgres image
 
 ## Was ist dies?
+
+postgres container abgestimmt auf stockAi Umgebung
 
 ## Vorbedingung
 
 ## Starten
 
 ## Shell in den postgres Container
-
 ----
-docker exec -i -t XXXXTODOXXXX bash
+docker exec -it CONTAINERID bash
 ----
 ## Container direkt starten
 ----
+docker run -p 5432:5432 -e POSTGRES_PASSWORD=password postgres
 ----
 ## Daten bereinigen
 ----
 ----
 == Weitere Informationen
 
-Auf Port 1521 ist die Datenbank verfügbar.
+Auf Port 5432 ist die Datenbank verfügbar.
 
 == Tips und Tricks (Alternativen zu compose-up)
 
 Image bauen :
 ----
+docker build -t renegaat/postgres:latest .
 ----
 Container starten :
 ----
+docker run -p 5432:5432 -e POSTGRES_PASSWORD=password postgres
 ----
 == Fehler:
 
