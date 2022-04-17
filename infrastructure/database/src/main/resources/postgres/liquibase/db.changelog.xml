@@ -5,17 +5,9 @@
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
     <changeSet id="1" author="jrn" runOnChange="true">
-        <sqlFile path="1_dropuserfunc.sql" splitStatements="true" endDelimiter="/" relativeToChangelogFile="true"/>
-    </changeSet>
-
-    <changeSet id="2" author="jrn" runOnChange="true">
-        <sqlFile path="2_tablespaces.sql" splitStatements="true" endDelimiter="/" relativeToChangelogFile="true"/>
-    </changeSet>
-
-    <changeSet id="3" author="jrn" runOnChange="true">
         <sqlFile path="3_stockairepo_setup.sql" relativeToChangelogFile="true"/>
     </changeSet>
-    
+
 </databaseChangeLog>
 
 

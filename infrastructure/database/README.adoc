@@ -2,9 +2,14 @@
 
 == What is this :
 
-General database setup scripts.
+General database postgres setup scripts.
 
 == Getting started for local environment
 ----
-mvn clean liquibase:update
+mvn clean liquibase:update----
 ----
+=== Notes:
+See /oraclexe/liquibase/ for obsolete oracle implementation
+
+
+
