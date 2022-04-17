@@ -8,7 +8,7 @@ CREATE OR REPLACE PROCEDURE drop_user_if_exists (user_name VARCHAR2) AS
      THEN
        IF SQLCODE = -01918 THEN
          NULL; -- ORA-01918 user does not exist
-       ELSE
+       ELSE#
          RAISE;
        END IF;
    END drop_user_if_exists;
