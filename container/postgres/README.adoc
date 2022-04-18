@@ -27,11 +27,11 @@ Auf Port 5432 ist die Datenbank verfügbar.
 
 Image bauen :
 ----
-docker build -t renegaat/postgres:latest .
+docker build -t stockai/postgres:latest .
 ----
 Container starten :
 ----
-docker run -p 5432:5432 -e POSTGRES_PASSWORD=password postgres
+docker run -p 5432:5432 -e POSTGRES_PASSWORD=password stockai/postgres
 ----
 == Fehler:
 
