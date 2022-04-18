@@ -3,11 +3,9 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
-
     <changeSet id="1" author="jrn" runOnChange="true">
-        <sqlFile path="3_stockairepo_setup.sql" relativeToChangelogFile="true"/>
+        <sqlFile path="1_postgres_setup.sql" relativeToChangelogFile="true"/>
     </changeSet>
-
 </databaseChangeLog>
 
 
