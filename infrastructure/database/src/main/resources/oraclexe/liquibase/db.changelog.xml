@@ -13,7 +13,7 @@
     </changeSet>
 
     <changeSet id="3" author="jrn" runOnChange="true">
-        <sqlFile path="1_stockairepo_setup.sql" relativeToChangelogFile="true"/>
+        <sqlFile path="1_postgres_setup.sql" relativeToChangelogFile="true"/>
     </changeSet>
     
 </databaseChangeLog>
