@@ -34,13 +34,13 @@
         <spring.web.version>3.0.5</spring.web.version>
         <spring.boot.version>3.0.5</spring.boot.version>
         <spring.processor.version>3.0.5</spring.processor.version>
-        <spring.hateoas.version>1.0.0.RELEASE</spring.hateoas.version>
+        <spring.hateoas.version>2.0.3</spring.hateoas.version>
         <liquibase.version>4.20.0</liquibase.version>
         <apache.commons.lang.version>3.12.0</apache.commons.lang.version>
         <lombok.version>1.18.26</lombok.version>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>
-        <maven.surefire.plugin.version>3.0.0-M5</maven.surefire.plugin.version>
+        <maven.surefire.plugin.version>3.0.0</maven.surefire.plugin.version>
     </properties>
 
     <modules>
