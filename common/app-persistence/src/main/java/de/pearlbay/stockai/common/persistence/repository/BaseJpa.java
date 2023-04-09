@@ -2,8 +2,8 @@ package de.pearlbay.stockai.common.persistence.repository;
 
 import lombok.Data;
 
-import javax.persistence.MappedSuperclass;
-import javax.persistence.Version;
+import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.Version;
 
 /**
  * Basisklasse für alle änderbaren Entitäten.

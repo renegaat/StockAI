@@ -9,7 +9,8 @@ import de.pearlbay.stockai.stockrepo.domain.StockTimeSeriesData;
 import de.pearlbay.stockai.stockrepo.domain.TimeSeries;
 import de.pearlbay.stockai.stockrepo.restclient.dto.StockTimeSeriesDataDto;
 import de.pearlbay.stockai.stockrepo.service.mapper.StockTimeSeriesDataDtoMapperImpl;
-import org.junit.Test;
+
+import org.junit.jupiter.api.Test;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
@@ -17,7 +18,7 @@ import java.time.ZoneId;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 public class DTOMapperTest {
 

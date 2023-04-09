@@ -11,15 +11,16 @@ import de.pearlbay.stockai.stockrepo.domain.TimeSeries;
 import de.pearlbay.stockai.stockrepo.repository.mapper.MetaDataJpaMapperImpl;
 import de.pearlbay.stockai.stockrepo.repository.mapper.StockTimeSeriesDataJpaMapperImpl;
 import de.pearlbay.stockai.stockrepo.repository.mapper.TimeSeriesJpaMapperImpl;
-import org.junit.Test;
-import static org.junit.Assert.assertEquals;
+import org.junit.jupiter.api.*;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.util.List;
 import java.util.ArrayList;
+
 
 public class MapperTest {
 

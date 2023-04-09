@@ -26,21 +26,21 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-        <java.version>1.13</java.version>
-        <spring.data.version>2.2.0.RELEASE</spring.data.version>
-        <spring.batch.version>2.2.0.RELEASE</spring.batch.version>
-        <spring.aop.version>2.2.0.RELEASE</spring.aop.version>
-        <spring.rest.version>2.2.0.RELEASE</spring.rest.version>
-        <spring.test.version>2.2.0.RELEASE</spring.test.version>
-        <spring.web.version>2.2.0.RELEASE</spring.web.version>
-        <spring.boot.version>2.2.0.RELEASE</spring.boot.version>
-        <spring.processor.version>2.2.0.RELEASE</spring.processor.version>
+        <spring.data.version>3.0.5</spring.data.version>
+        <spring.batch.version>3.0.5</spring.batch.version>
+        <spring.aop.version>3.0.5</spring.aop.version>
+        <spring.rest.version>3.0.5</spring.rest.version>
+        <spring.test.version>3.0.5</spring.test.version>
+        <spring.web.version>3.0.5</spring.web.version>
+        <spring.boot.version>3.0.5</spring.boot.version>
+        <spring.processor.version>3.0.5</spring.processor.version>
         <spring.hateoas.version>1.0.0.RELEASE</spring.hateoas.version>
-        <liquibase.version>3.8.1</liquibase.version>
-        <apache.commons.lang.version>3.7</apache.commons.lang.version>
-        <lombok.version>1.18.10</lombok.version>
-        <maven.compiler.source>1.8</maven.compiler.source>
-        <maven.compiler.target>1.8</maven.compiler.target>
+        <liquibase.version>4.20.0</liquibase.version>
+        <apache.commons.lang.version>3.12.0</apache.commons.lang.version>
+        <lombok.version>1.18.26</lombok.version>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <maven.surefire.plugin.version>3.0.0-M5</maven.surefire.plugin.version>
     </properties>
 
     <modules>
@@ -117,8 +117,7 @@
             <artifactId>jaxb-api</artifactId>
             <version>2.3.1</version>
         </dependency>
-    </dependencies>
-
+      </dependencies>
     <build>
         <plugins>
             <plugin>
@@ -127,22 +126,10 @@
                 <version>${spring.boot.version}</version>
             </plugin>
             <plugin>
-                <groupId>com.github.spotbugs</groupId>
-                <artifactId>spotbugs-maven-plugin</artifactId>
-                <configuration>
-                    <failOnError>false</failOnError>
-                </configuration>
-                <version>3.1.12.2</version>
-                <dependencies>
-                    <!-- overwrite dependency on spotbugs if you want to specify the version of spotbugs -->
-                    <dependency>
-                        <groupId>com.github.spotbugs</groupId>
-                        <artifactId>spotbugs</artifactId>
-                        <version>3.1.12</version>
-                    </dependency>
-                </dependencies>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>${maven.surefire.plugin.version}</version>
             </plugin>
-
         </plugins>
     </build>
 </project>

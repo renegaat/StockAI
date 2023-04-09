@@ -4,13 +4,12 @@ import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.MappingJsonFactory;
 import de.pearlbay.stockai.common.enums.Function;
 import de.pearlbay.stockai.stockrepo.restclient.dto.StockTimeSeriesDataDto;
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 import org.springframework.util.ResourceUtils;
 
 import java.io.File;
 import java.io.IOException;
-
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 public class CustomSerializerTest {
 

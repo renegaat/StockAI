@@ -8,25 +8,24 @@ import de.pearlbay.stockai.stockrepo.domain.repository.StockTimeSeriesDataReposi
 import de.pearlbay.stockai.stockrepo.repository.MetaDataJpa;
 import de.pearlbay.stockai.stockrepo.repository.StockTimeSeriesDataJpa;
 import de.pearlbay.stockai.stockrepo.repository.TimeSeriesJpa;
-import org.junit.Test;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
-import org.mockito.junit.MockitoJUnitRunner;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNotNull;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.when;
 
 
-@RunWith(MockitoJUnitRunner.class)
-
+@ExtendWith(MockitoExtension.class)
 public class StockTimeSeriesDataServiceTest {
 
     public static final String SYMBOL = "symbol";

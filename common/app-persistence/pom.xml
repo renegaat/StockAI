@@ -17,7 +17,7 @@
     <description>persistence common</description>
 
     <properties>
-        <spring.boot.version>2.2.0.RELEASE</spring.boot.version>
+        <spring.boot.version>3.0.5</spring.boot.version>
     </properties>
 
     <build>

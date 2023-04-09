@@ -7,7 +7,7 @@ import de.pearlbay.stockai.common.persistence.repository.BaseJpa;
 import lombok.*;
 
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.List;
 
 /**
