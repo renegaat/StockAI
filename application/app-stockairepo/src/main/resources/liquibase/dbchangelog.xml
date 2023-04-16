@@ -33,15 +33,15 @@
             <column name="version" type="NUMBER(10, 0)" remarks="Versionszähler">
                 <constraints nullable="false"/>
             </column>
-            <column name="stock_name" type="VARCHAR(255 CHAR)"
+            <column name="stock_name" type="VARCHAR(255)"
                     remarks="Stock name"/>
-            <column name="currency" type="VARCHAR(255 CHAR)"
+            <column name="currency" type="VARCHAR(255)"
                     remarks="Currency"/>
-            <column name="market" type="VARCHAR(255 CHAR)"
+            <column name="market" type="VARCHAR(255)"
                     remarks="Market"/>
             <column name="new_data" defaultValue="false" type="boolean"
                     remarks="Is it new data"/>
-            <column name="function" type="VARCHAR(255 CHAR)"
+            <column name="function" type="VARCHAR(255)"
                     remarks="Alpha Vantage retrieval function type"/>
             <column name="metadata_id" remarks="Foreign Key MetaData (metadata_id)"
                     type="NUMBER(19, 0)">
@@ -58,17 +58,17 @@
             <column name="version" type="NUMBER(10, 0)" remarks="Versionszähler">
                 <constraints nullable="false"/>
             </column>
-            <column name="symbol" type="VARCHAR(255 CHAR)"
+            <column name="symbol" type="VARCHAR(255)"
                     remarks="Symbol">
                 <constraints nullable="false"/>
             </column>
-            <column name="information" type="VARCHAR(255 CHAR)"
+            <column name="information" type="VARCHAR(255)"
                     remarks="Detailed Information"/>
             <column name="last_refreshed" type="DATETIME"
                     remarks="Timestamp of last data update">
                 <constraints nullable="false"/>
             </column>
-            <column name="time_zone" type="VARCHAR(255 CHAR)"
+            <column name="time_zone" type="VARCHAR(255)"
                     remarks="Timezone"/>
         </createTable>
     </changeSet>
