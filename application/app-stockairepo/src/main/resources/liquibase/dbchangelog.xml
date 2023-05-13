@@ -26,6 +26,13 @@
     </changeSet>
 
     <changeSet author="jross" id="AI-13_4">
+        <sql dbms="postgresql" endDelimiter=";">
+            CREATE SCHEMA STOCKAIREPO;
+        </sql>
+    </changeSet>
+
+
+    <changeSet author="jross" id="AI-13_5">
         <createTable tableName="stocktimeseriesdata">
             <column name="stocktimeseriesdata_id" type="NUMBER(19, 0)" remarks="Technische ID (Primärschlüssel)">
                 <constraints nullable="false"/>
@@ -50,7 +57,7 @@
         </createTable>
     </changeSet>
 
-    <changeSet author="jross" id="AI-13_5">
+    <changeSet author="jross" id="AI-13_6">
         <createTable tableName="metadata">
             <column name="metadata_id" type="NUMBER(19, 0)" remarks="Technische ID (Primärschlüssel)">
                 <constraints nullable="false"/>
@@ -73,7 +80,7 @@
         </createTable>
     </changeSet>
 
-    <changeSet author="jross" id="AI-13_6">
+    <changeSet author="jross" id="AI-13_7">
         <createTable tableName="timeseries">
             <column name="timeseries_id" type="NUMBER(19, 0)" remarks="Technische ID (Primärschlüssel)">
                 <constraints nullable="false"/>
@@ -107,17 +114,17 @@
         </createTable>
     </changeSet>
 
-    <changeSet author="jross" id="AI-13_7">
+    <changeSet author="jross" id="AI-13_8">
         <addPrimaryKey columnNames="stocktimeseriesdata_id" constraintName="stocktimeseriesdatapk"
                        tableName="stocktimeseriesdata"/>
     </changeSet>
 
-    <changeSet author="jross" id="AI-13_8">
+    <changeSet author="jross" id="AI-13_9">
         <addPrimaryKey columnNames="metadata_id" constraintName="metadatapk"
                        tableName="metadata"/>
     </changeSet>
 
-    <changeSet author="jross" id="AI-13_9">
+    <changeSet author="jross" id="AI-13_10">
         <addForeignKeyConstraint baseColumnNames="metadata_id" baseTableName="stocktimeseriesdata"
                                  constraintName="FK_5EWGU9WL4MMRD5Q3H13X89S7E" deferrable="false"
                                  initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
@@ -125,7 +132,7 @@
                                  referencedTableName="metadata"/>
     </changeSet>
 
-    <changeSet author="jross" id="AI-13_10">
+    <changeSet author="jross" id="AI-13_11">
         <addForeignKeyConstraint baseColumnNames="stocktimeseriesdata_id" baseTableName="timeseries"
                                  constraintName="FK_5EWGU9WL4MMRD5Q3H13X89S7F" deferrable="false"
                                  initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
@@ -133,5 +140,3 @@
                                  referencedTableName="stocktimeseriesdata"/>
     </changeSet>
 </databaseChangeLog>
-
-

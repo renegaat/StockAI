@@ -42,7 +42,7 @@
                 <version>3.3.5</version>
                 <configuration>
                     <!--<skip>false</skip>-->
-                    <propertyFile>src/main/resources/liquibase/liquibase.properties</propertyFile>
+                    <propertyFile>src/main/resources/postgres/liquibase/liquibase.properties</propertyFile>
                     <driver>oracle.jdbc.OracleDriver</driver>
                     <url>${db.url}</url>
                     <username>${db.username}</username>
