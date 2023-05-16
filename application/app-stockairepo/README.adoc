@@ -1,13 +1,27 @@
 
 # StockAiRepo
 
+
+*Local Setup:*
+
+Start local postgres database (all env):
+----
+docker run -d --name postgres-container -e TZ=UTC -p 30432:5432 -e POSTGRES_PASSWORD=postgres -e POSTGRES_USER=stockai ubuntu/postgres:14-22.04_beta
+----
+
+Start stockairepo (all env):
+----
+----
+
 *Help:*
+
+To reset the environment stop and remove db container.
 
 Example Rest Service Requests :
 ----
 /stocktimeseriesdata/v1/stocktimeseriesdata?symbol=MSFT&from=2020-04-05%2011%3A30%3A00&until=2020-05-05%2000%3A00%3A00&function=TIME_SERIES_DAILY
 ----
-To reset database:
+To reset database (manually):
 ----
 DELETE FROM stockairepo.databasechangelog;
 DELETE FROM stockairepo.databasechangeloglock;
@@ -24,9 +38,5 @@ to delete database content:
 delete from STOCKAIREPO.TIMESERIES;
 delete from STOCKAIREPO.STOCKTIMESERIESDATA;
 delete from STOCKAIREPO.METADATA;
-----
-to setup local database:
-----
-mvn clean install liquibase:update
 ----
 
