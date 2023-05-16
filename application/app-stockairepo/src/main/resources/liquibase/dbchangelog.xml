@@ -4,52 +4,57 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
          http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.4.xsd">
 
+
     <changeSet author="jross" id="AI-13_1">
-        <createSequence sequenceName="stock_timeseries_data_id_seq"
-                        incrementBy="50"
-                        startValue="1"
-        />
+        <sql dbms="postgresql" endDelimiter=";">
+            CREATE SCHEMA STOCKAIREPO;
+        </sql>
     </changeSet>
 
+
     <changeSet author="jross" id="AI-13_2">
-        <createSequence sequenceName="metadata_id_seq"
+        <createSequence sequenceName="stock_timeseries_data_id_seq"
+                        schemaName="STOCKAIREPO"
                         incrementBy="50"
                         startValue="1"
         />
     </changeSet>
 
     <changeSet author="jross" id="AI-13_3">
-        <createSequence sequenceName="timeseries_id_seq"
+        <createSequence sequenceName="metadata_id_seq"
+                        schemaName="STOCKAIREPO"
                         incrementBy="50"
                         startValue="1"
         />
     </changeSet>
 
     <changeSet author="jross" id="AI-13_4">
-        <sql dbms="postgresql" endDelimiter=";">
-            CREATE SCHEMA STOCKAIREPO;
-        </sql>
+        <createSequence sequenceName="timeseries_id_seq"
+                        schemaName="STOCKAIREPO"
+                        incrementBy="50"
+                        startValue="1"
+        />
     </changeSet>
 
     <changeSet author="jross" id="AI-13_5">
-        <createTable tableName="stocktimeseriesdata">
-            <column name="stocktimeseriesdata_id" type="NUMBER(19, 0)" remarks="Technische ID (Primärschlüssel)">
+        <createTable tableName="stocktimeseriesdata" schemaName="STOCKAIREPO">
+            <column name="stsd_stocktimeseriesdata_id" type="NUMBER(19, 0)" remarks="Technische ID (Primärschlüssel)">
                 <constraints nullable="false"/>
             </column>
-            <column name="version" type="NUMBER(10, 0)" remarks="Versionszähler">
+            <column name="stsd_version" type="NUMBER(10, 0)" remarks="Versionszähler">
                 <constraints nullable="false"/>
             </column>
-            <column name="stock_name" type="VARCHAR(255)"
+            <column name="stsd_stock_name" type="VARCHAR(255)"
                     remarks="Stock name"/>
-            <column name="currency" type="VARCHAR(255)"
+            <column name="stsd_currency" type="VARCHAR(255)"
                     remarks="Currency"/>
-            <column name="market" type="VARCHAR(255)"
+            <column name="stsd_market" type="VARCHAR(255)"
                     remarks="Market"/>
-            <column name="new_data" defaultValue="false" type="boolean"
+            <column name="stsd_new_data" defaultValue="false" type="boolean"
                     remarks="Is it new data"/>
-            <column name="function" type="VARCHAR(255)"
+            <column name="stsd_function" type="VARCHAR(255)"
                     remarks="Alpha Vantage retrieval function type"/>
-            <column name="metadata_id" remarks="Foreign Key MetaData (metadata_id)"
+            <column name="fk_metadata_id" remarks="Foreign Key MetaData (metadata_id)"
                     type="NUMBER(19, 0)">
                 <constraints nullable="false"/>
             </column>
@@ -57,56 +62,56 @@
     </changeSet>
 
     <changeSet author="jross" id="AI-13_6">
-        <createTable tableName="metadata">
-            <column name="metadata_id" type="NUMBER(19, 0)" remarks="Technische ID (Primärschlüssel)">
+        <createTable tableName="metadata" schemaName="STOCKAIREPO">
+            <column name="md_metadata_id"  type="NUMBER(19, 0)" remarks="Technische ID (Primärschlüssel)">
                 <constraints nullable="false"/>
             </column>
-            <column name="version" type="NUMBER(10, 0)" remarks="Versionszähler">
+            <column name="md_version" type="NUMBER(10, 0)" remarks="Versionszähler">
                 <constraints nullable="false"/>
             </column>
-            <column name="symbol" type="VARCHAR(255)"
+            <column name="md_symbol" type="VARCHAR(255)"
                     remarks="Symbol">
                 <constraints nullable="false"/>
             </column>
-            <column name="information" type="VARCHAR(255)"
+            <column name="md_information" type="VARCHAR(255)"
                     remarks="Detailed Information"/>
-            <column name="last_refreshed" type="DATETIME"
+            <column name="md_last_refreshed" type="DATETIME"
                     remarks="Timestamp of last data update">
                 <constraints nullable="false"/>
             </column>
-            <column name="time_zone" type="VARCHAR(255)"
+            <column name="md_time_zone" type="VARCHAR(255)"
                     remarks="Timezone"/>
         </createTable>
     </changeSet>
 
     <changeSet author="jross" id="AI-13_7">
-        <createTable tableName="timeseries">
-            <column name="timeseries_id" type="NUMBER(19, 0)" remarks="Technische ID (Primärschlüssel)">
+        <createTable tableName="timeseries" schemaName="STOCKAIREPO">
+            <column name="ts_timeseries_id" type="NUMBER(19, 0)" remarks="Technische ID (Primärschlüssel)">
                 <constraints nullable="false"/>
             </column>
-            <column name="version" type="NUMBER(10, 0)" remarks="Versionszähler">
+            <column name="ts_version" type="NUMBER(10, 0)" remarks="Versionszähler">
                 <constraints nullable="false"/>
             </column>
-            <column name="time" type="DATETIME"
+            <column name="ts_time" type="DATETIME"
                     remarks="Timestamp">
                 <constraints nullable="false"/>
             </column>
-            <column name="open" type="NUMBER(19, 4)" remarks="Price open">
+            <column name="ts_open" type="NUMBER(19, 4)" remarks="Price open">
                 <constraints nullable="false"/>
             </column>
-            <column name="high" type="NUMBER(19, 4)" remarks="Price high">
+            <column name="ts_high" type="NUMBER(19, 4)" remarks="Price high">
                 <constraints nullable="false"/>
             </column>
-            <column name="low" type="NUMBER(19, 4)" remarks="Price low">
+            <column name="ts_low" type="NUMBER(19, 4)" remarks="Price low">
                 <constraints nullable="false"/>
             </column>
-            <column name="close" type="NUMBER(19, 4)" remarks="Price close">
+            <column name="ts_close" type="NUMBER(19, 4)" remarks="Price close">
                 <constraints nullable="false"/>
             </column>
-            <column name="volume" type="NUMBER(10, 0)" remarks="Volume traded">
+            <column name="ts_volume" type="NUMBER(10, 0)" remarks="Volume traded">
                 <constraints nullable="false"/>
             </column>
-            <column name="stocktimeseriesdata_id" remarks="Foreign Key StockTimeSeriesData (stocktimeseriesdata_id)"
+            <column name="ts_stocktimeseriesdata_id" remarks="Foreign Key StockTimeSeriesData (stocktimeseriesdata_id)"
                     type="NUMBER(19, 0)">
                 <constraints nullable="false"/>
             </column>
@@ -114,28 +119,31 @@
     </changeSet>
 
     <changeSet author="jross" id="AI-13_8">
-        <addPrimaryKey columnNames="stocktimeseriesdata_id" constraintName="stocktimeseriesdatapk"
+        <addPrimaryKey columnNames="stsd_stocktimeseriesdata_id" schemaName="STOCKAIREPO" constraintName="stocktimeseriesdatapk"
                        tableName="stocktimeseriesdata"/>
     </changeSet>
 
     <changeSet author="jross" id="AI-13_9">
-        <addPrimaryKey columnNames="metadata_id" constraintName="metadatapk"
+        <addPrimaryKey columnNames="md_metadata_id" schemaName="STOCKAIREPO" constraintName="metadatapk"
                        tableName="metadata"/>
     </changeSet>
 
     <changeSet author="jross" id="AI-13_10">
-        <addForeignKeyConstraint baseColumnNames="metadata_id" baseTableName="stocktimeseriesdata"
+        <addForeignKeyConstraint baseColumnNames="fk_metadata_id" baseTableSchemaName="STOCKAIREPO" baseTableName="stocktimeseriesdata"
                                  constraintName="FK_5EWGU9WL4MMRD5Q3H13X89S7E" deferrable="false"
                                  initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
-                                 referencedColumnNames="metadata_id"
+                                 referencedTableCatalogName="STOCKAIREPO"
+                                 referencedColumnNames="md_metadata_id"
+                                 referencedTableSchemaName="STOCKAIREPO"
                                  referencedTableName="metadata"/>
     </changeSet>
 
     <changeSet author="jross" id="AI-13_11">
-        <addForeignKeyConstraint baseColumnNames="stocktimeseriesdata_id" baseTableName="timeseries"
+        <addForeignKeyConstraint baseColumnNames="ts_stocktimeseriesdata_id" baseTableSchemaName="STOCKAIREPO" baseTableName="timeseries"
                                  constraintName="FK_5EWGU9WL4MMRD5Q3H13X89S7F" deferrable="false"
                                  initiallyDeferred="false" onDelete="RESTRICT" onUpdate="RESTRICT"
-                                 referencedColumnNames="stocktimeseriesdata_id"
+                                 referencedTableSchemaName="STOCKAIREPO"
+                                 referencedColumnNames="stsd_stocktimeseriesdata_id"
                                  referencedTableName="stocktimeseriesdata"/>
     </changeSet>
 </databaseChangeLog>

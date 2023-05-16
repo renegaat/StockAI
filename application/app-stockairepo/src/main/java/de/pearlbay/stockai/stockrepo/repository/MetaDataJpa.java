@@ -22,15 +22,20 @@ public class MetaDataJpa extends BaseJpa {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "metadata_id_seq")
     @SequenceGenerator(name = "metadata_id_seq", sequenceName = "metadata_id_seq")
-    @Column(name = "metadata_id")
+    @Column(name = "md_metadata_id")
     private Long id;
 
+    @Column(name = "md_version")
+    private int version;
+
+    @Column(name = "md_symbol")
     private String symbol;
+    @Column(name = "md_information")
     private String information;
 
-    @Column(name = "last_refreshed")
+    @Column(name = "md_last_refreshed")
     private LocalDateTime lastRefreshed;
 
-    @Column(name = "time_zone")
+    @Column(name = "md_time_zone")
     private String timeZone;
 }

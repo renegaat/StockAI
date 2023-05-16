@@ -13,6 +13,4 @@ import jakarta.persistence.Version;
 @MappedSuperclass
 @Data
 public class BaseJpa {
-    @Version
-    private int version;
 }

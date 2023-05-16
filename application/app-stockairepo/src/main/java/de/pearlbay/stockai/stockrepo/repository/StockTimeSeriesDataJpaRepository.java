@@ -16,7 +16,7 @@ import org.springframework.transaction.annotation.Transactional;
 public interface StockTimeSeriesDataJpaRepository extends JpaRepository<StockTimeSeriesDataJpa, Long> {
     @Query(value = "SELECT * from STOCKAIREPO.STOCKTIMESERIESDATA s"
             + " INNER JOIN STOCKAIREPO.METADATA m"
-            + " ON m.SYMBOL = ?1 AND s.METADATA_ID = m.METADATA_ID"
-            + " AND s.FUNCTION = ?2", nativeQuery = true)
+            + " ON m.MD_SYMBOL = ?1 AND s.FK_METADATA_ID = m.MD_METADATA_ID"
+            + " AND s.STSD_FUNCTION = ?2", nativeQuery = true)
     StockTimeSeriesDataJpa findBySymbolAndFunction(String symbol, String function);
 }

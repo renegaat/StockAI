@@ -27,32 +27,38 @@ public class StockTimeSeriesDataJpa extends BaseJpa {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "stock_timeseries_data_id_seq")
     @SequenceGenerator(name = "stock_timeseries_data_id_seq", sequenceName = "stock_timeseries_data_id_seq")
-    @Column(name = "stocktimeseriesdata_id")
+    @Column(name = "stsd_stocktimeseriesdata_id")
     private Long id;
 
+    @Column(name = "stsd_version")
+    private int version;
 
+    @Column(name = "stsd_stock_Name")
     private String stockName;
 
+    @Column(name = "stsd_currency")
     @Enumerated(EnumType.STRING)
     private Currency currency;
 
-
+    @Column(name = "stsd_market")
     @Enumerated(EnumType.STRING)
     private Market market;
 
+    @Column(name = "stsd_new_data")
     private boolean newData;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "metadata_id", unique = true, nullable = false, insertable = true, updatable = true)
+    @JoinColumn(name = "fk_metadata_id", unique = true, nullable = false, insertable = true, updatable = true)
     private MetaDataJpa metaData;
 
     @OneToMany(
             cascade = CascadeType.ALL,
             orphanRemoval = true
     )
-    @JoinColumn(name = "stocktimeseriesdata_id", nullable = false)
+    @JoinColumn(name = "ts_stocktimeseriesdata_id", nullable = false)
     private List<TimeSeriesJpa> timeSeries;
 
+    @Column(name = "stsd_function")
     @Enumerated(EnumType.STRING)
     private Function function;
 
