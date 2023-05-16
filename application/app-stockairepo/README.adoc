@@ -2,16 +2,34 @@
 # StockAiRepo
 
 
-*Local Setup:*
+*Local Setup (docker configuration):*
 
 Start local postgres database (all env):
 ----
-docker run -d --name postgres-container -e TZ=UTC -p 30432:5432 -e POSTGRES_PASSWORD=postgres -e POSTGRES_USER=stockai ubuntu/postgres:14-22.04_beta
+docker run -d --name postgres-container -e TZ=UTC -p 1521:5432 --net=pearlbaynet -e POSTGRES_PASSWORD=postgres -e POSTGRES_USER=stockai ubuntu/postgres:14-22.04_beta
 ----
 
 Start stockairepo (all env):
 ----
+mvn clean package
 ----
+----
+docker build -t pearlbay/stockairepo:latest .
+----
+----
+docker run -e "TZ=EUROPE/BERLIN" -p 8080:8080 --net=pearlbaynet pearlbay/stockairepo
+----
+application.properties:
+----
+## local configuration
+spring.datasource.url=jdbc:postgresql://postgres-container:5432/stockai
+spring.datasource.username=stockai
+spring.datasource.password=postgres
+spring.liquibase.change-log=classpath:liquibase/dbchangelog.xml
+spring.jpa.properties.hibernate.default_schema=STOCKAIREPO
+----
+
+
 
 *Help:*
 

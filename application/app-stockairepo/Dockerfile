@@ -1,4 +1,4 @@
-FROM adoptopenjdk/openjdk11:latest
+FROM openjdk:17
 VOLUME /tmp
 EXPOSE 8080
 EXPOSE 1521
