@@ -1,0 +1,83 @@
+openapi: 3.0.3
+info:
+  title: StocktimeSeriesData Api
+  description: Api provides StockTimeSeriesData
+  version: 1.0.0
+servers:
+  - url: https://localhost:8080/stocktimeseriesdata/v1
+    description: stocktimeseriesdata repo access
+
+paths:
+  /stocktimeseriesdata:
+    get:
+      summary: getStockTimeSeriesData
+      description: getStockTimeSeriesData
+      operationId: getStockTimeSeriesData
+      parameters:
+        - name: symbol
+          in: query
+          description: symbol
+          required: true
+          schema:
+            type: string
+        - name: from
+          in: query
+          description: from date
+          required: true
+          schema:
+            type: string
+        - name: until
+          in: query
+          description: until date
+          required: true
+          schema:
+            type: string
+        - name: function
+          in: query
+          description: alphavantage function
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: successful operation
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  stockTimeSeriesData:
+                    type: object
+                    properties:
+                      stockTimeSeriesData:
+                        type: array
+                        items:
+                          type: object
+                          properties:
+                            date:
+                              type: string
+                            open:
+                              type: string
+                            high:
+                              type: string
+                            low:
+                              type: string
+                            close:
+                              type: string
+                            volume:
+                              type: string
+                            symbol:
+                              type: string
+                            interval:
+                              type: string
+                            outputsize:
+                              type: string
+                            apikey:
+                              type: string
+        '400':
+          description: Invalid status value
+        '404':
+          description: stocktimeseriesdata not found
+        '405':
+          description: Invalid input
+      deprecated: false
