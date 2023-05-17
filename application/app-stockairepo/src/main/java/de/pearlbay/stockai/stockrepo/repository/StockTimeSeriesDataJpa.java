@@ -33,7 +33,7 @@ public class StockTimeSeriesDataJpa extends BaseJpa {
     @Column(name = "stsd_version")
     private int version;
 
-    @Column(name = "stsd_stock_Name")
+    @Column(name = "stsd_stock_name")
     private String stockName;
 
     @Column(name = "stsd_currency")

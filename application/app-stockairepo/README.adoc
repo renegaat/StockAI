@@ -11,7 +11,7 @@ docker run -d --name postgres-container -e TZ=UTC -p 1521:5432 --net=pearlbaynet
 
 Start stockairepo (all env):
 ----
-mvn clean package
+mvn package -pl /application/app-stockairepo
 ----
 ----
 docker build -t pearlbay/stockairepo:latest .
@@ -19,7 +19,7 @@ docker build -t pearlbay/stockairepo:latest .
 ----
 docker run -e "TZ=EUROPE/BERLIN" -p 8080:8080 --net=pearlbaynet pearlbay/stockairepo
 ----
-application.properties:
+application.properties (docker configuration):
 ----
 ## local configuration
 spring.datasource.url=jdbc:postgresql://postgres-container:5432/stockai
@@ -29,9 +29,13 @@ spring.liquibase.change-log=classpath:liquibase/dbchangelog.xml
 spring.jpa.properties.hibernate.default_schema=STOCKAIREPO
 ----
 
-
-
 *Help:*
+
+check docker network configuration:
+----
+docker network inspect pearlbaynet
+----
+
 
 To reset the environment stop and remove db container.
 
