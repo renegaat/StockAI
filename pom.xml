@@ -32,7 +32,7 @@
         <spring.rest.version>3.0.5</spring.rest.version>
         <spring.test.version>3.0.5</spring.test.version>
         <spring.web.version>3.0.5</spring.web.version>
-        <spring.boot.version>3.0.5</spring.boot.version>
+        <spring.boot.version>3.0.7</spring.boot.version>
         <spring.processor.version>3.0.5</spring.processor.version>
         <spring.hateoas.version>2.0.3</spring.hateoas.version>
         <liquibase.version>4.20.0</liquibase.version>
