@@ -52,7 +52,7 @@ DROP TABLE stockairepo.stocktimeseriesdata;
 DROP TABLE stockairepo.timeseries;
 
 drop sequence stockairepo.stock_timeseries_data_id_seq;
-drop sequence stockairepo.metadata_id_seq;
+drop sequence stockairepo.metadata_id_seq;#
 drop sequence stockairepo.timeseries_id_seq;
 ----
 to delete database content:
