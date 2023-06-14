@@ -13,7 +13,6 @@ pipeline {
             }
         }
 
-    stages {
         stage('show mvn version') {
             steps {
                 echo 'show mvn version...'
