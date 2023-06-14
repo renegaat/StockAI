@@ -13,6 +13,14 @@ pipeline {
             }
         }
 
+    stages {
+        stage('show mvn version') {
+            steps {
+                echo 'show mvn version...'
+                sh 'mvn --version'
+            }
+        }
+
         stage('Build') {
             steps {
                 echo 'Building stockai repo...'
