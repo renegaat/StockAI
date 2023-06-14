@@ -45,7 +45,7 @@ pipeline {
                             sh 'docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD'
                         }
                         sh 'mvn clean package -DskipTests'
-                        sh 'docker build -f application/app-stockairepo/Dockerfile.jvm -t $DOCKER_REGISTRY/$IMAGE_NAME:$IMAGE_TAG .'
+                        sh 'docker build -f application/app-stockairepo/Dockerfile -t $DOCKER_REGISTRY/$IMAGE_NAME:$IMAGE_TAG .'
                         sh 'docker push $DOCKER_REGISTRY/$IMAGE_NAME:$IMAGE_TAG'
                     }
                 }
