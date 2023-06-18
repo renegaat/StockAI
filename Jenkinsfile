@@ -12,13 +12,6 @@ pipeline {
             }
         }
 
-        stage('show mvn version') {
-            steps {
-                echo 'show mvn version...'
-                sh 'mvn --version'
-            }
-        }
-
         stage('Build') {
             steps {
                 echo 'Building stockai repo...'
@@ -33,7 +26,7 @@ pipeline {
                 }
             }
 
-        stage('Deploy') {
+        stage('Container Deploy') {
                     environment {
                         DOCKER_REGISTRY = 'renegaat'
                         IMAGE_NAME = 'stockairepo'
