@@ -6,7 +6,7 @@ General database postgres setup scripts.
 
 == Setup postgres database
 ----
-docker run -d --name postgres-container -e TZ=UTC -p 30432:5432 --net=pearlbaynet -e POSTGRES_PASSWORD=postgres -e POSTGRES_USER=stockai ubuntu/postgres:14-22.04_beta
+docker run -d --name postgres-container -e TZ=UTC -p 5432:5432 --net=pearlbaynet -e POSTGRES_PASSWORD=postgres -e POSTGRES_USER=stockai ubuntu/postgres
 ----
 === Notes:
 
