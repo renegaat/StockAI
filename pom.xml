@@ -34,7 +34,7 @@
         <spring.web.version>3.0.5</spring.web.version>
         <spring.boot.version>3.0.7</spring.boot.version>
         <spring.processor.version>3.0.5</spring.processor.version>
-        <spring.hateoas.version>2.0.3</spring.hateoas.version>
+        <spring.hateoas.version>2.0.5</spring.hateoas.version>
         <liquibase.version>4.20.0</liquibase.version>
         <apache.commons.lang.version>3.12.0</apache.commons.lang.version>
         <lombok.version>1.18.26</lombok.version>
