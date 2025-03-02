@@ -1,5 +1,5 @@
 
-name: stockairepo CI/CD Pipeline test
+name: stockairepo CI/CD Pipeline
 
 on:
   push:
@@ -28,3 +28,6 @@ jobs:
 
       - name: Build and Run Tests
         run: mvn clean package -DskipTests=false
+
+      - name: Build Docker Image
+        run: docker build -t renegaat/stockairepo:latest application/app-stockairepo
