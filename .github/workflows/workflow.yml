@@ -39,4 +39,4 @@ jobs:
             password: ${{ secrets.DOCKER_PASSWORD }}
 
       - name: Push Docker Image
-        run: docker renegaat/stockairepo:latest
+        run: docker push renegaat/stockairepo:latest
