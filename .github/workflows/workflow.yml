@@ -27,5 +27,4 @@ jobs:
           cache: 'maven'
 
       - name: Build and Run Tests
-        working-directory: application/app-stockairepo
         run: mvn clean package -DskipTests=false
