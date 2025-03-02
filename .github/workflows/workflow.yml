@@ -1,5 +1,5 @@
 
-name: stockairepo CI/CD Pipeline
+name: stockairepo CI/CD Pipeline test
 
 on:
   push:
