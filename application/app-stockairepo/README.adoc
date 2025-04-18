@@ -4,12 +4,32 @@
 
 *Local Setup (docker configuration):*
 
-Start local postgres database (all env):
+*Remarks:*
+
+The Configuration is as follows:
+
+* Spring application in a docker container
+* Postgres database running direct on the host (raspberry pi)
+* user configuration see section below
+
+*setup local postgres database (raspberry pi):*
+
+* Install postgres database:
+* setup user, db , schema ,add user rights
+* check db reachability from local machine
+* check correct settings in pg_hba.conf
+** host    all   all  172.17.0.0/16   md5
+* check firewall settings
+
+*spring container :*
+
+Start stockairepo (raspberry pi):
 ----
-docker run -d --name postgres-container -e TZ=UTC -p 1521:5432 --net=pearlbaynet -e POSTGRES_PASSWORD=postgres -e POSTGRES_USER=stockai ubuntu/postgres:14-22.04_beta
+docker run -e "TZ=EUROPE/BERLIN" -p 8081:8080 renegaat/stockairepo:latest
 ----
 
-Start stockairepo (all env):
+
+Build and Start stockairepo (local):
 ----
 mvn package -pl /application/app-stockairepo
 ----
@@ -19,32 +39,20 @@ docker build -t pearlbay/stockairepo:latest .
 ----
 docker run -e "TZ=EUROPE/BERLIN" -p 8080:8080 --net=pearlbaynet pearlbay/stockairepo
 ----
-application.properties (docker configuration):
+application.properties:
 ----
-## local configuration
-spring.datasource.url=jdbc:postgresql://postgres-container:5432/stockai
-spring.datasource.username=stockai
-spring.datasource.password=postgres
+spring.datasource.url=jdbc:postgresql://172.17.0.1:5432/stockaidb
+spring.datasource.username=stockaiuser
+spring.datasource.password=stockaipassword
 spring.liquibase.change-log=classpath:liquibase/dbchangelog.xml
 spring.jpa.properties.hibernate.default_schema=STOCKAIREPO
 ----
 
-*Server Setup (docker configuration):*
 
-Start postgres database :
-----
-docker run -d --name postgres-container -e TZ=UTC -p 1521:5432 --net=pearlbaynet -e POSTGRES_PASSWORD=postgres -e POSTGRES_USER=stockai ubuntu/postgres:14-22.04_beta
-----
+*check remote api access*
+todo
 
-Start stockairepo :
-----
-docker run -e "TZ=EUROPE/BERLIN" -p 8081:8080 --net=pearlbaynet renegaat/stockairepo:latest
-----
 
-Open port:
-----
-sudo ufw allow 8081/tcp
-----
 
 *Help:*
 
@@ -52,7 +60,6 @@ check docker network configuration:
 ----
 docker network inspect pearlbaynet
 ----
-
 
 To reset the environment stop and remove db container.
 
@@ -69,7 +76,7 @@ DROP TABLE stockairepo.stocktimeseriesdata;
 DROP TABLE stockairepo.timeseries;
 
 drop sequence stockairepo.stock_timeseries_data_id_seq;
-drop sequence stockairepo.metadata_id_seq;#
+drop sequence stockairepo.metadata_id_seq;
 drop sequence stockairepo.timeseries_id_seq;
 ----
 to delete database content:
