@@ -9,13 +9,13 @@
 The Configuration is as follows:
 
 * Spring application in a docker container
-* Postgres database running direct on the host (raspberry pi)
+* Postgres database running direct on the host
 * user configuration see section below
 
 *setup local postgres database (raspberry pi):*
 
 * Install postgres database:
-* setup user, db , schema ,add user rights
+* setup user, db, schema, add user rights
 * check db reachability from local machine
 * check correct settings in pg_hba.conf
 ** host    all   all  172.17.0.0/16   md5
@@ -23,11 +23,10 @@ The Configuration is as follows:
 
 *spring container :*
 
-Start stockairepo (raspberry pi):
+Start stockairepo (remote/local):
 ----
 docker run -e "TZ=EUROPE/BERLIN" -p 8081:8080 renegaat/stockairepo:latest
 ----
-
 
 Build and Start stockairepo (local):
 ----
@@ -48,14 +47,14 @@ spring.liquibase.change-log=classpath:liquibase/dbchangelog.xml
 spring.jpa.properties.hibernate.default_schema=STOCKAIREPO
 ----
 
-
-*check remote api access*
-todo
-
-
-
+*check remote api access (remote example)*
+----
+curl "http://192.168.1.152:8081/stocktimeseriesdata/v1/stocktimeseriesdata?symbol=MSFT&function=TIME_SERIES_DAILY"
+----
+----
+curl "http://192.168.1.152:8081/stocktimeseriesdata/v1/stocktimeseriesdata?symbol=MSFT&from=1990-04-05%2011%3A30%3A00&until=2020-05-05%2000%3A00%3A00&function=TIME_SERIES_DAILY"
+----
 *Help:*
-
 check docker network configuration:
 ----
 docker network inspect pearlbaynet
@@ -85,4 +84,3 @@ delete from STOCKAIREPO.TIMESERIES;
 delete from STOCKAIREPO.STOCKTIMESERIESDATA;
 delete from STOCKAIREPO.METADATA;
 ----
-
